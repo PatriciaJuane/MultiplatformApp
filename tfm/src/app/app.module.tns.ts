@@ -4,22 +4,27 @@ import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
 import { AppRoutingModule } from '@src/app/app-routing.module';
 import { AppComponent } from '@src/app/app.component';
 import { HomeComponent } from '@src/app/home/home.component';
-
-
 // Uncomment and add to NgModule imports if you need to use two-way binding
-// import { NativeScriptFormsModule } from 'nativescript-angular/forms';
-
+import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
-// import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
+import { CompetitionsComponent } from './competitions/competitions.component';
+import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    CompetitionsComponent
   ],
   imports: [
     NativeScriptModule,
     AppRoutingModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
