@@ -16,7 +16,8 @@ export class CompetitionsService {
       endDate: new Date(),
       website: 'http://www.centrohipicolosporches.es/',
       type: 'Jumping',
-      category: 'CSN***'
+      category: 'CSN***',
+      trophys: []
     },
     {
       id: 2,
@@ -27,7 +28,8 @@ export class CompetitionsService {
       endDate: new Date(),
       website: 'http://www.centrohipicolosporches.es/',
       type: 'Jumping',
-      category: 'CSN*****'
+      category: 'CSN*****',
+      trophys: []
     },
     {
       id: 2,
@@ -38,7 +40,8 @@ export class CompetitionsService {
       endDate: new Date(),
       website: 'http://www.csicasasnovas.es/',
       type: 'Jumping',
-      category: 'CSI*****'
+      category: 'CSI*****',
+      trophys: []
     }
   ];
 

@@ -8,15 +8,17 @@ import { HomeComponent } from '@src/app/home/home.component';
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
-import { CompetitionsComponent } from './competitions/competitions.component';
+import { CompetitionsComponent } from '@src/app/competitions/competitions.component';
 import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CompetitionComponent } from '@src/app/competition/competition.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CompetitionsComponent
+    CompetitionsComponent,
+    CompetitionComponent
   ],
   imports: [
     NativeScriptModule,

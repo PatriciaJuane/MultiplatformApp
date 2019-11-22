@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { CompetitionDto } from '../models/CompetitionDto';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { CompetitionsService } from '../services/competitions.service';
@@ -10,9 +10,10 @@ import { CompetitionsService } from '../services/competitions.service';
 })
 export class CompetitionsComponent implements OnInit {
 
+  @Output() competitionSelected: EventEmitter<CompetitionDto> = new EventEmitter();
+
   displayedColumns: string[] = ['name', 'location', 'country', 'initDate', 'endDate', 'type', 'category'];
   dataSource =  new MatTableDataSource<CompetitionDto>();
-
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
@@ -27,6 +28,10 @@ export class CompetitionsComponent implements OnInit {
 
   applyFilter(filterValue: string) {
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  onItemSelected(competition: CompetitionDto) {
+    this.competitionSelected.emit(competition);
   }
 
 }

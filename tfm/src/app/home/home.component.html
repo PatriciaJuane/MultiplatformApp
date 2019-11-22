@@ -1,9 +1,8 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div style="text-align:left">
-  <h1>{{ title }}</h1>
-  <h2>Welcome to your equestrian competition application.</h2>
+  <h2>Welcome to your equestrian competition application!</h2>
 </div>
 
-<app-competitions></app-competitions>
+<app-competitions (competitionSelected)="loadCompetition($event)"></app-competitions>
 
 

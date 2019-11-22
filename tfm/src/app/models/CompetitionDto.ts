@@ -1,3 +1,5 @@
+import { TrophyDto } from './TrophyDto';
+
 export class CompetitionDto {
     id: number;
     name: string;
@@ -8,6 +10,7 @@ export class CompetitionDto {
     website: string;
     type: string;
     category: string;
+    trophys: TrophyDto[];
 
     constructor(obj?: CompetitionDto) {
         Object.assign(this, obj);
