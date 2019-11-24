@@ -1,13 +1,13 @@
-<header>
+<header style="background-color:lightblue;">
     <div style="text-align:left">
-        <h1>{{ title }}</h1>
+        <h1 (click)="returnHome()">{{ title }}</h1>
       </div>
 </header>
 
   
 <router-outlet></router-outlet>
 
-<footer>
-    <p>Created by: Patricia Juane</p>
-    <p>Contact information: <a href="mailto:p.juane@udc.es">p.juane@udc.es</a></p>
+<footer style="background-color: lightblue;" fxLayout="row">
+    <p fxFlex>Created by: Patricia Juane</p>
+    <p fxFlex>Contact information: <a href="mailto:p.juane@udc.es">p.juane@udc.es</a></p>
 </footer>

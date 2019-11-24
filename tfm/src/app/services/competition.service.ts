@@ -15,7 +15,8 @@ export class CompetitionService {
       category: '1.20',
       arena: 'Main Arena',
       initDate: new Date(),
-      endDate: new Date()
+      endDate: new Date(),
+      results: []
     },
     {
       id: 2,
@@ -23,7 +24,8 @@ export class CompetitionService {
       category: '1.30',
       arena: 'Main Arena',
       initDate: new Date(),
-      endDate: new Date()
+      endDate: new Date(),
+      results: []
     },
     {
       id: 3,
@@ -31,7 +33,8 @@ export class CompetitionService {
       category: '1.40',
       arena: 'Main Arena',
       initDate: new Date(),
-      endDate: new Date()
+      endDate: new Date(),
+      results: []
     }
   ];
 
@@ -49,10 +52,6 @@ export class CompetitionService {
   };
 
   constructor() { }
-
-  getAllTrophys() {
-    return this.TROPHYS;
-  }
 
   public getCompetitionWithTrophys(id: number) {
     console.log(id);

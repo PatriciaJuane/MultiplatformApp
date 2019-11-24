@@ -1,3 +1,5 @@
+import { ResultDto } from './ResultDto';
+
 export class TrophyDto {
     id: number;
     name: string;
@@ -5,6 +7,7 @@ export class TrophyDto {
     arena: string;
     initDate: Date;
     endDate: Date;
+    results: ResultDto[];
 
     constructor(obj?: TrophyDto) {
         Object.assign(this, obj);

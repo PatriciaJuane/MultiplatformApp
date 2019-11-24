@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ViewEncapsulation, Output, EventEmitter }
 import { CompetitionDto } from '../models/CompetitionDto';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 import { CompetitionsService } from '../services/competitions.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-competitions',
@@ -17,7 +18,8 @@ export class CompetitionsComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-  constructor(private competitionsService: CompetitionsService) {
+  constructor(
+    private competitionsService: CompetitionsService) {
     this.dataSource.data = this.competitionsService.getAllCompetitions();
   }
 

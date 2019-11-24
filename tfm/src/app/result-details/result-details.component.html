@@ -1,0 +1,12 @@
+<div fxLayout="column">
+    <div fxLayout="row">
+    <p style="margin-right: 10px;"><strong>Position: </strong>{{ result.position }}</p>
+    <p style="margin-right: 10px;"><strong>Points: </strong>{{ result.points }}</p>
+    <p style="margin-right: 10px;"><strong>Time: </strong>{{ result.time }}</p>
+    </div>
+    <div fxLayout="row">
+    <p fxFlex (click)="onHorseSelected()"><strong>Horse: </strong>{{ result.horse.name }}</p>
+    <p fxFlex (click)="onRiderSelected()"><strong>Rider: </strong>{{ result.rider.name }}</p>
+    <p fxFlex (click)="onClubSelected()"><strong>Club: </strong>{{ result.club.name }}</p>
+    </div>
+</div> 

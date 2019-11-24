@@ -1,0 +1,52 @@
+<div fxLayout="column">
+    <div fxLayout="column">
+        <div fxLayout="row">
+        <p style="margin-right: 10px;"><strong>Name: </strong>{{ trophy.name }}</p>
+        <p style="margin-right: 10px;"><strong>Arena: </strong>{{ trophy.arena }}</p>
+        <p style="margin-right: 10px;"><strong>Category: </strong>{{ trophy.category }}</p>
+        </div>
+        <div fxLayout="row">
+        <p style="margin-right: 10px;"><strong>InitDate: </strong>{{ trophy.initDate | date: shortDate }}</p>
+        <p><strong>EndDate: </strong>{{ trophy.endDate | date: shortDate }}</p>
+        </div>
+    </div> 
+ 
+    <div class="mat-elevation-z8">
+            <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+            </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%">
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Position</th>
+            <td mat-cell *matCellDef="let result">{{ result.position }}</td>
+        </ng-container>
+        <ng-container matColumnDef="horse">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Horse</th>
+            <td mat-cell *matCellDef="let result">{{ result.horse.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="rider">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Rider</th>
+            <td mat-cell *matCellDef="let result">{{ result.rider.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="club">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Club</th>
+            <td mat-cell *matCellDef="let result">{{ result.club.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="points">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Points</th>
+            <td mat-cell *matCellDef="let result">{{ result.points }}</td>
+        </ng-container>
+        <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Time</th>
+            <td mat-cell *matCellDef="let result">{{ result.time }}</td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="onItemSelected(row)"></tr>
+        </table>
+        
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+</div>

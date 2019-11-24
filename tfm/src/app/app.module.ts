@@ -8,13 +8,27 @@ import { CompetitionsComponent } from '@src/app/competitions/competitions.compon
 import { MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CompetitionComponent } from '@src/app/competition/competition.component';
+import { TrophyComponent } from '@src/app/trophy/trophy.component';
+import { MinutesSecondsPipe } from '@src/app/models/MinutesSecondsPipe';
+import { ResultDetailsComponent } from '@src/app/result-details/result-details.component';
+import { PageNotFoundComponent } from '@src/app/page-not-found/page-not-found.component';
+import { HorseComponent } from '@src/app/horse/horse.component';
+import { RiderComponent } from '@src/app/rider/rider.component';
+import { ClubComponent } from '@src/app/club/club.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CompetitionsComponent,
-    CompetitionComponent
+    CompetitionComponent,
+    TrophyComponent,
+    MinutesSecondsPipe,
+    ResultDetailsComponent,
+    PageNotFoundComponent,
+    HorseComponent,
+    RiderComponent,
+    ClubComponent
   ],
   imports: [
     BrowserModule,

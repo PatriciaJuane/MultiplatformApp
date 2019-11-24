@@ -3,7 +3,7 @@ import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { TrophyDto } from '../models/TrophyDto';
 import { CompetitionService } from '../services/competition.service';
 import { CompetitionDto } from '../models/CompetitionDto';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-competition',
@@ -12,7 +12,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 })
 export class CompetitionComponent implements OnInit {
 
-  @Output() trophySelected: EventEmitter<TrophyDto> = new EventEmitter();
+//  @Output() trophySelected: EventEmitter<TrophyDto> = new EventEmitter();
 
   competition: CompetitionDto;
   displayedColumns: string[] = ['name', 'category', 'arena', 'initDate', 'endDate'];
@@ -22,11 +22,11 @@ export class CompetitionComponent implements OnInit {
 
   constructor(
     protected actRoute: ActivatedRoute,
-    private competitionService: CompetitionService) {
-  }
+    private competitionService: CompetitionService,
+    private router: Router
+    ) { }
 
   ngOnInit() {
-
     this.actRoute.params.subscribe((params: Params) => {
       const id = +params['id'];
       if (!isNaN(id)) {
@@ -47,7 +47,9 @@ export class CompetitionComponent implements OnInit {
   }
 
   onItemSelected(trophy: TrophyDto) {
-    this.trophySelected.emit(trophy);
+    console.log(trophy);
+ //   this.trophySelected.emit(trophy);
+    this.router.navigate(['/trophy/' + trophy.id]);
   }
 
 }

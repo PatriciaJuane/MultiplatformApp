@@ -9,16 +9,29 @@ import { NativeScriptFormsModule } from 'nativescript-angular/forms';
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 import { CompetitionsComponent } from '@src/app/competitions/competitions.component';
-import { MatTableModule, MatPaginatorModule, MatSortModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatFormFieldModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CompetitionComponent } from '@src/app/competition/competition.component';
+import { TrophyComponent } from '@src/app/trophy/trophy.component';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { ResultDetailsComponent } from '@src/app/result-details/result-details.component';
+import { PageNotFoundComponent } from '@src/app/page-not-found/page-not-found.component';
+import { HorseComponent } from '@src/app/horse/horse.component';
+import { RiderComponent } from '@src/app/rider/rider.component';
+import { ClubComponent } from '@src/app/club/club.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     CompetitionsComponent,
-    CompetitionComponent
+    CompetitionComponent,
+    TrophyComponent,
+    ResultDetailsComponent,
+    PageNotFoundComponent,
+    HorseComponent,
+    RiderComponent,
+    ClubComponent
   ],
   imports: [
     NativeScriptModule,
@@ -26,7 +39,10 @@ import { CompetitionComponent } from '@src/app/competition/competition.component
     MatTableModule,
     MatPaginatorModule,
     MatSortModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    FlexLayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],
