@@ -5,8 +5,8 @@
     <p style="margin-right: 10px;"><strong>Time: </strong>{{ result.time }}</p>
     </div>
     <div fxLayout="row">
-    <p fxFlex (click)="onHorseSelected()"><strong>Horse: </strong>{{ result.horse.name }}</p>
-    <p fxFlex (click)="onRiderSelected()"><strong>Rider: </strong>{{ result.rider.name }}</p>
-    <p fxFlex (click)="onClubSelected()"><strong>Club: </strong>{{ result.club.name }}</p>
+    <p fxFlex (click)="onHorseSelected()" class="url"><strong>Horse: </strong>{{ result.horse.name }}</p>
+    <p fxFlex (click)="onRiderSelected()" class="url"><strong>Rider: </strong>{{ result.rider.name }}</p>
+    <p fxFlex (click)="onClubSelected()" class="url"><strong>Club: </strong>{{ result.club.name }}</p>
     </div>
 </div> 
