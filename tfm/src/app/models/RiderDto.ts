@@ -4,6 +4,7 @@ export class RiderDto {
     country: string;
     age: number;
     license: string;
+    gender: string;
 
     constructor(obj?: RiderDto) {
         Object.assign(this, obj);

@@ -1,13 +1,15 @@
 <div fxLayout="column">
     <div fxLayout="column">
         <div fxLayout="row">
-        <p style="margin-right: 10px;"><strong>Name: </strong>{{ competition.name }}</p>
-        <p style="margin-right: 10px;"><strong>Location: </strong>{{ competition.location }}</p>
-        <p style="margin-right: 10px;"><strong>Category: </strong>{{ competition.category }}</p>
+        <p style="margin-right: 30px;"><strong>Name: </strong>{{ competition?.name }}</p>
+        <p style="margin-right: 30px;"><strong>Location: </strong>{{ competition?.location }}</p>
+        <p style="margin-right: 30px;"><strong>Category: </strong>{{ competition?.category }}</p>
         </div>
         <div fxLayout="row">
-        <p style="margin-right: 10px;"><strong>InitDate: </strong>{{ competition.initDate | date: shortDate }}</p>
-        <p><strong>EndDate: </strong>{{ competition.endDate | date: shortDate }}</p>
+        <p style="margin-right: 30px;"><strong>InitDate: </strong>{{ competition?.initDate.toDate() | date: shortDate }}</p>
+        <p style="margin-right: 280px;"><strong>EndDate: </strong>{{ competition?.endDate.toDate() | date: shortDate }}</p>
+        <button (click)="addTrophy()" mat-raised-button style="margin-top: 10px; margin-bottom: 10px;">
+            Add Trophy</button>
         </div>
     </div> 
  
@@ -23,21 +25,16 @@
         </ng-container>
         <ng-container matColumnDef="category">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Category</th>
-            <td mat-cell *matCellDef="let trophy">{{ trophy.category }}</td>
+            <td mat-cell *matCellDef="let trophy">{{ trophy?.category }}</td>
         </ng-container>
         <ng-container matColumnDef="arena">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Arena</th>
-            <td mat-cell *matCellDef="let trophy">{{ trophy.arena }}</td>
+            <td mat-cell *matCellDef="let trophy">{{ trophy?.arena }}</td>
         </ng-container>
         <ng-container matColumnDef="initDate">
             <th mat-header-cell *matHeaderCellDef mat-sort-header>Init Date</th>
-            <td mat-cell *matCellDef="let trophy">{{ trophy.initDate | date: longDate  }}</td>
+            <td mat-cell *matCellDef="let trophy">{{ trophy?.initDate.toDate() | date: longDate  }}</td>
         </ng-container>
-        <ng-container matColumnDef="endDate">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header>End Date</th>
-            <td mat-cell *matCellDef="let trophy">{{ trophy.endDate | date: longDate }}</td>
-        </ng-container>
-
         
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="onItemSelected(row)"></tr>

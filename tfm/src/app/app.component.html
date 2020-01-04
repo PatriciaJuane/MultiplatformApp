@@ -1,13 +1,26 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <header style="background-color:lightblue; position: sticky;">
-    <div style="text-align:left">
-        <h1 (click)="returnHome()">{{ title }}</h1>
+    <div style="text-align:left; margin-left:10px;" fxLayout="row">
+        <div fxLayout="col" style="margin-right: 120px;">
+          <mat-icon aria-hidden="false" style="margin-top: 30px;" (click)="returnHome()">home</mat-icon>
+          <h1 (click)="returnHome()">{{ title }}</h1>
+        </div>
+      <div fxLayout="col">
+        <b (click)="addHorse()" style="margin-right: 10px; margin-top:30px;">
+          <mat-icon>add_circle</mat-icon>Horse</b>
+        <b (click)="addRider()" style="margin-right: 10px; margin-top: 30px;">
+          <mat-icon>add_circle</mat-icon>Rider</b>
+        <b (click)="addClub()" style="margin-right: 10px; margin-top: 30px;">
+          <mat-icon>add_circle</mat-icon>Club</b>
+        <b (click)="addCompetition()" style="margin-top: 30px;">
+          <mat-icon>add_circle</mat-icon>Competition</b>
       </div>
+    </div>
 </header>
 
-  
 <router-outlet></router-outlet>
 
 <footer style="background-color: lightblue;" fxLayout="row">
-    <p fxFlex>Created by: Patricia Juane</p>
+    <p fxFlex style="margin-left:10px;">Created by Patricia Juane</p>
     <p fxFlex>Contact information: <a href="mailto:p.juane@udc.es">p.juane@udc.es</a></p>
 </footer>

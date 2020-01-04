@@ -1,10 +1,10 @@
-import { Component, OnInit, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { ResultDto } from '../models/ResultDto';
 import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { ResultsService } from '../services/results.service';
 import { TrophyDto } from '../models/TrophyDto';
 import { MinutesSecondsPipe } from '../models/MinutesSecondsPipe';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-trophy',
@@ -13,8 +13,9 @@ import { MinutesSecondsPipe } from '../models/MinutesSecondsPipe';
 })
 export class TrophyComponent implements OnInit {
 
- // @Output() resultSelected: EventEmitter<ResultDto> = new EventEmitter();
+  competitionId: string;
   trophy: TrophyDto;
+  trophyId: string;
   displayedColumns: string[] = ['position', 'horse', 'rider', 'club', 'points', 'time'];
   dataSource =  new MatTableDataSource<ResultDto>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -22,24 +23,30 @@ export class TrophyComponent implements OnInit {
 
   constructor(
     protected actRoute: ActivatedRoute,
-    private resultsService: ResultsService,
+    private firebaseService: FirebaseService,
     private router: Router
   ) { }
 
   ngOnInit() {
     this.actRoute.params.subscribe((params: Params) => {
-      const id = +params['id'];
-      if (!isNaN(id)) {
-       /* this.competitionService.getCompetitionWithTrophys(id).subscribe((res: CompetitionDto) => {
-          this.competition = res;
-          this.dataSource.data = res.trophys;
-        }); */
-        this.trophy = this.resultsService.getTrophy(id);
-        this.dataSource.data = this.trophy.results;
-      }
+      const id = params['id'] as string;
+      this.trophyId = id;
+
+      this.firebaseService.currentCompetition.subscribe(data => this.competitionId = data);
+
+      this.firebaseService.getTrophy(this.competitionId, id).subscribe(
+          data => this.trophy = data
+      );
+
+      this.firebaseService.getResultsFromTrophy(this.competitionId, id).subscribe(
+        data => this.dataSource.data = data
+      );
+
     });
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+
+    this.firebaseService.changeCurrentTrophy(this.trophyId);
   }
 
   applyFilter(filterValue: string) {
@@ -47,8 +54,11 @@ export class TrophyComponent implements OnInit {
   }
 
   onItemSelected(result: ResultDto) {
-    // this.resultSelected.emit(result);
     this.router.navigate(['/result/' + result.id]);
+  }
+
+  addResult() {
+    this.router.navigate(['/newresult/' + this.trophyId]);
   }
 
 }

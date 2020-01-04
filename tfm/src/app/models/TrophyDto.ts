@@ -6,7 +6,7 @@ export class TrophyDto {
     category: string;
     arena: string;
     initDate: Date;
-    endDate: Date;
+    competitionId: string;
     results: ResultDto[];
 
     constructor(obj?: TrophyDto) {

@@ -1,10 +1,9 @@
-<div fxLayout="column">
-    <div fxLayout="row">
-    <h3 style="margin-right: 10px;"><strong>Name: </strong>{{ rider.name }}</h3>
-    </div>
-   <div fxLayout="row">
-        <p style="margin-right: 10px;"><strong>Country: </strong>{{ rider.country }}</p>
-        <p style="margin-right: 10px;"><strong>Age: </strong>{{ rider.age }}</p>
-        <p style="margin-right: 10px;"><strong>License Number: </strong>{{ rider.license }}</p>
+<div fxLayout="column" style="margin-left: 30px; font-size: 18px; margin-top: 20px;">
+    <div fxLayout="column">
+        <p><strong>Name: </strong>{{ rider?.name }}</p>
+        <p><strong>License Number: </strong>{{ rider?.license }}</p>
+        <p><strong>Country: </strong>{{ rider?.country }}</p>
+        <p><strong>Age: </strong>{{ rider?.age }}</p>
+        <p><strong>Gender: </strong>{{ rider?.gender }}</p>
     </div>
 </div> 

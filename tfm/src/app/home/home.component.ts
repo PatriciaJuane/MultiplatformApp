@@ -14,7 +14,6 @@ export class HomeComponent implements OnInit {
   }
 
   loadCompetition(competition) {
-    console.log(competition);
     this.router.navigate(['/competition/' + competition.id]);
   }
 

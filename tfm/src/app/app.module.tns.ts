@@ -19,6 +19,12 @@ import { PageNotFoundComponent } from '@src/app/page-not-found/page-not-found.co
 import { HorseComponent } from '@src/app/horse/horse.component';
 import { RiderComponent } from '@src/app/rider/rider.component';
 import { ClubComponent } from '@src/app/club/club.component';
+import { NewHorseComponent } from '@src/app/new-horse/new-horse.component';
+import { NewRiderComponent } from '@src/app/new-rider/new-rider.component';
+import { NewCompetitionComponent } from '@src/app/new-competition/new-competition.component';
+import { NewClubComponent } from '@src/app/new-club/new-club.component';
+import { NewTrophyComponent } from '@src/app/new-trophy/new-trophy.component';
+import { NewResultComponent } from '@src/app/new-result/new-result.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { ClubComponent } from '@src/app/club/club.component';
     PageNotFoundComponent,
     HorseComponent,
     RiderComponent,
-    ClubComponent
+    ClubComponent,
+    NewHorseComponent,
+    NewRiderComponent,
+    NewCompetitionComponent,
+    NewClubComponent,
+    NewTrophyComponent,
+    NewResultComponent
   ],
   imports: [
     NativeScriptModule,

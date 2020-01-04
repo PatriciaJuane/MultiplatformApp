@@ -17,4 +17,20 @@ export class AppComponent {
     this.router.navigate(['/home']);
   }
 
+  addHorse() {
+    this.router.navigate(['/newhorse']);
+  }
+
+  addRider() {
+    this.router.navigate(['/newrider']);
+  }
+
+  addClub() {
+    this.router.navigate(['/newclub']);
+  }
+
+  addCompetition() {
+    this.router.navigate(['/newcompetition']);
+  }
+
 }

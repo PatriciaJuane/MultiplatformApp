@@ -1,0 +1,90 @@
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+
+<div class="create-page">
+    <div class="page-content">
+        <form class="create-form" [formGroup]="competitionForm" novalidate (ngSubmit)="onSubmit(competitionForm.value)">
+            <div fxLayout="row">  
+                <div fxLayout="column" style="margin-right: 20px;">
+                <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="Name" class="form-control" formControlName="name">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.name">
+                    <mat-error *ngIf="competitionForm.get('name').hasError(validation.type) && (competitionForm.get('name').dirty || competitionForm.get('name').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+                </div>
+            
+                <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="Country" class="form-control" formControlName="country">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.country">
+                    <mat-error *ngIf="competitionForm.get('country').hasError(validation.type) && (competitionForm.get('country').dirty || competitionForm.get('country').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+                </div>
+            
+                <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="Location" class="form-control" formControlName="location">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.location">
+                    <mat-error *ngIf="competitionForm.get('location').hasError(validation.type) && (competitionForm.get('location').dirty || competitionForm.get('location').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field class="input-style">
+                        <input matInput [matDatepicker]="initDate" placeholder="Init Date" class="form-control" formControlName="initDate">
+                        <mat-datepicker-toggle matSuffix [for]="initDate"></mat-datepicker-toggle>
+                        <mat-datepicker #initDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field class="input-style">
+                        <input matInput [matDatepicker]="endDate" placeholder="End Date" class="form-control" formControlName="endDate">
+                        <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                        <mat-datepicker #endDate></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div fxLayout="column">
+                <div class="form-group">
+                    <mat-form-field class="input-style">
+                    <input matInput placeholder="Website" class="form-control" formControlName="website">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.website">
+                    <mat-error *ngIf="competitionForm.get('website').hasError(validation.website) && (competitionForm.get('website').dirty || competitionForm.get('website').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field class="input-style">
+                    <input matInput placeholder="Type" class="form-control" formControlName="type">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.type">
+                    <mat-error *ngIf="competitionForm.get('type').hasError(validation.type) && (competitionForm.get('type').dirty || competitionForm.get('type').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                </div>
+
+                <div class="form-group">
+                    <mat-form-field class="input-style">
+                    <input matInput placeholder="Category" class="form-control" formControlName="category">
+                    </mat-form-field>
+                    <ng-container *ngFor="let validation of validation_messages.category">
+                    <mat-error *ngIf="competitionForm.get('category').hasError(validation.category) && (competitionForm.get('category').dirty || competitionForm.get('category').touched)">{{validation.message}}</mat-error>
+                    </ng-container>
+                </div>
+            
+                <div class="row submit-button-container">
+                    <div class="col-md-4">
+                        <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!competitionForm.valid">Create</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </form>
+
+    </div>
+</div>

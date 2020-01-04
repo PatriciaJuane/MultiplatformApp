@@ -3,8 +3,8 @@ import { TrophyDto } from './TrophyDto';
 export class CompetitionDto {
     id: number;
     name: string;
-    location: string;
     country: string;
+    location: string;
     initDate: Date;
     endDate: Date;
     website: string;

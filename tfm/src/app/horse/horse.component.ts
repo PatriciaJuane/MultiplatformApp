@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HorseDto } from '../models/HorseDto';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ResultsService } from '../services/results.service';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-horse',
@@ -14,15 +14,16 @@ export class HorseComponent implements OnInit {
 
   constructor(
     protected actRoute: ActivatedRoute,
-    private resultsService: ResultsService
+    private firebaseService: FirebaseService
   ) { }
 
   ngOnInit() {
     this.actRoute.params.subscribe((params: Params) => {
-      const id = +params['id'];
-      if (!isNaN(id)) {
-        this.horse = this.resultsService.getHorse(id);
-      }
+      const id = params['id'];
+
+      this.firebaseService.getHorseByName(id).subscribe((res: HorseDto[]) => {
+        this.horse = res[0];
+      });
     });
   }
 

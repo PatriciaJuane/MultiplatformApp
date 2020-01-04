@@ -1,8 +1,8 @@
 import { Component, OnInit, ViewChild, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 import { CompetitionDto } from '../models/CompetitionDto';
 import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
-import { CompetitionsService } from '../services/competitions.service';
 import { Router } from '@angular/router';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-competitions',
@@ -13,14 +13,18 @@ export class CompetitionsComponent implements OnInit {
 
   @Output() competitionSelected: EventEmitter<CompetitionDto> = new EventEmitter();
 
-  displayedColumns: string[] = ['name', 'location', 'country', 'initDate', 'endDate', 'type', 'category'];
+  displayedColumns: string[] = ['name', 'location', 'country', 'initDate', 'endDate', 'website', 'type', 'category'];
   dataSource =  new MatTableDataSource<CompetitionDto>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
+
   constructor(
-    private competitionsService: CompetitionsService) {
-    this.dataSource.data = this.competitionsService.getAllCompetitions();
+    private firebaseService: FirebaseService
+    ) {
+      this.firebaseService.getCompetitions().subscribe(
+        data => this.dataSource.data = data
+      );
   }
 
   ngOnInit() {

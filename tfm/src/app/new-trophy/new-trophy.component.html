@@ -1,0 +1,53 @@
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+
+<div class="create-page">
+    <div class="page-content">
+      <div class="row">  
+        <form class="create-form" [formGroup]="trophyForm" novalidate (ngSubmit)="onSubmit(trophyForm.value)">
+
+            <div class="form-group">
+            <mat-form-field class="input-style">
+                <input matInput placeholder="Name" class="form-control" formControlName="name">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.name">
+                <mat-error *ngIf="trophyForm.get('name').hasError(validation.type) && (trophyForm.get('name').dirty || trophyForm.get('name').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+            </div>
+        
+            <div class="form-group">
+            <mat-form-field class="input-style">
+                <input matInput placeholder="Category" class="form-control" formControlName="category">
+            </mat-form-field>
+            <ng-container *ngFor="let validation of validation_messages.category">
+                <mat-error *ngIf="trophyForm.get('category').hasError(validation.type) && (trophyForm.get('category').dirty || trophyForm.get('category').touched)">{{validation.message}}</mat-error>
+            </ng-container>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                <input matInput placeholder="Arena" class="form-control" formControlName="arena">
+                </mat-form-field>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput [matDatepicker]="initDate" placeholder="Init Date" class="form-control" formControlName="initDate">
+                    <mat-datepicker-toggle matSuffix [for]="initDate"></mat-datepicker-toggle>
+                    <mat-datepicker #initDate></mat-datepicker>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.initDate">
+                    <mat-error *ngIf="trophyForm.get('initDate').hasError(validation.type) && (trophyForm.get('initDate').dirty || trophyForm.get('initDate').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+            </div>
+        
+            <div class="row submit-button-container">
+            <div class="col-md-4">
+                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!trophyForm.valid">Create</button>
+            </div>
+            </div>
+        
+        </form>
+</div>
+</div>
+</div>

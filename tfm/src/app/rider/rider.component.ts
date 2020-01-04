@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RiderDto } from '../models/RiderDto';
 import { ActivatedRoute, Params } from '@angular/router';
-import { ResultsService } from '../services/results.service';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
   selector: 'app-rider',
@@ -14,15 +14,16 @@ export class RiderComponent implements OnInit {
 
   constructor(
     protected actRoute: ActivatedRoute,
-    private resultsService: ResultsService
+    private firebaseService: FirebaseService
   ) { }
 
   ngOnInit() {
     this.actRoute.params.subscribe((params: Params) => {
-      const id = +params['id'];
-      if (!isNaN(id)) {
-        this.rider = this.resultsService.getRider(id);
-      }
+      const id = params['id'];
+
+      this.firebaseService.getRiderByName(id).subscribe((res: RiderDto[]) => {
+        this.rider = res[0];
+      });
     });
   }
 

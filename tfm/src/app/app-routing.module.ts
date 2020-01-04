@@ -8,6 +8,12 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HorseComponent } from './horse/horse.component';
 import { RiderComponent } from './rider/rider.component';
 import { ClubComponent } from './club/club.component';
+import { NewHorseComponent } from './new-horse/new-horse.component';
+import { NewRiderComponent } from './new-rider/new-rider.component';
+import { NewCompetitionComponent } from './new-competition/new-competition.component';
+import { NewClubComponent } from './new-club/new-club.component';
+import { NewTrophyComponent } from './new-trophy/new-trophy.component';
+import { NewResultComponent } from './new-result/new-result.component';
 
 
 const routes: Routes = [
@@ -19,6 +25,12 @@ const routes: Routes = [
   { path: 'horse/:id', component: HorseComponent },
   { path: 'rider/:id', component: RiderComponent },
   { path: 'club/:id', component: ClubComponent },
+  { path: 'newhorse', component: NewHorseComponent },
+  { path: 'newrider', component: NewRiderComponent },
+  { path: 'newclub', component: NewClubComponent },
+  { path: 'newcompetition', component: NewCompetitionComponent },
+  { path: 'newtrophy/:id', component: NewTrophyComponent },
+  { path: 'newresult/:id', component: NewResultComponent },
   { path: '**', component: PageNotFoundComponent }
 //  { path: 'about',        component: AboutComponent },
 //  { path: 'privacy',        component: PrivacyComponent },

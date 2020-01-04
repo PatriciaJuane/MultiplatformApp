@@ -1,12 +1,9 @@
-<div fxLayout="column">
-    <div fxLayout="row">
-    <h3 style="margin-right: 10px;"><strong>Name: </strong>{{ horse.name }}</h3>
-    </div>
-   <div fxLayout="row">
-        <p style="margin-right: 10px;"><strong>Colour: </strong>{{ horse.colour }}</p>
-        <p style="margin-right: 10px;"><strong>Age: </strong>{{ horse.age }}</p>
-        <p style="margin-right: 10px;"><strong>Breed: </strong>{{ horse.breed }}</p>
-   <!--<p style="margin-right: 10px;"><strong>InitDate: </strong>{{ horse.initDate | date: shortDate }}</p>
-    <p><strong>EndDate: </strong>{{ horse.endDate | date: shortDate }}</p> --> 
+<div fxLayout="column" style="margin-left: 30px; font-size: 18px; margin-top: 20px;">
+    <div fxLayout="column">
+        <p><strong>Name: </strong>{{ horse?.name }}</p>
+        <p><strong>License: </strong>{{ horse?.license }}</p>
+        <p><strong>Colour: </strong>{{ horse?.colour }}</p>
+        <p><strong>Age: </strong>{{ horse?.age }}</p>
+        <p><strong>Breed: </strong>{{ horse?.breed }}</p>
     </div>
 </div> 
