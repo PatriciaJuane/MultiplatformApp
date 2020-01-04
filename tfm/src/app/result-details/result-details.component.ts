@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ResultDto } from '../models/ResultDto';
 import { ActivatedRoute, Router, Params } from '@angular/router';
-import { ResultsService } from '../services/results.service';
 import { FirebaseService } from '../services/firebase.service';
 
 @Component({
