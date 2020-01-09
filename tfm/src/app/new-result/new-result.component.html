@@ -18,8 +18,8 @@
             
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Horse Name" class="form-control" formControlName="horseName" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
+                    <input matInput placeholder="Horse Name" class="form-control" formControlName="horseName" [matAutocomplete]="autoHorses">
+                    <mat-autocomplete #autoHorses="matAutocomplete">
                         <mat-option *ngFor="let horseName of horseNames" [value]="horseName">
                           {{horseName}}
                        </mat-option>
@@ -32,8 +32,8 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Rider Name" class="form-control" formControlName="riderName" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
+                    <input matInput placeholder="Rider Name" class="form-control" formControlName="riderName" [matAutocomplete]="autoRiders">
+                    <mat-autocomplete #autoRiders="matAutocomplete">
                         <mat-option *ngFor="let riderName of riderNames" [value]="riderName">
                           {{riderName}}
                        </mat-option>
@@ -46,8 +46,8 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Club Name" class="form-control" formControlName="clubName" [matAutocomplete]="auto">
-                    <mat-autocomplete #auto="matAutocomplete">
+                    <input matInput placeholder="Club Name" class="form-control" formControlName="clubName" [matAutocomplete]="autoClubs">
+                    <mat-autocomplete #autoClubs="matAutocomplete">
                         <mat-option *ngFor="let clubName of clubNames" [value]="clubName">
                           {{clubName}}
                        </mat-option>

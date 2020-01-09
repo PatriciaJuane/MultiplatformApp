@@ -74,7 +74,6 @@ export class NewResultComponent implements OnInit {
           this.clubNames.push(obj.name)
       );
     });
-
   }
 
   createForm() {

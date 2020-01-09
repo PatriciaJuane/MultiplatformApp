@@ -49,7 +49,6 @@ export class NewCompetitionComponent implements OnInit {
 
   ngOnInit() {
     this.createForm();
-    console.log(this.competitionForm);
   }
 
   createForm() {

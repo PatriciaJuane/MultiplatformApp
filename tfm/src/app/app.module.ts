@@ -19,6 +19,7 @@ import { RiderComponent } from '@src/app/rider/rider.component';
 import { ClubComponent } from '@src/app/club/club.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 import { environment } from '@src/environments/environment';
 import { NewHorseComponent } from '@src/app/new-horse/new-horse.component';
 import { NewRiderComponent } from '@src/app/new-rider/new-rider.component';
@@ -67,7 +68,8 @@ import { NewResultComponent } from '@src/app/new-result/new-result.component';
     MatNativeDateModule,
     MatIconModule,
     MatButtonModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

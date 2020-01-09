@@ -61,7 +61,15 @@
                     <mat-error *ngIf="horseForm.get('gender').hasError(validation.type) && (horseForm.get('gender').dirty || horseForm.get('gender').touched)">{{validation.message}}</mat-error>
                     </ng-container>
                 </div>
-        
+
+                <div class="form-group">
+                    <label class="form-control">Picture</label>
+                    <br/>
+                    <br/>
+                    <input type="file" formControlName="picture" (change)="change($event)" accept=".png,.jpg">             
+                </div>
+                <br/>
+               
             <div class="row submit-button-container">
                 <div class="col-md-4">
                     <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!horseForm.valid">Create</button>
@@ -70,5 +78,5 @@
         </div>
         </div>
         </form>
-</div>
+    </div>
 </div>

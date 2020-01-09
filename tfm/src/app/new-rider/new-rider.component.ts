@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
+import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-new-rider',
@@ -12,6 +13,8 @@ import { Router } from '@angular/router';
 export class NewRiderComponent implements OnInit {
 
   riderForm: FormGroup;
+  fileName: string;
+  public formData = new FormData();
 
   validation_messages = {
     'name': [
@@ -35,7 +38,8 @@ export class NewRiderComponent implements OnInit {
     private fb: FormBuilder,
     public dialog: MatDialog,
     private firebaseService: FirebaseService,
-    private router: Router
+    private router: Router,
+    private firebaseStorage: AngularFireStorage
   ) { }
 
   ngOnInit() {
@@ -48,7 +52,8 @@ export class NewRiderComponent implements OnInit {
       license: ['', Validators.required ],
       age: ['', Validators.required ],
       country: ['', Validators.required ],
-      gender: ['', Validators.required ]
+      gender: ['', Validators.required ],
+      picture: new FormControl(null, null)
     });
   }
 
@@ -58,7 +63,8 @@ export class NewRiderComponent implements OnInit {
       license: new FormControl('', Validators.required),
       age: new FormControl('', Validators.required),
       country: new FormControl('', Validators.required),
-      gender: new FormControl('', Validators.required)
+      gender: new FormControl('', Validators.required),
+      picture: new FormControl(null, null)
     });
   }
 
@@ -66,10 +72,28 @@ export class NewRiderComponent implements OnInit {
     this.firebaseService.createRider(value)
     .then(
       res => {
+        this.upload(value);
         this.resetFields();
         this.router.navigate(['/home']);
       }
     );
+  }
+
+  change(event) {
+    if (event.target.files.length > 0) {
+      for (let i = 0; i < event.target.files.length; i++) {
+        this.fileName = event.target.files[i].name;
+        this.formData.delete('picture');
+        this.formData.append('picture', event.target.files[i], event.target.files[i].name);
+      }
+    }
+  }
+
+  upload(value) {
+    let file = this.formData.get('picture');
+    this.fileName = value.name;
+    let ref = this.firebaseStorage.ref(this.fileName);
+    let task = this.firebaseStorage.upload(this.fileName, file);
   }
 
 }
