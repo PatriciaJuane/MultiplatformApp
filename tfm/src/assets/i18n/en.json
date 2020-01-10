@@ -1,0 +1,140 @@
+{  
+    "app": {
+        "title": "Main Arena",
+        "newHorse": "New Horse",
+        "newRider": "New Rider",
+        "newClub": "New Club",
+        "newCompetition": "New Competition",
+        "profile": "Profile",
+        "logIn": "Log In",
+        "author": "Created by Patricia Juane",
+        "contact": "Contact Information: "
+    },
+    "home": {
+        "welcome": "Welcome to your equestrian competition application!"
+    },
+    "competitions": {
+        "name": "Name",
+        "location": "Location",
+        "country": "Country",
+        "initDate": "Init Date",
+        "endDate": "End Date",
+        "website": "Website",
+        "type": "Type",
+        "category": "Category",
+        "filter": "Filter"
+    },
+    "competition": {
+        "name": "Name",
+        "location": "Location",
+        "category": "Category",
+        "initDate": "Init Date",
+        "endDate": "End Date",
+        "addTrophy": "Add Trophy",
+        "filter": "Filter",
+        "arena": "Arena"
+    },
+    "trophy": {
+        "name": "Name",
+        "arena": "Arena",
+        "category": "Category",
+        "initDate": "Init Date",
+        "addResult": "Add Result",
+        "filter": "Filter",
+        "position": "Position",
+        "horse": "Horse",
+        "rider": "Rider",
+        "club": "Club",
+        "points": "Points",
+        "time": "Time"
+    },
+    "result": {
+        "position": "Position",
+        "points": "Points",
+        "time": "Time",
+        "horse": "Horse",
+        "rider": "Rider",
+        "club": "Club"
+    },
+    "horse": {
+        "name": "Name",
+        "license": "License",
+        "colour": "Colour",
+        "age": "Age",
+        "breed": "Breed"
+    },
+    "rider": {
+        "name": "Name",
+        "license": "License",
+        "age": "Age",
+        "country": "Country",
+        "gender": "Gender"
+    },
+    "club": {
+        "name": "Name",
+        "country": "Country",
+        "location": "Location",
+        "size": "Size",
+        "website": "Website"
+    },
+    "profile": {
+        "title": "User Profile",
+        "name": "Name",
+        "email": "Email",
+        "logout": "Logout"
+    },
+    "newHorse": {
+        "name": "Name",
+        "license": "License",
+        "colour": "Colour",
+        "age": "Age",
+        "breed": "Breed",
+        "gender": "Gender",
+        "picture": "Picture",
+        "submit": "Submit"
+    },
+    "newRider": {
+        "name": "Name",
+        "license": "License",
+        "age": "Age",
+        "country": "Country",
+        "gender": "Gender",
+        "picture": "Picture",
+        "submit": "Submit"
+    },
+    "newClub": {
+        "name": "Name",
+        "country": "Country",
+        "location": "Location",
+        "size": "Size",
+        "website": "Website",
+        "submit": "Submit"
+    },
+    "newCompetition": {
+        "name": "Name",
+        "country": "Country",
+        "location": "Location",
+        "category": "Category",
+        "initDate": "Init Date",
+        "endDate": "End Date",
+        "website": "Website",
+        "type": "Type",
+        "submit": "Submit"
+    },
+    "newTrophy": {
+        "name": "Name",
+        "arena": "Arena",
+        "category": "Category",
+        "initDate": "Init Date",
+        "submit": "Submit"
+    },
+    "newResult": {
+        "position": "Position",
+        "points": "Points",
+        "time": "Time",
+        "horse": "Horse Name",
+        "rider": "Rider Name",
+        "club": "Club Name",
+        "submit": "Submit"
+    }
+}  

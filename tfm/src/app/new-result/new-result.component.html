@@ -9,7 +9,7 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Position" class="form-control" formControlName="position">
+                    <input matInput placeholder="{{ 'newResult.position' | translate }}" class="form-control" formControlName="position">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.position">
                     <mat-error *ngIf="resultForm.get('position').hasError(validation.type) && (resultForm.get('position').dirty || resultForm.get('position').touched)">{{validation.message}}</mat-error>
@@ -18,7 +18,7 @@
             
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Horse Name" class="form-control" formControlName="horseName" [matAutocomplete]="autoHorses">
+                    <input matInput placeholder="{{ 'newResult.horse' | translate }}" class="form-control" formControlName="horseName" [matAutocomplete]="autoHorses">
                     <mat-autocomplete #autoHorses="matAutocomplete">
                         <mat-option *ngFor="let horseName of horseNames" [value]="horseName">
                           {{horseName}}
@@ -32,7 +32,7 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Rider Name" class="form-control" formControlName="riderName" [matAutocomplete]="autoRiders">
+                    <input matInput placeholder="{{ 'newResult.rider' | translate }}" class="form-control" formControlName="riderName" [matAutocomplete]="autoRiders">
                     <mat-autocomplete #autoRiders="matAutocomplete">
                         <mat-option *ngFor="let riderName of riderNames" [value]="riderName">
                           {{riderName}}
@@ -46,7 +46,7 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Club Name" class="form-control" formControlName="clubName" [matAutocomplete]="autoClubs">
+                    <input matInput placeholder="{{ 'newResult.club' | translate }}" class="form-control" formControlName="clubName" [matAutocomplete]="autoClubs">
                     <mat-autocomplete #autoClubs="matAutocomplete">
                         <mat-option *ngFor="let clubName of clubNames" [value]="clubName">
                           {{clubName}}
@@ -62,7 +62,7 @@
         <div fxLayout="column">
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput type="number" min="0" max="100" placeholder="Points" class="form-control" formControlName="points">
+                    <input matInput type="number" min="0" max="100" placeholder="{{ 'newResult.points' | translate }}" class="form-control" formControlName="points">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.points">
                     <mat-error *ngIf="resultForm.get('points').hasError(validation.type) && (resultForm.get('points').dirty || resultForm.get('points').touched)">{{validation.message}}</mat-error>
@@ -71,7 +71,7 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Time" class="form-control" formControlName="time">
+                    <input matInput placeholder="{{ 'newResult.time' | translate }}" class="form-control" formControlName="time">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.time">
                     <mat-error *ngIf="resultForm.get('time').hasError(validation.type) && (resultForm.get('time').dirty || resultForm.get('time').touched)">{{validation.message}}</mat-error>
@@ -80,7 +80,8 @@
         
             <div class="row submit-button-container">
                 <div class="col-md-4">
-                    <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!resultForm.valid">Create</button>
+                    <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!resultForm.valid">
+                        {{ 'newResult.submit' | translate }}</button>
                 </div>
             </div>
             

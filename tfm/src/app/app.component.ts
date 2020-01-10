@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/authentication.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +9,14 @@ import { AuthService } from './services/authentication.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Main Arena';
 
   constructor(
     private router: Router,
-    public authService: AuthService
-  ) { }
+    public authService: AuthService,
+    private translate: TranslateService) {
+      translate.addLangs(['en', 'es']);
+      translate.setDefaultLang('en');
+  }
 
   returnHome() {
     this.router.navigate(['/home']);
@@ -46,5 +49,9 @@ export class AppComponent {
   isLoggedIn() {
     return this.authService.isLoggedIn;
   }
+
+  useLanguage(language: string) {
+    this.translate.use(language);
+}
 
 }

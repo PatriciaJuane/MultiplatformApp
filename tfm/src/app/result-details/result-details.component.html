@@ -1,21 +1,24 @@
 <div fxLayout="column" style="margin-left: 30px; font-size: 18px">
     <div fxLayout="row" >
-    <p style="margin-right: 30px; font-size: 22px;"><strong>Position: </strong>{{ result?.position }}</p>
+    <p style="margin-right: 30px; font-size: 22px;">
+        <strong>{{ 'result.position' | translate }}: </strong>{{ result?.position }}</p>
     </div>
     <div fxLayout="row">
-        <p style="margin-right: 30px;"><strong>Points: </strong>{{ result?.points }}</p>
-        <p style="margin-right: 30px;"><strong>Time: </strong>{{ result?.time }}s</p>
+        <p style="margin-right: 30px;">
+            <strong>{{ 'result.points' | translate }}: </strong>{{ result?.points }}</p>
+        <p style="margin-right: 30px;">
+            <strong>{{ 'result.time' | translate }}: </strong>{{ result?.time }}s</p>
     </div>
     <div fxLayout="row">
-        <p style="font-weight: bold; margin-right: 10px;">Horse:</p>
+        <p style="font-weight: bold; margin-right: 10px;">{{ 'result.horse' | translate }}:</p>
         <p (click)="onHorseSelected()" class="url">{{ result?.horse }}</p>
     </div>
     <div fxLayout="row" style="text-align: center;">
-        <p style="font-weight: bold; margin-right: 10px;">Rider:</p>
+        <p style="font-weight: bold; margin-right: 10px;">{{ 'result.rider' | translate }}:</p>
         <p (click)="onRiderSelected()" class="url">{{ result?.rider }}</p>
     </div>
     <div fxLayout="row">
-        <p style="font-weight: bold; margin-right: 10px;">Club:</p>
+        <p style="font-weight: bold; margin-right: 10px;">{{ 'result.club' | translate }}:</p>
         <p (click)="onClubSelected()" class="url">{{ result?.club }}</p>
     </div>
 </div> 

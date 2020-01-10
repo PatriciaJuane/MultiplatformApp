@@ -8,7 +8,7 @@
                 <div fxLayout="column" style="margin-right: 20px;">
                 <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Name" class="form-control" formControlName="name">
+                    <input matInput placeholder="{{ 'newCompetition.name' | translate }}" class="form-control" formControlName="name">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.name">
                     <mat-error *ngIf="competitionForm.get('name').hasError(validation.type) && (competitionForm.get('name').dirty || competitionForm.get('name').touched)">{{validation.message}}</mat-error>
@@ -17,7 +17,7 @@
             
                 <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Country" class="form-control" formControlName="country">
+                    <input matInput placeholder="{{ 'newCompetition.country' | translate }}" class="form-control" formControlName="country">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.country">
                     <mat-error *ngIf="competitionForm.get('country').hasError(validation.type) && (competitionForm.get('country').dirty || competitionForm.get('country').touched)">{{validation.message}}</mat-error>
@@ -26,7 +26,7 @@
             
                 <div class="form-group">
                 <mat-form-field class="input-style">
-                    <input matInput placeholder="Location" class="form-control" formControlName="location">
+                    <input matInput placeholder="{{ 'newCompetition.location' | translate }}" class="form-control" formControlName="location">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.location">
                     <mat-error *ngIf="competitionForm.get('location').hasError(validation.type) && (competitionForm.get('location').dirty || competitionForm.get('location').touched)">{{validation.message}}</mat-error>
@@ -35,7 +35,7 @@
 
                 <div class="form-group">
                     <mat-form-field class="input-style">
-                        <input matInput [matDatepicker]="initDate" placeholder="Init Date" class="form-control" formControlName="initDate">
+                        <input matInput [matDatepicker]="initDate" placeholder="{{ 'newCompetition.initDate' | translate }}" class="form-control" formControlName="initDate">
                         <mat-datepicker-toggle matSuffix [for]="initDate"></mat-datepicker-toggle>
                         <mat-datepicker #initDate></mat-datepicker>
                     </mat-form-field>
@@ -43,7 +43,7 @@
 
                 <div class="form-group">
                     <mat-form-field class="input-style">
-                        <input matInput [matDatepicker]="endDate" placeholder="End Date" class="form-control" formControlName="endDate">
+                        <input matInput [matDatepicker]="endDate" placeholder="{{ 'newCompetition.endDate' | translate }}" class="form-control" formControlName="endDate">
                         <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
                         <mat-datepicker #endDate></mat-datepicker>
                     </mat-form-field>
@@ -52,7 +52,7 @@
             <div fxLayout="column">
                 <div class="form-group">
                     <mat-form-field class="input-style">
-                    <input matInput placeholder="Website" class="form-control" formControlName="website">
+                    <input matInput placeholder="{{ 'newCompetition.website' | translate }}" class="form-control" formControlName="website">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.website">
                     <mat-error *ngIf="competitionForm.get('website').hasError(validation.website) && (competitionForm.get('website').dirty || competitionForm.get('website').touched)">{{validation.message}}</mat-error>
@@ -61,7 +61,7 @@
 
                 <div class="form-group">
                     <mat-form-field class="input-style">
-                    <input matInput placeholder="Type" class="form-control" formControlName="type">
+                    <input matInput placeholder="{{ 'newCompetition.type' | translate }}" class="form-control" formControlName="type">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.type">
                     <mat-error *ngIf="competitionForm.get('type').hasError(validation.type) && (competitionForm.get('type').dirty || competitionForm.get('type').touched)">{{validation.message}}</mat-error>
@@ -70,7 +70,7 @@
 
                 <div class="form-group">
                     <mat-form-field class="input-style">
-                    <input matInput placeholder="Category" class="form-control" formControlName="category">
+                    <input matInput placeholder="{{ 'newCompetition.category' | translate }}" class="form-control" formControlName="category">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.category">
                     <mat-error *ngIf="competitionForm.get('category').hasError(validation.category) && (competitionForm.get('category').dirty || competitionForm.get('category').touched)">{{validation.message}}</mat-error>
@@ -79,7 +79,9 @@
             
                 <div class="row submit-button-container">
                     <div class="col-md-4">
-                        <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!competitionForm.valid">Create</button>
+                        <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!competitionForm.valid">
+                            {{ 'newCompetition.submit' | translate }}
+                        </button>
                     </div>
                 </div>
             </div>

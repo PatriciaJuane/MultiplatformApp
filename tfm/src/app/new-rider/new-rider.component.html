@@ -9,7 +9,7 @@
             <div fxLayout="column" style="margin-right: 20px;">
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput placeholder="Name" class="form-control" formControlName="name">
+                <input matInput placeholder="{{ 'newRider.name' | translate }}" class="form-control" formControlName="name">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.name">
                 <mat-error *ngIf="riderForm.get('name').hasError(validation.type) && (riderForm.get('name').dirty || riderForm.get('name').touched)">{{validation.message}}</mat-error>
@@ -18,7 +18,7 @@
         
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput placeholder="License" class="form-control" formControlName="license">
+                <input matInput placeholder="{{ 'newRider.license' | translate }}" class="form-control" formControlName="license">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.license">
                 <mat-error *ngIf="riderForm.get('license').hasError(validation.type) && (riderForm.get('license').dirty || riderForm.get('license').touched)">{{validation.message}}</mat-error>
@@ -27,7 +27,7 @@
         
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput type="number" min="0" max="100" placeholder="Age" class="form-control" formControlName="age">
+                <input matInput type="number" min="0" max="100" placeholder="{{ 'newRider.age' | translate }}" class="form-control" formControlName="age">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.age">
                 <mat-error *ngIf="riderForm.get('age').hasError(validation.type) && (riderForm.get('age').dirty || riderForm.get('age').touched)">{{validation.message}}</mat-error>
@@ -36,7 +36,7 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                <input matInput placeholder="Country" class="form-control" formControlName="country">
+                <input matInput placeholder="{{ 'newRider.country' | translate }}" class="form-control" formControlName="country">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.country">
                 <mat-error *ngIf="riderForm.get('country').hasError(validation.type) && (riderForm.get('country').dirty || riderForm.get('country').touched)">{{validation.message}}</mat-error>
@@ -45,7 +45,7 @@
 
             <div class="form-group">
                     <mat-form-field class="input-style">
-                    <input matInput placeholder="Gender" class="form-control" formControlName="gender">
+                    <input matInput placeholder="{{ 'newRider.gender' | translate }}" class="form-control" formControlName="gender">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.gender">
                     <mat-error *ngIf="riderForm.get('gender').hasError(validation.type) && (riderForm.get('gender').dirty || riderForm.get('gender').touched)">{{validation.message}}</mat-error>
@@ -56,7 +56,7 @@
         <div fxLayout="column" style="margin-top: 15px;">
 
             <div class="form-group">
-                <label class="form-control">Picture</label>
+                <label class="form-control">{{ 'newRider.picture' | translate }}</label>
                 <br/>
                 <br/>
                 <input type="file" formControlName="picture" (change)="change($event)" accept=".png,.jpg">             
@@ -65,7 +65,8 @@
 
             <div class="row submit-button-container">
             <div class="col-md-4">
-                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!riderForm.valid">Create</button>
+                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!riderForm.valid">
+                    {{ 'newRider.submit' | translate }}</button>
             </div>
             </div>
 

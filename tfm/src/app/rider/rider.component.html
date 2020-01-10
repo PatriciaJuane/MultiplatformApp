@@ -1,10 +1,10 @@
 <div fxLayout="row" style="margin-left: 30px; font-size: 18px; margin-top: 20px;">
     <div fxLayout="column" style="margin-right: 100px;">
-        <p><strong>Name: </strong>{{ rider?.name }}</p>
-        <p><strong>License Number: </strong>{{ rider?.license }}</p>
-        <p><strong>Country: </strong>{{ rider?.country }}</p>
-        <p><strong>Age: </strong>{{ rider?.age }}</p>
-        <p><strong>Gender: </strong>{{ rider?.gender }}</p>
+        <p><strong>{{ 'rider.name' | translate }}: </strong>{{ rider?.name }}</p>
+        <p><strong>{{ 'rider.license' | translate }}: </strong>{{ rider?.license }}</p>
+        <p><strong>{{ 'rider.country' | translate }}: </strong>{{ rider?.country }}</p>
+        <p><strong>{{ 'rider.age' | translate }}: </strong>{{ rider?.age }}</p>
+        <p><strong>{{ 'rider.gender' | translate }}: </strong>{{ rider?.gender }}</p>
     </div>
     <div fxLayout="column">
         <div class="container" *ngIf="downloadURL | async; let url">

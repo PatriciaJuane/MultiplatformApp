@@ -1,0 +1,140 @@
+{  
+    "app": {
+        "title": "Main Arena",
+        "newHorse": "Añadir Caballo",
+        "newRider": "Añadir Jinete",
+        "newClub": "Añadir Club",
+        "newCompetition": "Añadir Competición",
+        "profile": "Perfil",
+        "logIn": "Iniciar sesión",
+        "author": "Creado por Patricia Juane",
+        "contact": "Contacto: "
+    },
+    "home": {
+        "welcome": "¡Bienvenido a tu aplicación de competiciones ecuestres!"
+    },
+    "competitions": {
+        "name": "Nombre",
+        "location": "Localización",
+        "country": "País",
+        "initDate": "Fecha de inicio",
+        "endDate": "Fecha de fin",
+        "website": "Pág. web",
+        "type": "Tipo",
+        "category": "Categoría",
+        "filter": "Filtrar"
+    },
+    "competition": {
+        "name": "Nombre",
+        "location": "Localización",
+        "category": "Categoría",
+        "initDate": "Fecha de inicio",
+        "endDate": "Fecha de fin",
+        "addTrophy": "Añadir Prueba",
+        "filter": "Filtrar",
+        "arena": "Pista"
+    },
+    "trophy": {
+        "name": "Nombre",
+        "arena": "Pista",
+        "category": "Categoría",
+        "initDate": "Fecha",
+        "addResult": "Añadir Resultado",
+        "filter": "Filtrar",
+        "position": "Posición",
+        "horse": "Caballo",
+        "rider": "Jinete",
+        "club": "Club",
+        "points": "Puntos",
+        "time": "Tiempo"
+    },
+    "result": {
+        "position": "Posición",
+        "points": "Puntos",
+        "time": "Tiempo",
+        "horse": "Caballo",
+        "rider": "Jinete",
+        "club": "Club"
+    },
+    "horse": {
+        "name": "Nombre",
+        "license": "Licencia",
+        "colour": "Color",
+        "age": "Edad",
+        "breed": "Raza"
+    },
+    "rider": {
+        "name": "Nombre",
+        "license": "Licencia",
+        "age": "Edad",
+        "country": "País",
+        "gender": "Género"
+    },
+    "club": {
+        "name": "Nombre",
+        "country": "País",
+        "location": "Localización",
+        "size": "Tamaño",
+        "website": "Pág. web"
+    },
+    "profile": {
+        "title": "Perfil de Usuario",
+        "name": "Nombre",
+        "email": "Email",
+        "logout": "Cerrar sesión"
+    },
+    "newHorse": {
+        "name": "Nombre",
+        "license": "Licencia",
+        "colour": "Color",
+        "age": "Edad",
+        "breed": "Raza",
+        "gender": "Género",
+        "picture": "Imagen",
+        "submit": "Enviar"
+    },
+    "newRider": {
+        "name": "Nombre",
+        "license": "Licencia",
+        "age": "Edad",
+        "country": "País",
+        "gender": "Género",
+        "picture": "Imagen",
+        "submit": "Enviar"
+    },
+    "newClub": {
+        "name": "Nombre",
+        "country": "País",
+        "location": "Localización",
+        "size": "Tamaño",
+        "website": "Pág. web",
+        "submit": "Enviar"
+    },
+    "newCompetition": {
+        "name": "Nombre",
+        "country": "País",
+        "location": "Localidad",
+        "category": "Categoría",
+        "initDate": "Fecha de inicio",
+        "endDate": "Fecha de fin",
+        "website": "Pág. web",
+        "type": "Tipo",
+        "submit": "Enviar"
+    },
+    "newTrophy": {
+        "name": "Nombre",
+        "arena": "Pista",
+        "category": "Categoría",
+        "initDate": "Fecha de inicio",
+        "submit": "Enviar"
+    },
+    "newResult": {
+        "position": "Posición",
+        "points": "Puntos",
+        "time": "Tiempo",
+        "horse": "Caballo",
+        "rider": "Jinete",
+        "club": "Nombre del Club",
+        "submit": "Enviar"
+    }
+}  

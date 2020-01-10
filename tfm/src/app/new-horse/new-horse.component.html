@@ -9,7 +9,7 @@
             <div fxLayout="column" style="margin-right: 20px;">
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput placeholder="Name" class="form-control" formControlName="name">
+                <input matInput placeholder="{{ 'newHorse.name' | translate }}" class="form-control" formControlName="name">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.name">
                 <mat-error *ngIf="horseForm.get('name').hasError(validation.type) && (horseForm.get('name').dirty || horseForm.get('name').touched)">{{validation.message}}</mat-error>
@@ -18,7 +18,7 @@
         
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput placeholder="License" class="form-control" formControlName="license">
+                <input matInput placeholder="{{ 'newHorse.license' | translate }}" class="form-control" formControlName="license">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.license">
                 <mat-error *ngIf="horseForm.get('license').hasError(validation.type) && (horseForm.get('license').dirty || horseForm.get('license').touched)">{{validation.message}}</mat-error>
@@ -27,7 +27,7 @@
         
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput type="number" min="0" max="100" placeholder="Age" class="form-control" formControlName="age">
+                <input matInput type="number" min="0" max="100" placeholder="{{ 'newHorse.age' | translate }}" class="form-control" formControlName="age">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.age">
                 <mat-error *ngIf="horseForm.get('age').hasError(validation.type) && (horseForm.get('age').dirty || horseForm.get('age').touched)">{{validation.message}}</mat-error>
@@ -36,7 +36,7 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                <input matInput placeholder="Colour" class="form-control" formControlName="colour">
+                <input matInput placeholder="{{ 'newHorse.colour' | translate }}" class="form-control" formControlName="colour">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.colour">
                 <mat-error *ngIf="horseForm.get('colour').hasError(validation.type) && (horseForm.get('colour').dirty || horseForm.get('colour').touched)">{{validation.message}}</mat-error>
@@ -46,7 +46,7 @@
         <div fxLayout="column">
             <div class="form-group">
                 <mat-form-field class="input-style">
-                <input matInput placeholder="Breed" class="form-control" formControlName="breed">
+                <input matInput placeholder="{{ 'newHorse.breed' | translate }}" class="form-control" formControlName="breed">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.colour">
                 <mat-error *ngIf="horseForm.get('breed').hasError(validation.type) && (horseForm.get('breed').dirty || horseForm.get('breed').touched)">{{validation.message}}</mat-error>
@@ -55,7 +55,7 @@
 
                 <div class="form-group">
                     <mat-form-field class="input-style">
-                    <input matInput placeholder="Gender" class="form-control" formControlName="gender">
+                    <input matInput placeholder="{{ 'newHorse.gender' | translate }}" class="form-control" formControlName="gender">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.gender">
                     <mat-error *ngIf="horseForm.get('gender').hasError(validation.type) && (horseForm.get('gender').dirty || horseForm.get('gender').touched)">{{validation.message}}</mat-error>
@@ -63,7 +63,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label class="form-control">Picture</label>
+                    <label class="form-control">{{ 'newHorse.picture' | translate }}</label>
                     <br/>
                     <br/>
                     <input type="file" formControlName="picture" (change)="change($event)" accept=".png,.jpg">             
@@ -72,7 +72,8 @@
                
             <div class="row submit-button-container">
                 <div class="col-md-4">
-                    <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!horseForm.valid">Create</button>
+                    <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!horseForm.valid">
+                        {{ 'newHorse.submit' | translate }}</button>
                 </div>
             </div>
         </div>

@@ -1,24 +1,34 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <header style="background-color:lightblue; position: sticky;">
     <div style="text-align:left; margin-left:10px;" fxLayout="row">
-        <div fxLayout="col" style="margin-right: 190px;" fxFlex>
-          <mat-icon aria-hidden="false" style="margin-top: 30px;" (click)="returnHome()">home</mat-icon>
-          <h1 (click)="returnHome()">{{ title }}</h1>
-        </div>
+
+      <div fxLayout="col" style="margin-right: 150px;" fxFlex>
+        <mat-icon aria-hidden="false" style="margin-top: 30px;" (click)="returnHome()">home</mat-icon>
+        <h1 (click)="returnHome()">{{ 'app.title' | translate }}</h1>
+      </div>
+
       <div fxLayout="col" *ngIf="isLoggedIn()">
         <b (click)="addHorse()" style="margin-right: 15px; margin-top:30px;" class="url">
-          New Horse</b>
+          {{ 'app.newHorse' | translate }}</b>
         <b (click)="addRider()" style="margin-right: 15px; margin-top: 30px;" class="url">
-          New Rider</b>
+          {{ 'app.newRider' | translate }}</b>
         <b (click)="addClub()" style="margin-right: 15px; margin-top: 30px;" class="url">
-          New Club</b>
+          {{ 'app.newClub' | translate }}</b>
         <b (click)="addCompetition()" style="margin-top: 30px;" class="url">
-          New Competition</b>
+          {{ 'app.newCompetition' | translate }}</b>
       </div>
-      <div fxLayout="col" fxFlex style="margin-left: 300px;">
-        <mat-icon style="margin-top: 28px;">person</mat-icon>
-          <b *ngIf="isLoggedIn()" class="url" (click)="profile()" style="margin-top:30px;">Profile</b>
-          <b *ngIf="!isLoggedIn()" class="url" (click)="login()" style="margin-top:30px;">Log In</b>
+
+      <div fxLayout="col" fxFlex style="margin-left: 250px;">
+        <div fxLayout="col" style="margin-right: 20px;">
+          <mat-icon style="margin-top: 28px;">person</mat-icon>
+          <b *ngIf="isLoggedIn()" class="url" (click)="profile()" style="margin-top:30px;">{{ 'app.profile' | translate }}</b>
+          <b *ngIf="!isLoggedIn()" class="url" (click)="login()" style="margin-top:30px;">{{ 'app.logIn' | translate }}</b>
+        </div>
+        <div fxLayout="col" style="margin-top: 25px; margin-bottom: 25px;">
+          <select #langSelect (change)="useLanguage(langSelect.value)">  
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>  
+          </select>
+        </div>
       </div>
     </div>
 </header>
@@ -28,6 +38,6 @@
 <br/>
 <br/>
 <footer style="background-color: lightblue;" fxLayout="row">
-    <p fxFlex style="margin-left:10px;">Created by Patricia Juane</p>
-    <p fxFlex>Contact information: <a href="mailto:p.juane@udc.es">p.juane@udc.es</a></p>
+    <p fxFlex style="margin-left:10px;">{{ 'app.author' | translate }}</p>
+    <p fxFlex>{{ 'app.contact' | translate }}<a href="mailto:p.juane@udc.es">p.juane@udc.es</a></p>
 </footer>

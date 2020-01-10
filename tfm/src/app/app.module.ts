@@ -31,6 +31,9 @@ import { NewTrophyComponent } from '@src/app/new-trophy/new-trophy.component';
 import { NewResultComponent } from '@src/app/new-result/new-result.component';
 import { LogInComponent } from '@src/app/log-in/log-in.component';
 import { UserComponent } from '@src/app/user/user.component';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -75,9 +78,22 @@ import { UserComponent } from '@src/app/user/user.component';
     MatButtonModule,
     MatAutocompleteModule,
     AngularFireStorageModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}

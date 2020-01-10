@@ -8,7 +8,7 @@
 
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput placeholder="Name" class="form-control" formControlName="name">
+                <input matInput placeholder="{{ 'newClub.name' | translate }}" class="form-control" formControlName="name">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.name">
                 <mat-error *ngIf="clubForm.get('name').hasError(validation.type) && (clubForm.get('name').dirty || clubForm.get('name').touched)">{{validation.message}}</mat-error>
@@ -17,7 +17,7 @@
         
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput placeholder="Country" class="form-control" formControlName="country">
+                <input matInput placeholder="{{ 'newClub.country' | translate }}" class="form-control" formControlName="country">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.country">
                 <mat-error *ngIf="clubForm.get('country').hasError(validation.type) && (clubForm.get('country').dirty || clubForm.get('country').touched)">{{validation.message}}</mat-error>
@@ -26,7 +26,7 @@
         
             <div class="form-group">
             <mat-form-field class="input-style">
-                <input matInput placeholder="Location" class="form-control" formControlName="location">
+                <input matInput placeholder="{{ 'newClub.location' | translate }}" class="form-control" formControlName="location">
             </mat-form-field>
             <ng-container *ngFor="let validation of validation_messages.location">
                 <mat-error *ngIf="clubForm.get('location').hasError(validation.type) && (clubForm.get('location').dirty || clubForm.get('location').touched)">{{validation.message}}</mat-error>
@@ -35,7 +35,7 @@
 
             <div class="form-group">
                 <mat-form-field class="input-style">
-                <input matInput placeholder="Website" class="form-control" formControlName="website">
+                <input matInput placeholder="{{ 'newClub.website' | translate }}" class="form-control" formControlName="website">
                 </mat-form-field>
                 <ng-container *ngFor="let validation of validation_messages.website">
                 <mat-error *ngIf="clubForm.get('website').hasError(validation.type) && (clubForm.get('website').dirty || clubForm.get('website').touched)">{{validation.message}}</mat-error>
@@ -44,7 +44,7 @@
 
             <div class="form-group">
                     <mat-form-field class="input-style">
-                    <input matInput placeholder="Size" class="form-control" formControlName="size">
+                    <input matInput placeholder="{{ 'newClub.size' | translate }}" class="form-control" formControlName="size">
                     </mat-form-field>
                     <ng-container *ngFor="let validation of validation_messages.size">
                     <mat-error *ngIf="clubForm.get('size').hasError(validation.type) && (clubForm.get('size').dirty || clubForm.get('size').touched)">{{validation.message}}</mat-error>
@@ -53,7 +53,8 @@
         
             <div class="row submit-button-container">
             <div class="col-md-4">
-                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!clubForm.valid">Create</button>
+                <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!clubForm.valid">
+                    {{ 'newClub.submit' | translate }}</button>
             </div>
             </div>
         
