@@ -5,6 +5,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { TrophyDto } from '../models/TrophyDto';
 import { MinutesSecondsPipe } from '../models/MinutesSecondsPipe';
 import { FirebaseService } from '../services/firebase.service';
+import { AuthService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-trophy',
@@ -24,7 +25,8 @@ export class TrophyComponent implements OnInit {
   constructor(
     protected actRoute: ActivatedRoute,
     private firebaseService: FirebaseService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) { }
 
   ngOnInit() {
@@ -59,6 +61,10 @@ export class TrophyComponent implements OnInit {
 
   addResult() {
     this.router.navigate(['/newresult/' + this.trophyId]);
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn;
   }
 
 }

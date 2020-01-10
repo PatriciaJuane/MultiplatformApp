@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from './services/authentication.service';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ export class AppComponent {
   title = 'Main Arena';
 
   constructor(
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) { }
 
   returnHome() {
@@ -31,6 +33,18 @@ export class AppComponent {
 
   addCompetition() {
     this.router.navigate(['/newcompetition']);
+  }
+
+  login() {
+    this.router.navigate(['/login']);
+  }
+
+  profile() {
+    this.router.navigate(['/user']);
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn;
   }
 
 }

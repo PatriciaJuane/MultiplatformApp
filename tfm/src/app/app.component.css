@@ -1,5 +1,23 @@
 footer {
-    position: absolute;
+    position: sticky; /* absolute si no se mueve, aunque tape cosas*/
+    /*relative si se queda abajo de todo*/
+    /*sticky: si se mueve mientras se desliza por la pagina*/
     bottom: 0;
     width: 100%;
+}
+
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+
+.url {
+  cursor:pointer;
+  color:blue;
+  text-decoration:underline;
+}
+
+.url:hover {
+  text-decoration:none;
+  text-shadow: 1px 1px 1px #555;
 }

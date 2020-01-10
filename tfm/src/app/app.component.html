@@ -1,25 +1,32 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <header style="background-color:lightblue; position: sticky;">
     <div style="text-align:left; margin-left:10px;" fxLayout="row">
-        <div fxLayout="col" style="margin-right: 120px;">
+        <div fxLayout="col" style="margin-right: 190px;" fxFlex>
           <mat-icon aria-hidden="false" style="margin-top: 30px;" (click)="returnHome()">home</mat-icon>
           <h1 (click)="returnHome()">{{ title }}</h1>
         </div>
-      <div fxLayout="col">
-        <b (click)="addHorse()" style="margin-right: 10px; margin-top:30px;">
-          <mat-icon>add_circle</mat-icon>Horse</b>
-        <b (click)="addRider()" style="margin-right: 10px; margin-top: 30px;">
-          <mat-icon>add_circle</mat-icon>Rider</b>
-        <b (click)="addClub()" style="margin-right: 10px; margin-top: 30px;">
-          <mat-icon>add_circle</mat-icon>Club</b>
-        <b (click)="addCompetition()" style="margin-top: 30px;">
-          <mat-icon>add_circle</mat-icon>Competition</b>
+      <div fxLayout="col" *ngIf="isLoggedIn()">
+        <b (click)="addHorse()" style="margin-right: 15px; margin-top:30px;" class="url">
+          New Horse</b>
+        <b (click)="addRider()" style="margin-right: 15px; margin-top: 30px;" class="url">
+          New Rider</b>
+        <b (click)="addClub()" style="margin-right: 15px; margin-top: 30px;" class="url">
+          New Club</b>
+        <b (click)="addCompetition()" style="margin-top: 30px;" class="url">
+          New Competition</b>
+      </div>
+      <div fxLayout="col" fxFlex style="margin-left: 300px;">
+        <mat-icon style="margin-top: 28px;">person</mat-icon>
+          <b *ngIf="isLoggedIn()" class="url" (click)="profile()" style="margin-top:30px;">Profile</b>
+          <b *ngIf="!isLoggedIn()" class="url" (click)="login()" style="margin-top:30px;">Log In</b>
       </div>
     </div>
 </header>
 
 <router-outlet></router-outlet>
 
+<br/>
+<br/>
 <footer style="background-color: lightblue;" fxLayout="row">
     <p fxFlex style="margin-left:10px;">Created by Patricia Juane</p>
     <p fxFlex>Contact information: <a href="mailto:p.juane@udc.es">p.juane@udc.es</a></p>

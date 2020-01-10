@@ -1,13 +1,13 @@
 <div fxLayout="column">
-    <div fxLayout="column">
+    <div fxLayout="column" style="margin-left:10px;"> 
         <div fxLayout="row">
             <p style="margin-right: 30px;"><strong>Name: </strong>{{ trophy?.name }}</p>
             <p style="margin-right: 30px;"><strong>Arena: </strong>{{ trophy?.arena }}</p>
             <p style="margin-right: 30px;"><strong>Category: </strong>{{ trophy?.category }}</p>
             </div>
         <div fxLayout="row">
-            <p style="margin-right: 430px;"><strong>InitDate: </strong>{{ trophy?.initDate.toDate() | date: shortDate }}</p>
-            <button mat-raised-button (click)="addResult()" style="margin-top: 10px; margin-bottom: 10px;">
+            <p style="margin-right: 970px;"><strong>InitDate: </strong>{{ trophy?.initDate.toDate() | date: shortDate }}</p>
+            <button mat-raised-button (click)="addResult()" *ngIf="isLoggedIn()" style="margin-bottom: 10px;">
                 Add Result</button>
         </div>
     </div> 

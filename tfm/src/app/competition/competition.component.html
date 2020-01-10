@@ -1,17 +1,20 @@
 <div fxLayout="column">
-    <div fxLayout="column">
+    <div fxLayout="column" style="margin-left:10px;">
         <div fxLayout="row">
-        <p style="margin-right: 30px;"><strong>Name: </strong>{{ competition?.name }}</p>
-        <p style="margin-right: 30px;"><strong>Location: </strong>{{ competition?.location }}</p>
-        <p style="margin-right: 30px;"><strong>Category: </strong>{{ competition?.category }}</p>
+            <p style="margin-right: 30px;"><strong>Name: </strong>{{ competition?.name }}</p>
+            <p style="margin-right: 30px;"><strong>Location: </strong>{{ competition?.location }}</p>
+            <p style="margin-right: 30px;"><strong>Category: </strong>{{ competition?.category }}</p>
         </div>
         <div fxLayout="row">
-        <p style="margin-right: 30px;"><strong>InitDate: </strong>{{ competition?.initDate.toDate() | date: shortDate }}</p>
-        <p style="margin-right: 280px;"><strong>EndDate: </strong>{{ competition?.endDate.toDate() | date: shortDate }}</p>
-        <button (click)="addTrophy()" mat-raised-button style="margin-top: 10px; margin-bottom: 10px;">
-            Add Trophy</button>
+            <p style="margin-right: 30px;"><strong>InitDate: </strong>{{ competition?.initDate.toDate() | date: shortDate }}</p>
+            <p style="margin-right: 780px;"><strong>EndDate: </strong>{{ competition?.endDate.toDate() | date: shortDate }}</p>
+            <button (click)="addTrophy()" *ngIf="isLoggedIn()" mat-raised-button style="margin-bottom: 10px;">
+                Add Trophy</button>
         </div>
     </div> 
+    <div fxLayout="column">
+
+    </div>
  
     <div class="mat-elevation-z8">
             <mat-form-field>

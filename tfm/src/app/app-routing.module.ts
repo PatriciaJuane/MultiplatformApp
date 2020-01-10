@@ -14,6 +14,10 @@ import { NewCompetitionComponent } from './new-competition/new-competition.compo
 import { NewClubComponent } from './new-club/new-club.component';
 import { NewTrophyComponent } from './new-trophy/new-trophy.component';
 import { NewResultComponent } from './new-result/new-result.component';
+import { LogInComponent } from './log-in/log-in.component';
+import { UserComponent } from './user/user.component';
+import { AuthGuard } from './shared/guard/auth.guard';
+import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
 
 
 const routes: Routes = [
@@ -31,6 +35,8 @@ const routes: Routes = [
   { path: 'newcompetition', component: NewCompetitionComponent },
   { path: 'newtrophy/:id', component: NewTrophyComponent },
   { path: 'newresult/:id', component: NewResultComponent },
+  { path: 'login', component: LogInComponent, canActivate: [SecureInnerPagesGuard] },
+  { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent }
 //  { path: 'about',        component: AboutComponent },
 //  { path: 'privacy',        component: PrivacyComponent },

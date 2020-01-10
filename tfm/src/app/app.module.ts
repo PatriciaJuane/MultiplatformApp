@@ -20,6 +20,7 @@ import { ClubComponent } from '@src/app/club/club.component';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '@src/environments/environment';
 import { NewHorseComponent } from '@src/app/new-horse/new-horse.component';
 import { NewRiderComponent } from '@src/app/new-rider/new-rider.component';
@@ -28,6 +29,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NewClubComponent } from '@src/app/new-club/new-club.component';
 import { NewTrophyComponent } from '@src/app/new-trophy/new-trophy.component';
 import { NewResultComponent } from '@src/app/new-result/new-result.component';
+import { LogInComponent } from '@src/app/log-in/log-in.component';
+import { UserComponent } from '@src/app/user/user.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import { NewResultComponent } from '@src/app/new-result/new-result.component';
     NewCompetitionComponent,
     NewClubComponent,
     NewTrophyComponent,
-    NewResultComponent
+    NewResultComponent,
+    LogInComponent,
+    UserComponent
   ],
   imports: [
     BrowserModule,
@@ -69,7 +74,8 @@ import { NewResultComponent } from '@src/app/new-result/new-result.component';
     MatIconModule,
     MatButtonModule,
     MatAutocompleteModule,
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    AngularFireAuthModule
   ],
   providers: [],
   bootstrap: [AppComponent]

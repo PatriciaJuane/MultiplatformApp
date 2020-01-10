@@ -25,6 +25,10 @@ import { NewCompetitionComponent } from '@src/app/new-competition/new-competitio
 import { NewClubComponent } from '@src/app/new-club/new-club.component';
 import { NewTrophyComponent } from '@src/app/new-trophy/new-trophy.component';
 import { NewResultComponent } from '@src/app/new-result/new-result.component';
+import { ProfileComponent } from '@src/app/profile/profile.component';
+import { LogInComponent } from '@src/app/log-in/log-in.component';
+import { RegisterComponent } from '@src/app/register/register.component';
+import { UserComponent } from '@src/app/user/user.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,11 @@ import { NewResultComponent } from '@src/app/new-result/new-result.component';
     NewCompetitionComponent,
     NewClubComponent,
     NewTrophyComponent,
-    NewResultComponent
+    NewResultComponent,
+    ProfileComponent,
+    LogInComponent,
+    RegisterComponent,
+    UserComponent
   ],
   imports: [
     NativeScriptModule,

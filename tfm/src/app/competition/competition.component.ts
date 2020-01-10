@@ -4,6 +4,7 @@ import { TrophyDto } from '../models/TrophyDto';
 import { CompetitionDto } from '../models/CompetitionDto';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
+import { AuthService } from '../services/authentication.service';
 
 @Component({
   selector: 'app-competition',
@@ -22,7 +23,8 @@ export class CompetitionComponent implements OnInit {
   constructor(
     protected actRoute: ActivatedRoute,
     private firebaseService: FirebaseService,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
     ) { }
 
   ngOnInit() {
@@ -55,6 +57,10 @@ export class CompetitionComponent implements OnInit {
 
   addTrophy() {
     this.router.navigate(['/newtrophy/' + this.id]);
+  }
+
+  isLoggedIn() {
+    return this.authService.isLoggedIn;
   }
 
 }
