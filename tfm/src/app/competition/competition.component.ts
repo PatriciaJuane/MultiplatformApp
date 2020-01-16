@@ -15,7 +15,7 @@ export class CompetitionComponent implements OnInit {
 
   competition: CompetitionDto;
   id: string;
-  displayedColumns: string[] = ['name', 'category', 'arena', 'initDate'];
+  displayedColumns: string[] = ['name', 'category', 'arena', 'initDate', 'action'];
   dataSource =  new MatTableDataSource<TrophyDto>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -62,5 +62,12 @@ export class CompetitionComponent implements OnInit {
   isLoggedIn() {
     return this.authService.isLoggedIn;
   }
+
+  delete(index: number, trophy) {
+    const data = this.dataSource.data;
+    data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
+    this.dataSource.data = data;
+    this.firebaseService.deleteTrophy(this.id, trophy.id);
+}
 
 }

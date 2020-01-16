@@ -17,7 +17,7 @@ export class TrophyComponent implements OnInit {
   competitionId: string;
   trophy: TrophyDto;
   trophyId: string;
-  displayedColumns: string[] = ['position', 'horse', 'rider', 'club', 'points', 'time'];
+  displayedColumns: string[] = ['position', 'horse', 'rider', 'club', 'points', 'time', 'action'];
   dataSource =  new MatTableDataSource<ResultDto>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
@@ -65,6 +65,13 @@ export class TrophyComponent implements OnInit {
 
   isLoggedIn() {
     return this.authService.isLoggedIn;
+  }
+
+  delete(index: number, result) {
+      const data = this.dataSource.data;
+      data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
+      this.dataSource.data = data;
+      this.firebaseService.deleteResult(this.competitionId, this.trophyId, result.id);
   }
 
 }

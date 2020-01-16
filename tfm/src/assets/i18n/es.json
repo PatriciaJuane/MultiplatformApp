@@ -22,7 +22,9 @@
         "website": "Pág. web",
         "type": "Tipo",
         "category": "Categoría",
-        "filter": "Filtrar"
+        "filter": "Filtrar",
+        "action": "Acción",
+        "delete": "Borrar"
     },
     "competition": {
         "name": "Nombre",
@@ -32,7 +34,9 @@
         "endDate": "Fecha de fin",
         "addTrophy": "Añadir Prueba",
         "filter": "Filtrar",
-        "arena": "Pista"
+        "arena": "Pista",
+        "action": "Acción",
+        "delete": "Borrar"
     },
     "trophy": {
         "name": "Nombre",
@@ -46,7 +50,9 @@
         "rider": "Jinete",
         "club": "Club",
         "points": "Puntos",
-        "time": "Tiempo"
+        "time": "Tiempo",
+        "action": "Acción",
+        "delete": "Borrar"
     },
     "result": {
         "position": "Posición",

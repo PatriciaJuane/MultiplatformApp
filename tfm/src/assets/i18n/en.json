@@ -22,7 +22,9 @@
         "website": "Website",
         "type": "Type",
         "category": "Category",
-        "filter": "Filter"
+        "filter": "Filter",
+        "action": "Action",
+        "delete": "Delete"
     },
     "competition": {
         "name": "Name",
@@ -32,7 +34,9 @@
         "endDate": "End Date",
         "addTrophy": "Add Trophy",
         "filter": "Filter",
-        "arena": "Arena"
+        "arena": "Arena",
+        "action": "Action",
+        "delete": "Delete"
     },
     "trophy": {
         "name": "Name",
@@ -46,7 +50,9 @@
         "rider": "Rider",
         "club": "Club",
         "points": "Points",
-        "time": "Time"
+        "time": "Time",
+        "action": "Action",
+        "delete": "Delete"
     },
     "result": {
         "position": "Position",

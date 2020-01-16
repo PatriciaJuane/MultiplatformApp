@@ -38,6 +38,14 @@
     <td mat-cell *matCellDef="let competition">{{ competition.category }}</td>
   </ng-container>
 
+  <ng-container matColumnDef="action">
+    <th mat-header-cell *matHeaderCellDef>{{ 'competitions.action' | translate }}</th>
+    <td mat-cell *matCellDef="let competition; let i = index;">
+      <button mat-raised-button color="accent" (click)="delete(i, competition)" *ngIf="isLoggedIn()">
+        {{ 'competitions.delete' | translate }}</button>
+    </td>
+  </ng-container>
+
   <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
   <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="onItemSelected(row)"></tr>
 </table>

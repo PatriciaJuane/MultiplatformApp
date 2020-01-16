@@ -46,6 +46,14 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'trophy.time' | translate }}</th>
             <td mat-cell *matCellDef="let result">{{ result?.time }}</td>
         </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>{{ 'trophy.action' | translate }}</th>
+            <td mat-cell *matCellDef="let result; let i = index;">
+              <button mat-raised-button color="accent" (click)="delete(i, result)" *ngIf="isLoggedIn()">
+                  {{ 'trophy.delete' | translate }}</button>
+            </td>
+        </ng-container>
         
         <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="onItemSelected(row)"></tr>

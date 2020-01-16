@@ -212,4 +212,30 @@ export class FirebaseService {
     return this.db.collection('clubs', ref => ref.where('name', '==', value)).valueChanges();
   }
 
+  deleteCompetition(competitionKey: string) {
+    this.db.collection('competitions').doc(competitionKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }
+
+  deleteTrophy(competitionKey, trophyKey) {
+    this.db.collection('competitions').doc(competitionKey).
+    collection('trophies').doc(trophyKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }
+
+  deleteResult(competitionKey, trophyKey, resultKey) {
+    this.db.collection('competitions').doc(competitionKey).
+    collection('trophies').doc(trophyKey).collection('results').doc(resultKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }
+
 }
