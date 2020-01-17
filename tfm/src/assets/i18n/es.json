@@ -36,7 +36,8 @@
         "filter": "Filtrar",
         "arena": "Pista",
         "action": "Acción",
-        "delete": "Borrar"
+        "delete": "Borrar",
+        "hour": "Hora"
     },
     "trophy": {
         "name": "Nombre",
@@ -51,6 +52,7 @@
         "club": "Club",
         "points": "Puntos",
         "time": "Tiempo",
+        "hour": "Hora",
         "action": "Acción",
         "delete": "Borrar"
     },
@@ -132,12 +134,13 @@
         "arena": "Pista",
         "category": "Categoría",
         "initDate": "Fecha de inicio",
-        "submit": "Enviar"
+        "submit": "Enviar",
+        "hour": "Hora"
     },
     "newResult": {
         "position": "Posición",
         "points": "Puntos",
-        "time": "Tiempo",
+        "time": "Tiempo (en segundos)",
         "horse": "Caballo",
         "rider": "Jinete",
         "club": "Nombre del Club",

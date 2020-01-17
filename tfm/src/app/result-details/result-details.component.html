@@ -7,7 +7,7 @@
         <p style="margin-right: 30px;">
             <strong>{{ 'result.points' | translate }}: </strong>{{ result?.points }}</p>
         <p style="margin-right: 30px;">
-            <strong>{{ 'result.time' | translate }}: </strong>{{ result?.time }}s</p>
+            <strong>{{ 'result.time' | translate }}: </strong>{{ result?.time | minuteSeconds }}s</p>
     </div>
     <div fxLayout="row">
         <p style="font-weight: bold; margin-right: 10px;">{{ 'result.horse' | translate }}:</p>

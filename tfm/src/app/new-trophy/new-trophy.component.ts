@@ -47,7 +47,8 @@ export class NewTrophyComponent implements OnInit {
       name: ['', Validators.required ],
       category: ['', Validators.required ],
       arena: [''],
-      initDate: ['', Validators.required ]
+      initDate: ['', Validators.required ],
+      hour: ['']
     });
   }
 
@@ -56,7 +57,8 @@ export class NewTrophyComponent implements OnInit {
       name: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
       arena: new FormControl(''),
-      initDate: new FormControl('', Validators.required)
+      initDate: new FormControl('', Validators.required),
+      hour: new FormControl('')
     });
   }
 

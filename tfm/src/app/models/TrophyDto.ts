@@ -6,6 +6,7 @@ export class TrophyDto {
     category: string;
     arena: string;
     initDate: Date;
+    hour: string;
     competitionId: string;
     results: ResultDto[];
 

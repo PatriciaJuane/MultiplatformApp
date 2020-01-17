@@ -15,7 +15,7 @@ export class CompetitionComponent implements OnInit {
 
   competition: CompetitionDto;
   id: string;
-  displayedColumns: string[] = ['name', 'category', 'arena', 'initDate', 'action'];
+  displayedColumns: string[] = ['name', 'category', 'arena', 'initDate', 'hour', 'action'];
   dataSource =  new MatTableDataSource<TrophyDto>();
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;

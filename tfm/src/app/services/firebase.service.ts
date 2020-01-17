@@ -88,7 +88,8 @@ export class FirebaseService {
       nameToSearch: value.name.toLowerCase(),
       category: value.category,
       arena: value.arena,
-      initDate: value.initDate
+      initDate: value.initDate,
+      hour: value.hour
     });
   }
 

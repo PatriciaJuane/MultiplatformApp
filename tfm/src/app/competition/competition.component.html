@@ -43,6 +43,10 @@
             <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'competition.initDate' | translate }}</th>
             <td mat-cell *matCellDef="let trophy">{{ trophy?.initDate.toDate() | date: longDate  }}</td>
         </ng-container>
+        <ng-container matColumnDef="hour">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'competition.hour' | translate }}</th>
+            <td mat-cell *matCellDef="let trophy">{{ trophy?.hour }}</td>
+        </ng-container>
         <ng-container matColumnDef="action">
             <th mat-header-cell *matHeaderCellDef>{{ 'competition.action' | translate }}</th>
             <td mat-cell *matCellDef="let trophy; let i = index;">

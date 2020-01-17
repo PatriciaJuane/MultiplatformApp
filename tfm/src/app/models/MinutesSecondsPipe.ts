@@ -1,4 +1,4 @@
-import { PipeTransform, Pipe } from "@angular/core";
+import { PipeTransform, Pipe } from '@angular/core';
 
 @Pipe({
     name: 'minuteSeconds'
@@ -7,7 +7,7 @@ import { PipeTransform, Pipe } from "@angular/core";
 
       transform(value: number): string {
          const minutes: number = Math.floor(value / 60);
-         return minutes + ':' + (value - minutes * 60);
+         return minutes.toString().padStart(2, '0') + ':' + (value - minutes * 60).toString().padStart(2, '0');
       }
 
 }

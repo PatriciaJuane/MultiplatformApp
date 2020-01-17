@@ -36,7 +36,8 @@
         "filter": "Filter",
         "arena": "Arena",
         "action": "Action",
-        "delete": "Delete"
+        "delete": "Delete",
+        "hour": "Hour"
     },
     "trophy": {
         "name": "Name",
@@ -51,6 +52,7 @@
         "club": "Club",
         "points": "Points",
         "time": "Time",
+        "hour": "Hour",
         "action": "Action",
         "delete": "Delete"
     },
@@ -132,12 +134,13 @@
         "arena": "Arena",
         "category": "Category",
         "initDate": "Init Date",
-        "submit": "Submit"
+        "submit": "Submit",
+        "hour": "Hour"
     },
     "newResult": {
         "position": "Position",
         "points": "Points",
-        "time": "Time",
+        "time": "Time (in seconds)",
         "horse": "Horse Name",
         "rider": "Rider Name",
         "club": "Club Name",
