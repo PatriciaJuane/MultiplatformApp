@@ -3,7 +3,7 @@
   "nativescript": {
     "id": "org.nativescript.tfm",
     "tns-android": {
-      "version": "6.1.2"
+      "version": "6.3.1"
     }
   },
   "version": "0.0.0",
@@ -42,11 +42,16 @@
     "firebase": "^7.6.1",
     "jquery": "^3.4.1",
     "nativescript-angular": "~8.0.1",
+    "nativescript-drop-down": "^5.0.4",
+    "nativescript-imagepicker": "^7.1.0",
+    "nativescript-plugin-firebase": "^10.3.3",
     "nativescript-theme-core": "~1.0.4",
+    "nativescript-ui-dataform": "^6.0.0",
+    "nativescript-ui-sidedrawer": "^8.0.0",
     "popper.js": "^1.16.0",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.5.0",
-    "tns-core-modules": "~6.0.0",
+    "tns-core-modules": "~6.3.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {
@@ -66,7 +71,7 @@
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~2.0.1",
     "karma-jasmine-html-reporter": "^1.4.0",
-    "nativescript-dev-webpack": "~1.0.0",
+    "nativescript-dev-webpack": "~1.4.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
     "tslint": "~5.15.0",

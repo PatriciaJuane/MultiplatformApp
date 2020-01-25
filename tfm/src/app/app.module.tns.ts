@@ -1,34 +1,40 @@
 import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 import { NativeScriptModule } from 'nativescript-angular/nativescript.module';
-
-import { AppRoutingModule } from '@src/app/app-routing.module';
 import { AppComponent } from '@src/app/app.component';
 import { HomeComponent } from '@src/app/home/home.component';
-// Uncomment and add to NgModule imports if you need to use two-way binding
 import { NativeScriptFormsModule } from 'nativescript-angular/forms';
-// Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 import { NativeScriptHttpClientModule } from 'nativescript-angular/http-client';
 import { CompetitionsComponent } from '@src/app/competitions/competitions.component';
-import { MatTableModule, MatPaginatorModule, MatSortModule, MatInputModule, MatFormFieldModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CompetitionComponent } from '@src/app/competition/competition.component';
 import { TrophyComponent } from '@src/app/trophy/trophy.component';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { ResultDetailsComponent } from '@src/app/result-details/result-details.component';
 import { PageNotFoundComponent } from '@src/app/page-not-found/page-not-found.component';
 import { HorseComponent } from '@src/app/horse/horse.component';
 import { RiderComponent } from '@src/app/rider/rider.component';
 import { ClubComponent } from '@src/app/club/club.component';
-import { NewHorseComponent } from '@src/app/new-horse/new-horse.component';
-import { NewRiderComponent } from '@src/app/new-rider/new-rider.component';
-import { NewCompetitionComponent } from '@src/app/new-competition/new-competition.component';
-import { NewClubComponent } from '@src/app/new-club/new-club.component';
-import { NewTrophyComponent } from '@src/app/new-trophy/new-trophy.component';
-import { NewResultComponent } from '@src/app/new-result/new-result.component';
-import { ProfileComponent } from '@src/app/profile/profile.component';
 import { LogInComponent } from '@src/app/log-in/log-in.component';
-import { RegisterComponent } from '@src/app/register/register.component';
 import { UserComponent } from '@src/app/user/user.component';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '@src/environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MinutesSecondsPipe } from './models/MinutesSecondsPipe';
+import { AppRoutingModule } from './app-routing.module.tns';
+import { FirebaseService } from './services/firebase.service';
+import { FirebaseMobileService } from './services/firebasemobile.service';
+import { NativeScriptCommonModule } from 'nativescript-angular/common';
+import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
+import { NewCompetitionComponent } from './new-competition/new-competition.component.tns';
+import { NewTrophyComponent } from './new-trophy/new-trophy.component.tns';
+import { NewResultComponent } from './new-result/new-result.component.tns';
+import { DropDownModule } from 'nativescript-drop-down/angular';
+import { NewClubComponent } from './new-club/new-club.component.tns';
+import { NewRiderComponent } from './new-rider/new-rider.component.tns';
+import { NewHorseComponent } from './new-horse/new-horse.component.tns';
 
 @NgModule({
   declarations: [
@@ -37,6 +43,7 @@ import { UserComponent } from '@src/app/user/user.component';
     CompetitionsComponent,
     CompetitionComponent,
     TrophyComponent,
+    MinutesSecondsPipe,
     ResultDetailsComponent,
     PageNotFoundComponent,
     HorseComponent,
@@ -44,28 +51,45 @@ import { UserComponent } from '@src/app/user/user.component';
     ClubComponent,
     NewHorseComponent,
     NewRiderComponent,
-    NewCompetitionComponent,
     NewClubComponent,
     NewTrophyComponent,
     NewResultComponent,
-    ProfileComponent,
     LogInComponent,
-    RegisterComponent,
-    UserComponent
+    UserComponent,
+    NewCompetitionComponent
   ],
   imports: [
     NativeScriptModule,
     AppRoutingModule,
-    MatTableModule,
-    MatPaginatorModule,
-    MatSortModule,
-    BrowserAnimationsModule,
-    MatInputModule,
-    MatFormFieldModule,
-    FlexLayoutModule
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    NativeScriptFormsModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    TranslateModule.forRoot({
+      loader: {
+          provide: TranslateLoader,
+          useFactory: HttpLoaderFactory,
+          deps: [HttpClient]
+      }
+    }),
+    NativeScriptHttpClientModule,
+    NativeScriptCommonModule,
+    NativeScriptUISideDrawerModule,
+    DropDownModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: FirebaseService,
+      useClass: FirebaseMobileService
+    },
+  ],
   bootstrap: [AppComponent],
   schemas: [NO_ERRORS_SCHEMA]
 })
 export class AppModule { }
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, '/assets/i18n/', '.json');
+}

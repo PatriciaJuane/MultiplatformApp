@@ -1,5 +1,7 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<ActionBar [title]="title"></ActionBar>
-<StackLayout  class="p-20">
-    <Label text="Welcome to {{ title }}!" class="h1 text-center" textWrap="true"></Label>
+<ActionBar [title]="'app.mobileTitle' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
+<StackLayout class="p-15" orientation="vertical">
+    <!-- <Label [text]="'home.welcomemobile' | translate" class="h3 text-center" textWrap="true"></Label> -->
+    <app-competitions (competitionSelected)="loadCompetition($event)"></app-competitions>
 </StackLayout>

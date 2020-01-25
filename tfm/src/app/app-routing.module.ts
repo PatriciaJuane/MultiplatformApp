@@ -18,9 +18,10 @@ import { LogInComponent } from './log-in/log-in.component';
 import { UserComponent } from './user/user.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { SecureInnerPagesGuard } from './shared/guard/secure-inner-pages.guard';
+import { routes } from './app.routes';
 
 
-const routes: Routes = [
+/* const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'competition/:id', component: CompetitionComponent },
@@ -38,10 +39,11 @@ const routes: Routes = [
   { path: 'login', component: LogInComponent, canActivate: [SecureInnerPagesGuard] },
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
   { path: '**', component: PageNotFoundComponent }
+]; */
 //  { path: 'about',        component: AboutComponent },
 //  { path: 'privacy',        component: PrivacyComponent },
 //  { path: 'terms',        component: TermsComponent },
-];
+
 
 
 @NgModule({

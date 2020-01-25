@@ -14,6 +14,8 @@ import { AuthService } from '../services/authentication.service';
 export class CompetitionComponent implements OnInit {
 
   competition: CompetitionDto;
+  trophies: TrophyDto[];
+
   id: string;
   displayedColumns: string[] = ['name', 'category', 'arena', 'initDate', 'hour', 'action'];
   dataSource =  new MatTableDataSource<TrophyDto>();
@@ -36,9 +38,10 @@ export class CompetitionComponent implements OnInit {
         this.competition = res;
       });
 
-      this.firebaseService.getTrophiesFromCompetition(id).subscribe(
-        data => this.dataSource.data = data
-      );
+      this.firebaseService.getTrophiesFromCompetition(id).subscribe(data => {
+        this.dataSource.data = data;
+        this.trophies = data;
+      });
     });
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;

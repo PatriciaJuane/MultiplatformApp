@@ -6,13 +6,19 @@
             <p style="margin-right: 30px;">
                 <strong>{{ 'competition.location' | translate }}: </strong>{{ competition?.location }}</p>
             <p style="margin-right: 30px;">
+                <strong>{{ 'competition.country' | translate }}: </strong>{{ competition?.country }}</p>
+            <p style="margin-right: 30px;">
                 <strong>{{ 'competition.category' | translate }}: </strong>{{ competition?.category }}</p>
+            <p><strong>{{ 'competition.type' | translate }}: </strong>{{ competition?.type }}</p>
         </div>
         <div fxLayout="row">
             <p style="margin-right: 30px;">
                 <strong>{{ 'competition.initDate' | translate }}: </strong>{{ competition?.initDate.toDate() | date: shortDate }}</p>
-            <p style="margin-right: 700px;">
+            <p style="margin-right: 30px;">
                 <strong>{{ 'competition.endDate' | translate }}: </strong>{{ competition?.endDate.toDate() | date: shortDate }}</p>
+            <p style="margin-right: 450px;">
+                <strong>{{ 'competition.website' | translate }}: </strong>{{ competition?.website }}</p>
+                
             <button (click)="addTrophy()" *ngIf="isLoggedIn()" mat-raised-button style="margin-bottom: 10px;">
                 {{ 'competition.addTrophy' | translate }}</button>
         </div>

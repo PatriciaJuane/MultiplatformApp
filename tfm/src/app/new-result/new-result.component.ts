@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { ActivatedRoute, Router, Params } from '@angular/router';
 import { MatDialog } from '@angular/material';
@@ -17,8 +17,8 @@ export class NewResultComponent implements OnInit {
   resultForm: FormGroup;
   trophyId: string;
   competitionId: string;
-  horseNames: string[];
-  riderNames: string[];
+  horses: HorseDto[];
+  riders: RiderDto[];
   clubNames: string[];
 
   validation_messages = {
@@ -54,17 +54,17 @@ export class NewResultComponent implements OnInit {
       this.trophyId = id;
     });
 
-    this.horseNames = [];
+    this.horses = [];
     this.firebaseService.getAllHorses().subscribe((res: HorseDto[]) => {
-        res.forEach((obj: HorseDto) =>
-            this.horseNames.push(obj.name)
-        );
+        res.forEach((obj: HorseDto) => {
+            this.horses.push(obj);
+          });
     });
 
-    this.riderNames = [];
+    this.riders = [];
     this.firebaseService.getAllRiders().subscribe((res: RiderDto[]) => {
       res.forEach((obj: RiderDto) =>
-          this.riderNames.push(obj.name)
+          this.riders.push(obj)
       );
     });
 

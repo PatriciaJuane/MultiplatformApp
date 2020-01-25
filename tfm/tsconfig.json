@@ -8,6 +8,7 @@
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
       "target": "es5",
       "typeRoots": [
           "node_modules/@types"

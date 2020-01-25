@@ -1,1 +1,67 @@
-<Button text="competition works!" class="btn btn-primary"></Button>
+<StackLayout>
+<ActionBar title="Main Arena - Competition: {{ competition?.name }}"></ActionBar>
+
+<div *ngIf="competition">
+    <StackLayout class="item item-header" class="p-15 m-10">
+        <Label>
+            <FormattedString>
+                <Span [text]="'competition.name' | translate" fontAttributes="Bold" class="h3"></Span>
+                <Span text=": {{ competition?.name }}"></Span>
+            </FormattedString>
+        </Label>
+        <Label class="h3">
+            <FormattedString>
+                <Span [text]="'competition.country' | translate" fontAttributes="Bold"></Span>
+                <Span text=": {{ competition?.country }}"></Span>
+            </FormattedString>
+        </Label>
+        <Label class="h3">
+            <FormattedString>
+                <Span [text]="'competition.initDate' | translate" fontAttributes="Bold"></Span>
+                <Span text=": {{ competition?.initDate | date:'shortDate' }}"></Span>
+            </FormattedString>
+        </Label>
+        <Label class="h3">
+            <FormattedString>
+                <Span [text]="'competition.endDate' | translate" fontAttributes="Bold"></Span>
+                <Span text=": {{ competition?.endDate | date:'shortDate' }}"></Span>
+            </FormattedString>
+        </Label>
+        <Label class="h3">
+            <FormattedString>
+                <Span [text]="'competition.website' | translate" fontAttributes="Bold"></Span>
+                <Span text=": {{ competition?.website }}"></Span>
+            </FormattedString>
+        </Label>
+        <Label class="h3">
+            <FormattedString>
+                <Span [text]="'competition.type' | translate" fontAttributes="Bold"></Span>
+                <Span text=": {{ competition?.type }}"></Span>
+            </FormattedString>
+        </Label>
+        <Label class="h3">
+            <FormattedString>
+                <Span [text]="'competition.category' | translate" fontAttributes="Bold"></Span>
+                <Span text=": {{ competition?.category }}"></Span>
+            </FormattedString>
+        </Label>
+        <Button [text]="'competition.addTrophy' | translate" (tap)="addTrophy()" margin="12"
+            horizontalAlignment="center" class="btn btn-primary"></Button>
+    </StackLayout>
+</div>
+
+<div *ngIf="trophies">
+    <Label text="Trophies"  class="h2 p-15 m-10"></Label>
+    <ListView [items]="trophies" class="list-group" height="350">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <GridLayout columns="*, auto, auto" (tap)="onItemSelected(item)">        
+                <Label [text]="item?.name" class="list-group-item" col="0"></Label>
+                <!-- <Label [text]="item?.initDate" col="1" class="list-group-item"></Label> -->
+                <Label [text]="item?.hour" col="1" class="list-group-item"></Label>
+                <Label [text]="item?.category" col="2" class="list-group-item"></Label>
+                <!-- <Button [text]="'competitions.action' | translate" (tap)="delete(index, item)"></Button> -->
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</div>
+</StackLayout>

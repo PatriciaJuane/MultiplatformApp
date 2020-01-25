@@ -95,10 +95,10 @@ export class NewHorseComponent implements OnInit {
   }
 
   upload(value) {
-    let file = this.formData.get('picture');
+    const file = this.formData.get('picture');
     this.fileName = value.name;
-    let ref = this.firebaseStorage.ref(this.fileName);
-    let task = this.firebaseStorage.upload(this.fileName, file);
+    const ref = this.firebaseStorage.ref(this.fileName);
+    const task = this.firebaseStorage.upload(this.fileName, file);
   }
 
 }

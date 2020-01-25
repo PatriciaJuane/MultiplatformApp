@@ -1,18 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { Observable, BehaviorSubject } from 'rxjs';
-import { map } from 'rxjs/operators';
-@Injectable({
-  providedIn: 'root'
-})
-export class FirebaseService {
+import { Observable, BehaviorSubject, of } from 'rxjs';
 
-  competitions: Observable<any[]>;
-  trophies: Observable<any[]>;
-  results: Observable<any[]>;
-  horses: Observable<any[]>;
-  riders: Observable<any[]>;
-  clubs: Observable<any[]>;
+@Injectable()
+export abstract class FirebaseService {
 
   /* Needed to navigate through collections. Competitions -> Trophies*/
   private competitionId = new BehaviorSubject('default-competition');
@@ -22,7 +12,7 @@ export class FirebaseService {
   private trophyId = new BehaviorSubject('default-trophy');
   currentTrophy = this.trophyId.asObservable();
 
-  constructor(public db: AngularFirestore) {}
+  constructor() {}
 
   changeCurrentCompetition(competitionId: string) {
     this.competitionId.next(competitionId);
@@ -32,211 +22,83 @@ export class FirebaseService {
     this.trophyId.next(trophyId);
   }
 
-  createHorse(value) {
-    return this.db.collection('horses').add({
-      name: value.name,
-      license: value.license,
-      nameToSearch: value.name.toLowerCase(),
-      breed: value.breed,
-      colour: value.colour,
-      // tslint:disable-next-line: radix
-      age: parseInt(value.age),
-      gender: value.gender
-    });
+  public createHorse(value): any {
   }
 
-  createRider(value) {
-    return this.db.collection('riders').add({
-      name: value.name,
-      license: value.license,
-      nameToSearch: value.name.toLowerCase(),
-      country: value.country,
-      // tslint:disable-next-line: radix
-      age: parseInt(value.age),
-      gender: value.gender
-    });
+  public createRider(value): any {
   }
 
-  createClub(value) {
-    return this.db.collection('clubs').add({
-      name: value.name,
-      nameToSearch: value.name.toLowerCase(),
-      country: value.country,
-      location: value.location,
-      website: value.website,
-      size: value.size
-    });
+  public createClub(value): any {
   }
 
-  createCompetition(value) {
-    return this.db.collection('competitions').add({
-      name: value.name,
-      nameToSearch: value.name.toLowerCase(),
-      country: value.country,
-      location: value.location,
-      initDate: value.initDate,
-      endDate: value.endDate,
-      website: value.website,
-      type: value.website,
-      category: value.category
-    });
+  public createCompetition(value): any {
   }
 
-  createTrophy(value, competitionId: string) {
-    return this.db.collection('competitions').doc(competitionId).collection('trophies').add({
-      name: value.name,
-      nameToSearch: value.name.toLowerCase(),
-      category: value.category,
-      arena: value.arena,
-      initDate: value.initDate,
-      hour: value.hour
-    });
+  public createTrophy(value, competitionId: string): any {
   }
 
-  createResult(value, competitionId: string, trophyId: string) {
-    return this.db.collection('competitions').doc(competitionId)
-      .collection('trophies').doc(trophyId).collection('results').add({
-        position: value.position,
-        horse: value.horseName,
-        rider: value.riderName,
-        // CHECK IF EXISTING CLUB!!!
-        club: value.clubName,
-        points: value.points,
-        time: value.time
-    });
+  public createResult(value, competitionId: string, trophyId: string): any {
   }
 
-  getCompetitions() {
-    this.competitions = this.db.collection<any>('/competitions').snapshotChanges().pipe(
-      map(actions =>
-          actions.map(a => {
-            const data = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
-    ));
-    return this.competitions;
+  public getCompetitions(): Observable<any[]> {
+      return of();
   }
 
-  getCompetition(compKey): Observable<any> {
-    return this.db
-      .collection('competitions')
-      .doc(compKey)
-      .valueChanges();
+  public getCompetition(compKey): Observable<any> {
+      return of();
   }
 
-  getTrophiesFromCompetition(compKey) {
-    this.trophies = this.db.collection('competitions').doc(compKey)
-    .collection<any>('trophies').snapshotChanges().pipe(
-      map(actions =>
-        actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        })
-      )
-    );
-    return this.trophies;
+  public getTrophiesFromCompetition(compKey): any {
   }
 
-  getTrophy(compKey, trophyKey): Observable<any> {
-    return this.db.collection('competitions').doc(compKey)
-    .collection('trophies').doc(trophyKey).valueChanges();
+  public getTrophy(compKey, trophyKey): Observable<any> {
+    return of();
   }
 
-  getResultsFromTrophy(compKey, trophyKey) {
-    this.results = this.db.collection('competitions').doc(compKey)
-    .collection('trophies').doc(trophyKey)
-    .collection<any>('results').snapshotChanges().pipe(
-      map(actions =>
-        actions.map(a => {
-          const data = a.payload.doc.data();
-          const id = a.payload.doc.id;
-          return { id, ...data };
-        })
-      )
-    );
-    return this.results;
+  public getResultsFromTrophy(compKey, trophyKey): any {
   }
 
-  getResult(competitionKey, trophyKey, resultKey): Observable<any> {
-    return this.db.collection('competitions').doc(competitionKey)
-    .collection('trophies').doc(trophyKey)
-    .collection('results').doc(resultKey).valueChanges();
+  public getResult(competitionKey, trophyKey, resultKey): Observable<any> {
+      return of();
   }
 
-  getAllHorses() {
-    this.horses = this.db.collection<any>('/horses').snapshotChanges().pipe(
-      map(actions =>
-          actions.map(a => {
-            const data = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
-    ));
-    return this.horses;
+  public getAllHorses(): any {
   }
 
-  getAllRiders() {
-    this.riders = this.db.collection<any>('/riders').snapshotChanges().pipe(
-      map(actions =>
-          actions.map(a => {
-            const data = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
-    ));
-    return this.riders;
+  public getAllRiders(): any {
   }
 
-  getAllClubs() {
-    this.clubs = this.db.collection<any>('/clubs').snapshotChanges().pipe(
-      map(actions =>
-          actions.map(a => {
-            const data = a.payload.doc.data();
-            const id = a.payload.doc.id;
-            return { id, ...data };
-          })
-    ));
-    return this.clubs;
+  public getAllClubs(): any {
   }
 
-  getHorseByName(value: string) {
-    return this.db.collection('horses', ref => ref.where('name', '==', value)).valueChanges();
+  public getHorseByName(value: string): any {
   }
 
-  getRiderByName(value: string) {
-    return this.db.collection('riders', ref => ref.where('name', '==', value)).valueChanges();
+  public getRiderByName(value: string): any {
   }
 
-  getClubByName(value: string) {
-    return this.db.collection('clubs', ref => ref.where('name', '==', value)).valueChanges();
+  public getClubByName(value: string): any {
   }
 
-  deleteCompetition(competitionKey: string) {
-    this.db.collection('competitions').doc(competitionKey).delete().then(function() {
-      console.log('Document successfully deleted!');
-    }).catch(function(error) {
-      console.error('Error removing document: ', error);
-    });
+  public deleteCompetition(competitionKey: string): any {
   }
 
-  deleteTrophy(competitionKey, trophyKey) {
-    this.db.collection('competitions').doc(competitionKey).
-    collection('trophies').doc(trophyKey).delete().then(function() {
-      console.log('Document successfully deleted!');
-    }).catch(function(error) {
-      console.error('Error removing document: ', error);
-    });
+  public deleteTrophy(competitionKey, trophyKey): any {
   }
 
-  deleteResult(competitionKey, trophyKey, resultKey) {
-    this.db.collection('competitions').doc(competitionKey).
-    collection('trophies').doc(trophyKey).collection('results').doc(resultKey).delete().then(function() {
-      console.log('Document successfully deleted!');
-    }).catch(function(error) {
-      console.error('Error removing document: ', error);
-    });
+  public deleteResult(competitionKey, trophyKey, resultKey): any {
+  }
+
+  public getDownloadUrl(value): any {
+  }
+
+  public getResultsFromRider(value): any {
+  }
+
+  public getResultsFromHorse(value): any {
+  }
+
+  public upload(fileName, file): any {
   }
 
 }

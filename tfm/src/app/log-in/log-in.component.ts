@@ -15,7 +15,7 @@ export class LogInComponent implements OnInit {
 
   ngOnInit() { }
 
-  tryGoogleLogin(){
+  tryGoogleLogin() {
     this.authService.SigninWithGoogle()
     .then(res => {
       this.router.navigate(['/user']);

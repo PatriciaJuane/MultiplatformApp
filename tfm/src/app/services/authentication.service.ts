@@ -3,6 +3,7 @@ import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../models/User';
+import firebase from '@firebase/app';
 
 @Injectable({
     providedIn: 'root'
@@ -27,7 +28,7 @@ export class AuthService {
             .then((res) => {
                 this.ngZone.run(() => {
                     this.router.navigate(['/user']);
-                })
+                });
             }).catch((error) => {
                 window.alert(error);
             });

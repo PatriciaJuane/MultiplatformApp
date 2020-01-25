@@ -1,0 +1,42 @@
+.fas {
+  font-family: "Font Awesome 5 Free", "fa-solid-900";
+  font-weight: 900;
+}
+
+.t-36 {
+  font-size: 36;
+}
+
+.t-24 {
+  font-size: 24;
+}
+
+RadSideDrawer .drawerContentText {
+  font-size: 18;
+  padding: 15;
+}
+
+RadSideDrawer .drawerContentButton {
+  margin: 15;
+}
+
+.sideStackLayout {
+  background-color: lightgray;
+}
+
+.sideTitleStackLayout {
+  text-align: center;
+  vertical-align: center;
+}
+
+.sideLabel {
+  padding: 15;
+}
+
+.sideLightGrayLabel {
+  background-color: lightgray;
+}
+
+.sideBottomLabel {
+  padding-top: 50;
+}

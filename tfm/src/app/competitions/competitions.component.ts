@@ -12,6 +12,7 @@ import { AuthService } from '../services/authentication.service';
 })
 export class CompetitionsComponent implements OnInit {
 
+  competitions = new Array<CompetitionDto>();
   @Output() competitionSelected: EventEmitter<CompetitionDto> = new EventEmitter();
 
   displayedColumns: string[] = ['name', 'location', 'country', 'initDate', 'endDate', 'website', 'type', 'category', 'action'];
@@ -19,15 +20,15 @@ export class CompetitionsComponent implements OnInit {
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
   @ViewChild(MatSort, {static: true}) sort: MatSort;
 
-
   constructor(
     private firebaseService: FirebaseService,
     private authService: AuthService
     ) {
-      this.firebaseService.getCompetitions().subscribe(
-        data => this.dataSource.data = data
-      );
-  }
+      this.firebaseService.getCompetitions().subscribe(data => {
+        this.dataSource.data = data;
+        this.competitions = data;
+      });
+    }
 
   ngOnInit() {
     this.dataSource.paginator = this.paginator;

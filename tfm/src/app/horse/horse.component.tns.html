@@ -1,1 +1,42 @@
-<Button text="horse works!" class="btn btn-primary"></Button>
+<StackLayout>
+    <ActionBar title="Main Arena - Horse: {{ horse?.name }}"></ActionBar>
+    <ScrollView height="500">
+        <div *ngIf="horse">
+            <StackLayout class="item item-header" class="p-15 m-10">
+                <div *ngIf="downloadURL | async; let url">
+                    <Image [src]="url"></Image>
+                </div>
+                <Label class="h3">
+                    <FormattedString>
+                        <Span [text]="'horse.name' | translate" fontAttributes="Bold"></Span>
+                        <Span text=": {{ horse?.name }}"></Span>
+                    </FormattedString>
+                </Label>
+                <Label class="h3">
+                    <FormattedString>
+                        <Span [text]="'horse.license' | translate" fontAttributes="Bold"></Span>
+                        <Span text=": {{ horse?.license }}"></Span>
+                    </FormattedString>
+                </Label>
+                <Label class="h3">
+                    <FormattedString>
+                        <Span [text]="'horse.colour' | translate" fontAttributes="Bold"></Span>
+                        <Span text=": {{ horse?.colour }}"></Span>
+                    </FormattedString>
+                </Label>
+                <Label class="h3">
+                    <FormattedString>
+                        <Span [text]="'horse.age' | translate" fontAttributes="Bold"></Span>
+                        <Span text=": {{ horse?.age }}"></Span>
+                    </FormattedString>
+                </Label>
+                <Label class="h3">
+                    <FormattedString>
+                        <Span [text]="'horse.breed' | translate" fontAttributes="Bold"></Span>
+                        <Span text=": {{ horse?.breed }}"></Span>
+                    </FormattedString>
+                </Label>
+            </StackLayout>
+        </div>
+    </ScrollView>
+</StackLayout>

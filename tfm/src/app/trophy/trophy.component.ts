@@ -16,6 +16,7 @@ export class TrophyComponent implements OnInit {
 
   competitionId: string;
   trophy: TrophyDto;
+  results: Array<ResultDto>;
   trophyId: string;
   displayedColumns: string[] = ['position', 'horse', 'rider', 'club', 'points', 'time', 'action'];
   dataSource =  new MatTableDataSource<ResultDto>();
@@ -40,9 +41,10 @@ export class TrophyComponent implements OnInit {
           data => this.trophy = data
       );
 
-      this.firebaseService.getResultsFromTrophy(this.competitionId, id).subscribe(
-        data => this.dataSource.data = data
-      );
+      this.firebaseService.getResultsFromTrophy(this.competitionId, id).subscribe(data => {
+        this.dataSource.data = data;
+        this.results = data;
+      });
 
     });
     this.dataSource.paginator = this.paginator;

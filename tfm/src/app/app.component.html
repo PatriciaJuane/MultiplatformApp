@@ -2,10 +2,16 @@
 <header style="background-color:lightblue; position: sticky;">
     <div style="text-align:left; margin-left:10px;" fxLayout="row">
 
-      <div fxLayout="col" style="margin-right: 150px;" fxFlex>
+      <div fxLayout="col" style="margin-right: 50px;" fxFlex>
         <mat-icon aria-hidden="false" style="margin-top: 30px;" (click)="returnHome()">home</mat-icon>
         <h1 (click)="returnHome()">{{ 'app.title' | translate }}</h1>
       </div>
+      <b (click)="horses()" style="margin-right: 15px; margin-top:30px;" class="url">
+        {{ 'app.horses' | translate }}</b>
+      <b (click)="riders()" style="margin-right: 15px; margin-top:30px;" class="url">
+        {{ 'app.riders' | translate }}</b>
+      <b (click)="clubs()" style="margin-right: 15px; margin-top:30px;" class="url">
+        {{ 'app.clubs' | translate }}</b>
 
       <div fxLayout="col" *ngIf="isLoggedIn()">
         <b (click)="addHorse()" style="margin-right: 15px; margin-top:30px;" class="url">
@@ -18,7 +24,7 @@
           {{ 'app.newCompetition' | translate }}</b>
       </div>
 
-      <div fxLayout="col" fxFlex style="margin-left: 250px;">
+      <div fxLayout="col" fxFlex style="margin-left: 130px;">
         <div fxLayout="col" style="margin-right: 20px;">
           <mat-icon style="margin-top: 28px;">person</mat-icon>
           <b *ngIf="isLoggedIn()" class="url" (click)="profile()" style="margin-top:30px;">{{ 'app.profile' | translate }}</b>

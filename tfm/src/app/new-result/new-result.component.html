@@ -2,7 +2,7 @@
 <script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
 
 <div class="create-page">
-    <div class="page-content">
+    <div class="page-content" style="margin-top: 20px;">
         <form class="create-form" [formGroup]="resultForm" novalidate (ngSubmit)="onSubmit(resultForm.value)">
         <div fxLayout="row">
            <div fxLayout="column" style="margin-right: 20px;"> 
@@ -20,8 +20,8 @@
                 <mat-form-field class="input-style">
                     <input matInput placeholder="{{ 'newResult.horse' | translate }}" class="form-control" formControlName="horseName" [matAutocomplete]="autoHorses">
                     <mat-autocomplete #autoHorses="matAutocomplete">
-                        <mat-option *ngFor="let horseName of horseNames" [value]="horseName">
-                          {{horseName}}
+                        <mat-option *ngFor="let horse of horses" [value]="horse.name">
+                          {{horse.name}}
                        </mat-option>
                    </mat-autocomplete>
                 </mat-form-field>
@@ -34,8 +34,8 @@
                 <mat-form-field class="input-style">
                     <input matInput placeholder="{{ 'newResult.rider' | translate }}" class="form-control" formControlName="riderName" [matAutocomplete]="autoRiders">
                     <mat-autocomplete #autoRiders="matAutocomplete">
-                        <mat-option *ngFor="let riderName of riderNames" [value]="riderName">
-                          {{riderName}}
+                        <mat-option *ngFor="let rider of riders" [value]="rider.name">
+                          {{rider.name}}
                        </mat-option>
                    </mat-autocomplete>
                 </mat-form-field>

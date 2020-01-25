@@ -1,1 +1,44 @@
-<Button text="result-details works!" class="btn btn-primary"></Button>
+<StackLayout>
+    <ActionBar title="Main Arena - Result: {{ result?.position }}"></ActionBar>
+
+    <div *ngIf="result">
+        <StackLayout class="item item-header" class="p-15 m-10">
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'result.position' | translate" fontAttributes="Bold"></Span>
+                    <Span text=": {{ result?.position }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3" (tap)="onHorseSelected()">
+                <FormattedString>
+                    <Span [text]="'result.horse' | translate" fontAttributes="Bold"></Span>
+                    <Span text=": {{ result?.horse }}" class="url"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3" (tap)="onRiderSelected()">
+                <FormattedString>
+                    <Span [text]="'result.rider' | translate" fontAttributes="Bold"></Span>
+                    <Span text=": {{ result?.rider }}" class="url"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3" (tap)="onClubSelected()">
+                <FormattedString>
+                    <Span [text]="'result.club' | translate" fontAttributes="Bold"></Span>
+                    <Span text=": {{ result?.club }}" class="url"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'result.points' | translate" fontAttributes="Bold"></Span>
+                    <Span text=": {{ result?.points }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'result.time' | translate" fontAttributes="Bold"></Span>
+                    <Span text=": {{ result?.time | minuteSeconds }}s"></Span>
+                </FormattedString>
+            </Label>
+        </StackLayout>
+    </div>
+</StackLayout>

@@ -6,7 +6,7 @@ import { AppComponent } from '@src/app/app.component';
 import { HomeComponent } from '@src/app/home/home.component';
 import { CompetitionsComponent } from '@src/app/competitions/competitions.component';
 import { MatTableModule, MatPaginatorModule, MatSortModule, MatFormFieldModule, MatInputModule,
-  MatDialogModule, MatDatepicker, MatDatepickerModule, MatNativeDateModule, MatIconModule,
+  MatDialogModule, MatDatepickerModule, MatNativeDateModule, MatIconModule,
   MatButtonModule, MatAutocompleteModule } from '@angular/material';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { CompetitionComponent } from '@src/app/competition/competition.component';
@@ -34,6 +34,8 @@ import { UserComponent } from '@src/app/user/user.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FirebaseService } from './services/firebase.service';
+import { FirebaseWebService } from './services/firebaseweb.service';
 
 @NgModule({
   declarations: [
@@ -88,7 +90,12 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     }),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: FirebaseService,
+      useClass: FirebaseWebService
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from './services/authentication.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -46,6 +46,18 @@ export class AppComponent {
     this.router.navigate(['/user']);
   }
 
+  horses() {
+    this.router.navigate(['/horses']);
+  }
+
+  riders() {
+    this.router.navigate(['/riders']);
+  }
+
+  clubs() {
+    this.router.navigate(['/clubs']);
+  }
+
   isLoggedIn() {
     return this.authService.isLoggedIn;
   }
@@ -53,5 +65,13 @@ export class AppComponent {
   useLanguage(language: string) {
     this.translate.use(language);
 }
+
+  changeLanguage() {
+    if (this.translate.currentLang === 'en') {
+      this.translate.use('es');
+    } else {
+      this.translate.use('en');
+    }
+  }
 
 }

@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms'
 import { MatDialog } from '@angular/material';
 import { FirebaseService } from '../services/firebase.service';
 import { Router } from '@angular/router';
-import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-new-rider',
@@ -38,8 +37,7 @@ export class NewRiderComponent implements OnInit {
     private fb: FormBuilder,
     public dialog: MatDialog,
     private firebaseService: FirebaseService,
-    private router: Router,
-    private firebaseStorage: AngularFireStorage
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -90,10 +88,9 @@ export class NewRiderComponent implements OnInit {
   }
 
   upload(value) {
-    let file = this.formData.get('picture');
+    const file = this.formData.get('picture');
     this.fileName = value.name;
-    let ref = this.firebaseStorage.ref(this.fileName);
-    let task = this.firebaseStorage.upload(this.fileName, file);
+    this.firebaseService.upload(this.fileName, file);
   }
 
 }

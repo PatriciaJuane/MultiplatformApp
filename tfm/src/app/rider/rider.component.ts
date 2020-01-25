@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RiderDto } from '../models/RiderDto';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
-import { AngularFireStorage } from '@angular/fire/storage';
 
 @Component({
   selector: 'app-rider',
@@ -16,8 +15,7 @@ export class RiderComponent implements OnInit {
 
   constructor(
     protected actRoute: ActivatedRoute,
-    private firebaseService: FirebaseService,
-    private firebaseStorage: AngularFireStorage
+    private firebaseService: FirebaseService
   ) { }
 
   ngOnInit() {
@@ -26,7 +24,7 @@ export class RiderComponent implements OnInit {
 
       this.firebaseService.getRiderByName(id).subscribe((res: RiderDto[]) => {
         this.rider = res[0];
-        this.downloadURL = this.firebaseStorage.ref(this.rider.name).getDownloadURL();
+        this.downloadURL = this.firebaseService.getDownloadUrl(this.rider.name);
       });
     });
   }
