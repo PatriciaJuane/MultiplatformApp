@@ -44,12 +44,14 @@
         <Label text="Results"  class="h2 p-15 m-10"></Label>
         <ListView [items]="results" class="list-group" height="350">
             <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-                <GridLayout columns="auto, *, *" (tap)="onItemSelected(item)">        
+                <GridLayout columns="auto, *, *, *" (tap)="onItemSelected(item)">        
                     <Label [text]="item?.position" class="list-group-item" col="0"></Label>
-                    <!-- <Label [text]="item?.initDate" col="1" class="list-group-item"></Label> -->
                     <Label [text]="item?.horse" col="1" class="list-group-item"></Label>
                     <Label [text]="item?.rider" col="2" class="list-group-item"></Label>
-                    <!-- <Button [text]="'competitions.action' | translate" (tap)="delete(index, item)"></Button> -->
+                    <div *ngIf="isLoggedIn()">
+                        <Button text="X" (tap)="deleteMobile(index, item)" class="list-group-item delete" col="3"
+                            style="background-color: white;"></Button>
+                    </div>
                 </GridLayout>
             </ng-template>
         </ListView>

@@ -76,4 +76,9 @@ export class TrophyComponent implements OnInit {
       this.firebaseService.deleteResult(this.competitionId, this.trophyId, result.id);
   }
 
+  deleteMobile(index: number, result) {
+    this.results.splice(index, 1);
+    this.firebaseService.deleteResult(this.competitionId, this.trophyId, result.id);
+  }
+
 }

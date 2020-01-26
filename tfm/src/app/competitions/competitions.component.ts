@@ -47,11 +47,16 @@ export class CompetitionsComponent implements OnInit {
     return this.authService.getIsLoggedIn();
   }
 
-   delete(index: number, competition) {
+  delete(index: number, competition) {
       const data = this.dataSource.data;
       data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
       this.dataSource.data = data;
       this.firebaseService.deleteCompetition(competition.id);
+  }
+
+  deleteMobile(index: number, competition) {
+    this.competitions.splice(index, 1);
+    this.firebaseService.deleteCompetition(competition.id);
   }
 
 }

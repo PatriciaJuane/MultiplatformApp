@@ -2,7 +2,7 @@
 <RadSideDrawer tkExampleTitle tkToggleNavButton>
     <GridLayout tkDrawerContent rows="30, *" class="sideStackLayout">
         <StackLayout class="sideTitleStackLayout">
-            <Label text="Main Arena" class="t-24"></Label>
+            <Label text="Main Arena" class="t-24" style="color: blue;"></Label>
         </StackLayout>
         <ScrollView row="1">
             <StackLayout class="sideStackLayout">
@@ -24,7 +24,7 @@
                 <Label [text]="'app.clubs' | translate" class="sideLabel" (tap)="clubs()"></Label>
                 <Label [text]="'app.about' | translate" class="sideLabel sideLightGrayLabel"></Label>
                 <Label [text]="'app.language' | translate" class="sideLabel" (tap)="changeLanguage()"></Label>
-                <Label [text]="'app.closeDrawer' | translate" color="gray" padding="10" style="horizontal-align: center"
+                <Label [text]="'app.closeDrawer' | translate" padding="10" style="horizontal-align: center; color: blue;"
                     (tap)="onCloseDrawerTap()"></Label>
                 <Label text=" " class="sideLabel"></Label>
                 <Label [text]="'app.author' | translate" class="sideLabel sideBottomLabel"></Label>

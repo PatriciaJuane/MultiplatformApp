@@ -1,13 +1,14 @@
 <div *ngIf="competitions">
-    <ListView [items]="competitions" class="list-group" height="500">
+    <ListView [items]="competitions" class="list-group" height="800">
         <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
-            <GridLayout columns="*, *, *" (tap)="onItemSelected(item)">        
+            <GridLayout columns="*, *, *, *" (tap)="onItemSelected(item)" row="0">        
                 <Label [text]='item?.name' class="list-group-item" col="0"></Label>
                 <Label [text]="item?.country" col="1" class="list-group-item"></Label>
-                <!-- initDate parsed-->
-                <!-- <Label [text]="item?.type" col="2"></Label> -->
                 <Label [text]="item?.category" col="2" class="list-group-item"></Label>
-                <!-- <Button [text]="'competitions.action' | translate" (tap)="delete(index, item)"></Button> -->
+                <div *ngIf="isLoggedIn()">
+                    <Button text="X" (tap)="deleteMobile(index, item)" class="list-group-item delete" col="3"
+                        style="background-color: white;"></Button>
+                </div>
             </GridLayout>
         </ng-template>
     </ListView>
