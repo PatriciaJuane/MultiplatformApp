@@ -63,7 +63,7 @@ export class CompetitionComponent implements OnInit {
   }
 
   isLoggedIn() {
-    return this.authService.isLoggedIn;
+    return this.authService.getIsLoggedIn();
   }
 
   delete(index: number, trophy) {
@@ -71,6 +71,6 @@ export class CompetitionComponent implements OnInit {
     data.splice((this.paginator.pageIndex * this.paginator.pageSize) + index, 1);
     this.dataSource.data = data;
     this.firebaseService.deleteTrophy(this.id, trophy.id);
-}
+  }
 
 }

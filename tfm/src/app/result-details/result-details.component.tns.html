@@ -6,37 +6,37 @@
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'result.position' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ result?.position }}"></Span>
+                    <Span text=":   {{ result?.position }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3" (tap)="onHorseSelected()">
                 <FormattedString>
                     <Span [text]="'result.horse' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ result?.horse }}" class="url"></Span>
+                    <Span text=":   {{ result?.horse }}" class="url"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3" (tap)="onRiderSelected()">
                 <FormattedString>
                     <Span [text]="'result.rider' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ result?.rider }}" class="url"></Span>
+                    <Span text=":   {{ result?.rider }}" class="url"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3" (tap)="onClubSelected()">
                 <FormattedString>
                     <Span [text]="'result.club' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ result?.club }}" class="url"></Span>
+                    <Span text=":   {{ result?.club }}" class="url"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'result.points' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ result?.points }}"></Span>
+                    <Span text=":   {{ result?.points }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'result.time' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ result?.time | minuteSeconds }}s"></Span>
+                    <Span text=":   {{ result?.time | minuteSeconds }}s"></Span>
                 </FormattedString>
             </Label>
         </StackLayout>

@@ -6,35 +6,37 @@
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'trophy.name' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ trophy?.name }}"></Span>
+                    <Span text=":   {{ trophy?.name }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'trophy.category' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ trophy?.category }}"></Span>
+                    <Span text=":   {{ trophy?.category }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'trophy.initDate' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ trophy?.initDate | date:'shortDate' }}"></Span>
+                    <Span text=":   {{ trophy?.initDate | date:'shortDate' }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'trophy.hour' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ trophy?.hour }}"></Span>
+                    <Span text=":   {{ trophy?.hour }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'trophy.arena' | translate" fontAttributes="Bold"></Span>
-                    <Span text=": {{ trophy?.arena }}"></Span>
+                    <Span text=":   {{ trophy?.arena }}"></Span>
                 </FormattedString>
             </Label>
-            <Button [text]="'trophy.addResult' | translate" (tap)="addResult()" margin="12"
-            horizontalAlignment="center" class="btn btn-primary"></Button>
+            <div *ngIf="isLoggedIn()">
+                <Button [text]="'trophy.addResult' | translate" (tap)="addResult()" margin="12"
+                horizontalAlignment="center" class="btn btn-primary"></Button>
+            </div>
         </StackLayout>
     </div>
 

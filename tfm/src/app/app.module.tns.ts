@@ -13,7 +13,6 @@ import { HorseComponent } from '@src/app/horse/horse.component';
 import { RiderComponent } from '@src/app/rider/rider.component';
 import { ClubComponent } from '@src/app/club/club.component';
 import { LogInComponent } from '@src/app/log-in/log-in.component';
-import { UserComponent } from '@src/app/user/user.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '@src/environments/environment';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -35,6 +34,9 @@ import { DropDownModule } from 'nativescript-drop-down/angular';
 import { NewClubComponent } from './new-club/new-club.component.tns';
 import { NewRiderComponent } from './new-rider/new-rider.component.tns';
 import { NewHorseComponent } from './new-horse/new-horse.component.tns';
+import { AuthMobileService } from './services/authenticationmobile.service';
+import { AuthService } from './services/authentication.service';
+import { UserComponent } from './user/user.component.tns';
 
 @NgModule({
   declarations: [
@@ -82,6 +84,10 @@ import { NewHorseComponent } from './new-horse/new-horse.component.tns';
     {
       provide: FirebaseService,
       useClass: FirebaseMobileService
+    },
+    {
+      provide: AuthService,
+      useClass: AuthMobileService
     },
   ],
   bootstrap: [AppComponent],

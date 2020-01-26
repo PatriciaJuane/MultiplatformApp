@@ -36,6 +36,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FirebaseService } from './services/firebase.service';
 import { FirebaseWebService } from './services/firebaseweb.service';
+import { AuthService } from './services/authentication.service';
+import { AuthWebService } from './services/authenticationweb.service.';
 
 @NgModule({
   declarations: [
@@ -94,6 +96,10 @@ import { FirebaseWebService } from './services/firebaseweb.service';
     {
       provide: FirebaseService,
       useClass: FirebaseWebService
+    },
+    {
+      provide: AuthService,
+      useClass: AuthWebService
     },
   ],
   bootstrap: [AppComponent]

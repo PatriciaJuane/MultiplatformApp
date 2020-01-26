@@ -1,64 +1,25 @@
 import { Injectable, NgZone } from '@angular/core';
 import { auth } from 'firebase/app';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from '@angular/fire/auth';
 import { User } from '../models/User';
 import firebase from '@firebase/app';
 
-@Injectable({
-    providedIn: 'root'
-})
+@Injectable()
+export abstract class AuthService {
 
-export class AuthService {
-    user: User;
-
-    constructor(
-        public router: Router,
-        public ngZone: NgZone,
-        public afAuth: AngularFireAuth
-    ) {
-        this.afAuth.authState.subscribe(user => {
-            this.user = user;
-        });
-    }
-
-    // Firebase SignInWithPopup
-    OAuthProvider(provider) {
-        return this.afAuth.auth.signInWithPopup(provider)
-            .then((res) => {
-                this.ngZone.run(() => {
-                    this.router.navigate(['/user']);
-                });
-            }).catch((error) => {
-                window.alert(error);
-            });
-    }
+    constructor() {}
 
     // Firebase Google Sign-in
-    SigninWithGoogle() {
-        return this.OAuthProvider(new auth.GoogleAuthProvider())
-            .then(res => {
-                this.router.navigate(['/user']);
-                console.log('Successfully logged in!');
-            }).catch(error => {
-                console.log(error);
-            });
+    public SigninWithGoogle(): any {
     }
 
     // Firebase Logout
-    SignOut() {
-        this.user = null;
-        return this.afAuth.auth.signOut().then(() => {
-            this.router.navigate(['/login']);
-        });
+    public SignOut(): any {
     }
 
-    getCurrentUser() {
-      return this.afAuth.auth.currentUser;
+    public getCurrentUser(): any {
     }
 
-    get isLoggedIn(): boolean {
-        return (this.user !== null) ? true : false;
+    public getIsLoggedIn(): any {
     }
-
 }

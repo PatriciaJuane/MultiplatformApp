@@ -66,7 +66,7 @@ export class TrophyComponent implements OnInit {
   }
 
   isLoggedIn() {
-    return this.authService.isLoggedIn;
+    return this.authService.getIsLoggedIn();
   }
 
   delete(index: number, result) {

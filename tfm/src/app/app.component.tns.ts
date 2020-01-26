@@ -68,7 +68,7 @@ export class AppComponent implements AfterViewInit {
   }
 
   isLoggedIn() {
-    return this.authService.isLoggedIn;
+    return this.authService.getIsLoggedIn();
   }
 
   useLanguage(language: string) {

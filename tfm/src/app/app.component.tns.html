@@ -7,11 +7,18 @@
         <ScrollView row="1">
             <StackLayout class="sideStackLayout">
                 <Label [text]="'app.home' | translate" class="sideLabel" (tap)="returnHome()"></Label>
-                <Label [text]="'app.profile' | translate" class="sideLabel" (tap)="profile()"></Label>
-                <Label [text]="'app.newHorse' | translate" class="sideLabel" (tap)="addHorse()"></Label>
-                <Label [text]="'app.newRider' | translate" class="sideLabel" (tap)="addRider()"></Label>
-                <Label [text]="'app.newClub' | translate" class="sideLabel" (tap)="addClub()"></Label>
-                <Label [text]="'app.newCompetition' | translate" class="sideLabel" (tap)=addCompetition()></Label>
+                <div *ngIf="isLoggedIn()">
+                    <Label [text]="'app.profile' | translate" class="sideLabel" (tap)="profile()"></Label>
+                </div>
+                <div>
+                    <Label [text]="'app.logIn' | translate" class="sideLabel" (tap)="login()"></Label>
+                </div>
+                <div *ngIf="isLoggedIn()">
+                    <Label [text]="'app.newHorse' | translate" class="sideLabel" (tap)="addHorse()"></Label>
+                    <Label [text]="'app.newRider' | translate" class="sideLabel" (tap)="addRider()"></Label>
+                    <Label [text]="'app.newClub' | translate" class="sideLabel" (tap)="addClub()"></Label>
+                    <Label [text]="'app.newCompetition' | translate" class="sideLabel" (tap)=addCompetition()></Label>
+                </div>
                 <Label [text]="'app.riders' | translate" class="sideLabel" (tap)="riders()"></Label>
                 <Label [text]="'app.horses' | translate" class="sideLabel" (tap)="horses()"></Label>
                 <Label [text]="'app.clubs' | translate" class="sideLabel" (tap)="clubs()"></Label>

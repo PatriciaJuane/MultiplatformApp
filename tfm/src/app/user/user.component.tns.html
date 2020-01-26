@@ -1,1 +1,20 @@
-<Button text="user works!" class="btn btn-primary"></Button>
+<ActionBar title="Main Arena - Profile"></ActionBar>
+
+<StackLayout class="profile p-20">
+    <div *ngIf="user.photoURL">
+        <Image [src]="user.photoURL" stretch="aspectFit" width="250" height="250" class="m-25"></Image>
+    </div>
+    <Label class="h3">
+      <FormattedString>
+          <Span [text]="'profile.name' | translate"></Span>
+          <Span text=": {{ user?.displayName }}" style="horizontal-align: center"></Span>
+      </FormattedString>
+    </Label>
+    <Label class="h3">
+      <FormattedString>
+          <Span [text]="'profile.email' | translate"></Span>
+          <Span text=": {{ user?.email }}"></Span>
+      </FormattedString>
+    </Label>
+    <Button [text]="'profile.logout' | translate" (tap)="logout()" class="btn-logout"></Button>
+</StackLayout>

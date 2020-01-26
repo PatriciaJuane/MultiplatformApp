@@ -44,7 +44,7 @@ export class CompetitionsComponent implements OnInit {
   }
 
   isLoggedIn() {
-    return this.authService.isLoggedIn;
+    return this.authService.getIsLoggedIn();
   }
 
    delete(index: number, competition) {
