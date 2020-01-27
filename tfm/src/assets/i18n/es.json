@@ -16,7 +16,8 @@
         "home": "Inicio",
         "language": "Cambiar a Inglés",
         "closeDrawer": "Cerrar Menú",
-        "about": "Información"
+        "about": "Información",
+        "profileTitle": "Main Arena - Perfil"
     },
     "home": {
         "welcome": "¡Bienvenido a tu aplicación de competiciones ecuestres!",
@@ -49,7 +50,8 @@
         "hour": "Hora",
         "website": "Pág. web",
         "country": "País",
-        "type": "Tipo"
+        "type": "Tipo",
+        "trophies": "Trofeos"
     },
     "trophy": {
         "name": "Nombre",
@@ -66,7 +68,8 @@
         "time": "Tiempo",
         "hour": "Hora",
         "action": "Acción",
-        "delete": "Borrar"
+        "delete": "Borrar",
+        "results": "Resultados"
     },
     "result": {
         "position": "Posición",
@@ -74,34 +77,52 @@
         "time": "Tiempo",
         "horse": "Caballo",
         "rider": "Jinete",
-        "club": "Club"
+        "club": "Club",
+        "competitionName": "Competición"
     },
     "horse": {
         "name": "Nombre",
         "license": "Licencia",
         "colour": "Color",
         "age": "Edad",
-        "breed": "Raza"
+        "breed": "Raza",
+        "filter": "Filtrar",
+        "action": "Acción",
+        "delete": "Eliminar",
+        "results": "Resultados",
+        "horses": "Main Arena - Caballos"
     },
     "rider": {
         "name": "Nombre",
         "license": "Licencia",
         "age": "Edad",
         "country": "País",
-        "gender": "Género"
+        "gender": "Género",
+        "filter": "Filtrar",
+        "action": "Acción",
+        "delete": "Eliminar",
+        "results": "Resultados",
+        "riders": "Main Arena - Jinetes"
     },
     "club": {
         "name": "Nombre",
         "country": "País",
         "location": "Localización",
         "size": "Tamaño",
-        "website": "Pág. web"
+        "website": "Pág. web",
+        "filter": "Filtrar",
+        "action": "Acción",
+        "delete": "Eliminar",
+        "results": "Resultados",
+        "clubs": "Main Arena - Clubes"
     },
     "profile": {
         "title": "Perfil de Usuario",
         "name": "Nombre",
         "email": "Email",
-        "logout": "Cerrar sesión"
+        "logout": "Cerrar sesión",
+        "login": "Iniciar sesión con Google",
+        "loginTitle": "Main Arena - Iniciar Sesión"
     },
     "newHorse": {
         "name": "Nombre",
@@ -109,7 +130,7 @@
         "mobileName": "Introduzca el nombre",
         "license": "Licencia",
         "labelLicense": "Licencia *",
-        "mobileLicense": "Introduzca el Nº de licencia",
+        "mobileLicense": "Introduzca el nº de licencia",
         "colour": "Color",
         "labelColour": "Color *",
         "mobileColour": "Introduzca el color",
@@ -123,7 +144,9 @@
         "labelGender": "Género *",
         "mobileGender": "Introduzca el género",
         "picture": "Imagen",
-        "submit": "Enviar"
+        "submit": "Enviar",
+        "title": "Main Arena - Añadir caballo",
+        "image": "Añadir imagen"
     },
     "newRider": {
         "name": "Nombre",
@@ -142,7 +165,9 @@
         "labelGender": "Género *",
         "mobileGender": "Introduzca el género",
         "picture": "Imagen",
-        "submit": "Enviar"
+        "submit": "Enviar",
+        "title": "Main Arena - Añadir Jinete",
+        "image": "Añadir Imagen"
     },
     "newClub": {
         "name": "Nombre",
@@ -160,7 +185,8 @@
         "website": "Pág. web",
         "labelWebsite": "Pág. web *",
         "mobileWebsite": "Introduzca la pág. web",
-        "submit": "Enviar"
+        "submit": "Enviar",
+        "title":"Main Arena - Añadir club"
     },
     "newCompetition": {
         "name": "Nombre",
@@ -184,7 +210,8 @@
         "type": "Tipo",
         "labelType": "Tipo *",
         "mobileType": "Introduzca el tipo",
-        "submit": "Enviar"
+        "submit": "Enviar",
+        "title":"Main Arena - Añadir competición"
     },
     "newTrophy": {
         "name": "Nombre",
@@ -199,7 +226,8 @@
         "labelInitDate": "Fecha de inicio *",
         "submit": "Enviar",
         "hour": "Hora",
-        "mobileHour": "Introduzca la hora"
+        "mobileHour": "Introduzca la hora",
+        "title": "Main Arena - Añadir Trofeo"
     },
     "newResult": {
         "position": "Posición",
@@ -217,6 +245,7 @@
         "labelRider": "Jinete *",
         "club": "Nombre del Club",
         "labelClub": "Club *",
-        "submit": "Enviar"
+        "submit": "Enviar",
+        "title": "Main Arena - Añadir Resultado"
     }
 }  

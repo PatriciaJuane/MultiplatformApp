@@ -1,45 +1,58 @@
+
+<ActionBar title="Main Arena - Rider: {{ rider?.name }}"></ActionBar>
 <StackLayout>
-    <ActionBar title="Main Arena - Rider: {{ rider?.name }}"></ActionBar>
-    <ScrollView height="500">
-        <div *ngIf="rider">
-            <StackLayout class="item item-header" class="p-15 m-10">
-                <div *ngIf="downloadURL | async; let url">
-                    <Image [src]="url"></Image>
-                </div>
+    <div *ngIf="rider">
+        <StackLayout class="item item-header" class="p-15 m-10">
+            <div *ngIf="downloadURL | async; let url">
+                <Image [src]="url" width="250" height="250"></Image>
+            </div>
             <br/>
             <br/>
-            <br/>
-                <Label class="h3">
-                    <FormattedString>
-                        <Span [text]="'rider.name' | translate" fontAttributes="Bold"></Span>
-                        <Span text=":   {{ rider?.name }}"></Span>
-                    </FormattedString>
-                </Label>
-                <Label class="h3">
-                    <FormattedString>
-                        <Span [text]="'rider.country' | translate" fontAttributes="Bold"></Span>
-                        <Span text=":   {{ rider?.country }}"></Span>
-                    </FormattedString>
-                </Label>
-                <Label class="h3">
-                    <FormattedString>
-                        <Span [text]="'rider.license' | translate" fontAttributes="Bold"></Span>
-                        <Span text=":   {{ rider?.license }}"></Span>
-                    </FormattedString>
-                </Label>
-                <Label class="h3">
-                    <FormattedString>
-                        <Span [text]="'rider.age' | translate" fontAttributes="Bold"></Span>
-                        <Span text=":   {{ rider?.age }}"></Span>
-                    </FormattedString>
-                </Label>
-                <Label class="h3">
-                    <FormattedString>
-                        <Span [text]="'rider.gender' | translate" fontAttributes="Bold"></Span>
-                        <Span text=":   {{ rider?.gender }}"></Span>
-                    </FormattedString>
-                </Label>
-            </StackLayout>
-        </div>
-    </ScrollView>
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'rider.name' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ rider?.name }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'rider.country' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ rider?.country }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'rider.license' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ rider?.license }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'rider.age' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ rider?.age }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'rider.gender' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ rider?.gender }}"></Span>
+                </FormattedString>
+            </Label>
+        </StackLayout>
+    </div>
+
+    <Label [text]="'rider.results' | translate" class="h2 p-15 m-10"></Label>
+    <div *ngIf="results">
+        <ScrollView height="500">
+            <ListView [items]="results" class="list-group">
+                <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                    <GridLayout columns="*, *, *">        
+                        <Label [text]="item?.position" class="list-group-item" col="0"></Label>
+                        <Label [text]="item?.horse" col="1" class="list-group-item"></Label>
+                        <Label [text]="item?.competitionName" col="2" class="list-group-item"></Label>
+                    </GridLayout>
+                </ng-template>
+            </ListView>
+        </ScrollView>
+    </div>
 </StackLayout>

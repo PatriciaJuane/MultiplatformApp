@@ -91,4 +91,8 @@ export class AppComponent implements AfterViewInit {
     this.drawer.closeDrawer();
   }
 
+  about() {
+    this.router.navigate(['/about']);
+  }
+
 }

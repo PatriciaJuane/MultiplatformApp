@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { RiderDto } from '../models/RiderDto';
 import { ActivatedRoute, Params } from '@angular/router';
 import { FirebaseService } from '../services/firebase.service';
+import { ResultExtendedDto } from '../models/ResultExtendedDto';
+import { MatTableDataSource, MatPaginator, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-rider',
@@ -12,6 +14,12 @@ export class RiderComponent implements OnInit {
 
   rider: RiderDto;
   downloadURL: any;
+
+  results: ResultExtendedDto[];
+  displayedColumns: string[] = ['position', 'horse', 'points', 'time', 'competitionName'];
+  dataSource =  new MatTableDataSource<ResultExtendedDto>();
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort, {static: true}) sort: MatSort;
 
   constructor(
     protected actRoute: ActivatedRoute,
@@ -25,8 +33,18 @@ export class RiderComponent implements OnInit {
       this.firebaseService.getRiderByName(id).subscribe((res: RiderDto[]) => {
         this.rider = res[0];
         this.downloadURL = this.firebaseService.getDownloadUrl(this.rider.name);
+        this.firebaseService.getResultsFromRider(id).subscribe(data => {
+          this.dataSource.data = data;
+          this.results = data;
+        });
       });
     });
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
 }

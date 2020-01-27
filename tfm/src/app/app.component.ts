@@ -74,4 +74,8 @@ export class AppComponent {
     }
   }
 
+  about() {
+    this.router.navigate(['/about']);
+  }
+
 }

@@ -95,7 +95,19 @@ export abstract class FirebaseService {
   public getResultsFromRider(value): any {
   }
 
+  public deleteRider(riderKey: string): any {
+  }
+
   public getResultsFromHorse(value): any {
+  }
+
+  public deleteHorse(horseKey: string): any {
+  }
+
+  public getResultsFromClub(value): any {
+  }
+
+  public deleteClub(clubKey: string): any {
   }
 
   public upload(fileName, file): any {

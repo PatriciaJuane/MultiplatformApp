@@ -16,7 +16,8 @@
         "home": "Home",
         "language": "Change to Spanish",
         "closeDrawer": "Close Drawer",
-        "about": "About"
+        "about": "About",
+        "profileTitle": "Main Arena - Profile"
     },
     "home": {
         "welcome": "Welcome to your equestrian competition application!",
@@ -49,7 +50,8 @@
         "hour": "Hour",
         "website": "Website",
         "type": "Type",
-        "country": "Country"
+        "country": "Country",
+        "trophies": "Trophies"
     },
     "trophy": {
         "name": "Name",
@@ -66,7 +68,8 @@
         "time": "Time",
         "hour": "Hour",
         "action": "Action",
-        "delete": "Delete"
+        "delete": "Delete",
+        "results": "Results"
     },
     "result": {
         "position": "Position",
@@ -74,34 +77,52 @@
         "time": "Time",
         "horse": "Horse",
         "rider": "Rider",
-        "club": "Club"
+        "club": "Club",
+        "competitionName": "Competition"
     },
     "horse": {
         "name": "Name",
         "license": "License",
         "colour": "Colour",
         "age": "Age",
-        "breed": "Breed"
+        "breed": "Breed",
+        "filter": "Filter",
+        "action": "Action",
+        "delete": "Delete",
+        "results": "Results",
+        "horses": "Main Arena - Horses"
     },
     "rider": {
         "name": "Name",
         "license": "License",
         "age": "Age",
         "country": "Country",
-        "gender": "Gender"
+        "gender": "Gender",
+        "filter": "Filter",
+        "action": "Action",
+        "delete": "Delete",
+        "results": "Results",
+        "riders": "Main Arena - Riders"
     },
     "club": {
         "name": "Name",
         "country": "Country",
         "location": "Location",
         "size": "Size",
-        "website": "Website"
+        "website": "Website",
+        "filter": "Filter",
+        "action": "Action",
+        "delete": "Delete",
+        "results": "Results",
+        "clubs": "Main Arena - Clubs"
     },
     "profile": {
         "title": "User Profile",
         "name": "Name",
         "email": "Email",
-        "logout": "Logout"
+        "logout": "Logout",
+        "login": "Login with Google",
+        "loginTitle": "Main Arena - Login"
     },
     "newHorse": {
         "name": "Name",
@@ -123,83 +144,90 @@
         "labelGender": "Gender *",
         "mobileGender": "Enter the gender",
         "picture": "Picture",
-        "submit": "Submit"
+        "submit": "Submit",
+        "title": "Main Arena - Add horse",
+        "image": "Pick Image"
     },
     "newRider": {
         "name": "Name",
         "labelName": "Name *",
-        "mobileName": "Enter the Name",
+        "mobileName": "Enter the name",
         "license": "License",
         "labelLicense": "License *",
-        "mobileLicense": "Enter the License",
+        "mobileLicense": "Enter the license",
         "age": "Age",
         "labelAge": "Age *",
-        "mobileAge": "Enter the Age",
+        "mobileAge": "Enter the age",
         "country": "Country",
         "labelCountry": "Country *",
-        "mobileCountry": "Enter the Country",
+        "mobileCountry": "Enter the country",
         "gender": "Gender",
         "labelGender": "Gender *",
         "mobileGender": "Enter the gender",
         "picture": "Picture",
-        "submit": "Submit"
+        "submit": "Submit",
+        "title": "Main Arena - Add rider",
+        "image": "Pick Image"
     },
     "newClub": {
         "name": "Name",
         "labelName": "Name *",
-        "mobileName": "Enter the Name",
+        "mobileName": "Enter the name",
         "country": "Country",
         "labelCountry": "Country *",
-        "mobileCountry": "Enter the Country",
+        "mobileCountry": "Enter the country",
         "location": "Location",
         "labelLocation": "Location *",
-        "mobileLocation": "Enter the Location",
+        "mobileLocation": "Enter the location",
         "size": "Size",
         "labelSize": "Size *",
-        "mobileSize": "Enter the Size",
+        "mobileSize": "Enter the size",
         "website": "Website",
         "labelWebsite": "Website *",
-        "mobileWebsite": "Enter the Website",
-        "submit": "Submit"
+        "mobileWebsite": "Enter the website",
+        "submit": "Submit",
+        "title":"Main Arena - Add club"
     },
     "newCompetition": {
         "name": "Name",
         "labelName": "Name *",
-        "mobileName": "Enter the Name",
+        "mobileName": "Enter the name",
         "country": "Country",
         "labelCountry": "Country *",
         "mobileCountry": "Enter the Country",
         "location": "Location",
         "labelLocation": "Location *",
-        "mobileLocation": "Enter the Location",
+        "mobileLocation": "Enter the location",
         "category": "Category",
         "labelCategory": "Category *",
-        "mobileCategory": "Enter the Category",
+        "mobileCategory": "Enter the category",
         "initDate": "Init Date",
         "labelInitDate": "Init Date *",
         "endDate": "End Date",
         "labelEndDate": "End Date *",
         "website": "Website",
-        "mobileWebsite": "Enter the Website",
+        "mobileWebsite": "Enter the website",
         "type": "Type",
         "labelType": "Type *",
         "mobileType": "Enter the Type",
-        "submit": "Submit"
+        "submit": "Submit",
+        "title":"Main Arena - Add competition"
     },
     "newTrophy": {
         "name": "Name",
         "labelName": "Name *",
-        "mobileName": "Enter the Name",
+        "mobileName": "Enter the name",
         "arena": "Arena",
-        "mobileArena": "Enter the Arena",
+        "mobileArena": "Enter the arena",
         "category": "Category",
         "labelCategory": "Category *",
-        "mobileCategory": "Enter the Category",
+        "mobileCategory": "Enter the category",
         "initDate": "Init Date",
         "labelInitDate": "Init Date *",
         "submit": "Submit",
         "hour": "Hour",
-        "mobileHour": "Enter the Hour"
+        "mobileHour": "Enter the hour",
+        "title": "Main Arena - New trophy"
     },
     "newResult": {
         "position": "Position",
@@ -217,6 +245,7 @@
         "labelRider": "Rider Name *",
         "club": "Club Name",
         "labelClub": "Club Name *",
-        "submit": "Submit"
+        "submit": "Submit",
+        "title": "Main Arena - Add result"
     }
 }  

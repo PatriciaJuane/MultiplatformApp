@@ -1,0 +1,17 @@
+<ActionBar [title]="'horse.horses' | translate"></ActionBar>
+    <!--<NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton> -->
+
+<div *ngIf="horses">
+    <ListView [items]="horses" class="list-group m-10" height="800">
+        <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+            <GridLayout columns="*, *, *" (tap)="onItemSelected(item)" row="0">        
+                <Label [text]="item?.name" class="list-group-item" col="0"></Label>
+                <Label [text]="item?.breed" class="list-group-item" col="1"></Label>
+                <div *ngIf="isLoggedIn()">
+                    <Button text="X" (tap)="deleteMobile(index, item)" class="list-group-item delete" col="2"
+                        style="background-color: white;"></Button>
+                </div>
+            </GridLayout>
+        </ng-template>
+    </ListView>
+</div>

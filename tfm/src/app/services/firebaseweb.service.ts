@@ -86,21 +86,36 @@ export class FirebaseWebService extends FirebaseService {
   }
 
   createResult(value, competitionId: string, trophyId: string) {
-    this.db.collection('horses').doc(value.horseName).collection('results').add({
+    let competitionName;
+    this.getCompetition(competitionId).subscribe(res => {
+      competitionName = res.name;
+      this.db.collection('horses').doc(value.horseName).collection('results').add({
         position: value.position,
           horse: value.horseName,
           rider: value.riderName,
           club: value.clubName,
           points: value.points,
-          time: value.time
-    });
-    this.db.collection('riders').doc(value.riderName).collection('results').add({
-        position: value.position,
+          time: value.time,
+          competitionName: competitionName
+      });
+      this.db.collection('riders').doc(value.riderName).collection('results').add({
+          position: value.position,
+            horse: value.horseName,
+            rider: value.riderName,
+            club: value.clubName,
+            points: value.points,
+            time: value.time,
+            competitionName: competitionName
+      });
+      this.db.collection('clubs').doc(value.clubName).collection('results').add({
+          position: value.position,
           horse: value.horseName,
           rider: value.riderName,
           club: value.clubName,
           points: value.points,
-          time: value.time
+          time: value.time,
+          competitionName: competitionName
+      });
     });
     return this.db.collection('competitions').doc(competitionId)
       .collection('trophies').doc(trophyId).collection('results').add({
@@ -114,7 +129,7 @@ export class FirebaseWebService extends FirebaseService {
   }
 
   getCompetitions() {
-    this.competitions = this.db.collection<any>('/competitions').snapshotChanges().pipe(
+    this.competitions = this.db.collection<any>('/competitions', ref => ref.orderBy('initDate', 'desc')).snapshotChanges().pipe(
       map(actions =>
           actions.map(a => {
             const data = a.payload.doc.data();
@@ -134,7 +149,7 @@ export class FirebaseWebService extends FirebaseService {
 
   getTrophiesFromCompetition(compKey) {
     this.trophies = this.db.collection('competitions').doc(compKey)
-    .collection<any>('trophies').snapshotChanges().pipe(
+    .collection<any>('trophies', ref => ref.orderBy('initDate', 'desc')).snapshotChanges().pipe(
       map(actions =>
         actions.map(a => {
           const data = a.payload.doc.data();
@@ -154,7 +169,7 @@ export class FirebaseWebService extends FirebaseService {
   getResultsFromTrophy(compKey, trophyKey) {
     this.results = this.db.collection('competitions').doc(compKey)
     .collection('trophies').doc(trophyKey)
-    .collection<any>('results').snapshotChanges().pipe(
+    .collection<any>('results', ref => ref.orderBy('position', 'asc')).snapshotChanges().pipe(
       map(actions =>
         actions.map(a => {
           const data = a.payload.doc.data();
@@ -173,7 +188,7 @@ export class FirebaseWebService extends FirebaseService {
   }
 
   getAllHorses() {
-    this.horses = this.db.collection<any>('/horses').snapshotChanges().pipe(
+    this.horses = this.db.collection<any>('/horses', ref => ref.orderBy('name', 'asc')).snapshotChanges().pipe(
       map(actions =>
           actions.map(a => {
             const data = a.payload.doc.data();
@@ -185,7 +200,7 @@ export class FirebaseWebService extends FirebaseService {
   }
 
   getAllRiders() {
-    this.riders = this.db.collection<any>('/riders').snapshotChanges().pipe(
+    this.riders = this.db.collection<any>('/riders', ref => ref.orderBy('name', 'asc')).snapshotChanges().pipe(
       map(actions =>
           actions.map(a => {
             const data = a.payload.doc.data();
@@ -197,7 +212,7 @@ export class FirebaseWebService extends FirebaseService {
   }
 
   getAllClubs() {
-    this.clubs = this.db.collection<any>('/clubs').snapshotChanges().pipe(
+    this.clubs = this.db.collection<any>('/clubs', ref => ref.orderBy('name', 'asc')).snapshotChanges().pipe(
       map(actions =>
           actions.map(a => {
             const data = a.payload.doc.data();
@@ -252,7 +267,7 @@ export class FirebaseWebService extends FirebaseService {
 
   getResultsFromRider(value: string) {
     this.results = this.db.collection('riders').doc(value)
-    .collection<any>('results').snapshotChanges().pipe(
+    .collection<any>('results', ref => ref.orderBy('position', 'asc')).snapshotChanges().pipe(
       map(actions =>
         actions.map(a => {
           const data = a.payload.doc.data();
@@ -264,9 +279,17 @@ export class FirebaseWebService extends FirebaseService {
     return this.results;
   }
 
+  deleteRider(riderKey: string) {
+    this.db.collection('riders').doc(riderKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }
+
   getResultsFromHorse(value: string) {
     this.results = this.db.collection('horses').doc(value)
-    .collection<any>('results').snapshotChanges().pipe(
+    .collection<any>('results', ref => ref.orderBy('position', 'asc')).snapshotChanges().pipe(
       map(actions =>
         actions.map(a => {
           const data = a.payload.doc.data();
@@ -276,6 +299,36 @@ export class FirebaseWebService extends FirebaseService {
       )
     );
     return this.results;
+  }
+
+  deleteHorse(horseKey: string) {
+    this.db.collection('horses').doc(horseKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }
+
+  public getResultsFromClub(value): any {
+    this.results = this.db.collection('clubs').doc(value)
+    .collection<any>('results', ref => ref.orderBy('position', 'asc')).snapshotChanges().pipe(
+      map(actions =>
+        actions.map(a => {
+          const data = a.payload.doc.data();
+          const id = a.payload.doc.id;
+          return { id, ...data };
+        })
+      )
+    );
+    return this.results;
+  }
+
+  deleteClub(clubKey: string) {
+    this.db.collection('clubs').doc(clubKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
   }
 
   public upload(fileName, file): any {

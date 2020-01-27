@@ -98,36 +98,40 @@ export class FirebaseMobileService extends FirebaseService {
   }
 
   createResult(value: ResultDto, competitionId: string, trophyId: string) {
-    const horseDoc = firebaseApp.firestore().collection('horses').doc(value.horse);
-    horseDoc.collection('results').add({
-      position: value.position,
-        horse: value.horse,
-        rider: value.rider,
-        club: value.club,
-        points: value.points,
-        time: value.time
+    let competitionName;
+    this.getCompetition(competitionId).subscribe(res => {
+      competitionName = res.name;
+      const horseDoc = firebaseApp.firestore().collection('horses').doc(value.horse);
+      horseDoc.collection('results').add({
+        position: value.position,
+          horse: value.horse,
+          rider: value.rider,
+          club: value.club,
+          points: value.points,
+          time: value.time,
+          competitionName: competitionName
+      });
+      const riderDoc = firebaseApp.firestore().collection('riders').doc(value.rider);
+      riderDoc.collection('results').add({
+        position: value.position,
+          horse: value.horse,
+          rider: value.rider,
+          club: value.club,
+          points: value.points,
+          time: value.time,
+          competitionName: competitionName
+      });
+      const clubDoc = firebaseApp.firestore().collection('clubs').doc(value.club);
+      clubDoc.collection('results').add({
+        position: value.position,
+          horse: value.horse,
+          rider: value.rider,
+          club: value.club,
+          points: value.points,
+          time: value.time,
+          competitionName: competitionName
+      });
     });
-
-    const riderDoc = firebaseApp.firestore().collection('riders').doc(value.rider);
-    riderDoc.collection('results').add({
-      position: value.position,
-        horse: value.horse,
-        rider: value.rider,
-        club: value.club,
-        points: value.points,
-        time: value.time
-    });
-
-    const clubDoc = firebaseApp.firestore().collection('clubs').doc(value.club);
-    clubDoc.collection('results').add({
-      position: value.position,
-        horse: value.horse,
-        rider: value.rider,
-        club: value.club,
-        points: value.points,
-        time: value.time
-    });
-
     const resultsCollection = firebaseApp.firestore().collection('competitions').doc(competitionId)
     .collection('trophies').doc(trophyId).collection('results');
     return resultsCollection.add({
@@ -141,7 +145,7 @@ export class FirebaseMobileService extends FirebaseService {
   }
 
   getCompetitions(): Observable<any[]> {
-    const competitionsCollection = firebaseApp.firestore().collection('competitions');
+    const competitionsCollection = firebaseApp.firestore().collection('competitions').orderBy('initDate', 'desc');
     return new Observable(observer => {
         const unsubscribe = competitionsCollection.onSnapshot((snapshot: any) => {
           let results = [];
@@ -174,7 +178,7 @@ export class FirebaseMobileService extends FirebaseService {
 
   getTrophiesFromCompetition(compKey) {
     const trophiesCollection = firebaseApp.firestore().collection('competitions').
-      doc(compKey).collection('trophies');
+      doc(compKey).collection('trophies').orderBy('initDate', 'desc');
 
     return new Observable(observer => {
       const unsubscribe = trophiesCollection.onSnapshot((snapshot: any) => {
@@ -209,7 +213,7 @@ export class FirebaseMobileService extends FirebaseService {
 
   getResultsFromTrophy(compKey, trophyKey) {
     const resultsCollection = firebaseApp.firestore().collection('competitions').doc(compKey)
-    .collection('trophies').doc(trophyKey).collection('results');
+    .collection('trophies').doc(trophyKey).collection('results').orderBy('position', 'asc');
 
     return new Observable(observer => {
       const unsubscribe = resultsCollection.onSnapshot((snapshot: any) => {
@@ -242,7 +246,7 @@ export class FirebaseMobileService extends FirebaseService {
   }
 
   getAllHorses() {
-     const horseCollection = firebaseApp.firestore().collection('horses');
+     const horseCollection = firebaseApp.firestore().collection('horses').orderBy('name', 'asc');
 
      return new Observable(observer => {
       const unsubscribe = horseCollection.onSnapshot((snapshot: any) => {
@@ -262,7 +266,7 @@ export class FirebaseMobileService extends FirebaseService {
   }
 
   getAllRiders() {
-    const ridersCollection = firebaseApp.firestore().collection('riders');
+    const ridersCollection = firebaseApp.firestore().collection('riders').orderBy('name', 'asc');
 
     return new Observable(observer => {
       const unsubscribe = ridersCollection.onSnapshot((snapshot: any) => {
@@ -282,7 +286,7 @@ export class FirebaseMobileService extends FirebaseService {
   }
 
   getAllClubs() {
-    const clubsCollection = firebaseApp.firestore().collection('clubs');
+    const clubsCollection = firebaseApp.firestore().collection('clubs').orderBy('name', 'asc');
 
     return new Observable(observer => {
       const unsubscribe = clubsCollection.onSnapshot((snapshot: any) => {
@@ -390,19 +394,11 @@ export class FirebaseMobileService extends FirebaseService {
       // the full path of an existing file in Firebase storage
       remoteFullPath: value
     });
-    /*).then(
-        function (url) {
-          console.log('Remote URL: ' + url);
-        },
-        function (error) {
-          console.log('Error: ' + error);
-        }
-    );*/
   }
 
   getResultsFromRider(value): any {
     const resultsCollection = firebaseApp.firestore().collection('riders').
-      doc(value).collection('results');
+      doc(value).collection('results').orderBy('position', 'asc');
 
     return new Observable(observer => {
       const unsubscribe = resultsCollection.onSnapshot((snapshot: any) => {
@@ -418,12 +414,21 @@ export class FirebaseMobileService extends FirebaseService {
         });
       });
       return () => unsubscribe();
+    });
+  }
+
+  deleteRider(riderKey: string) {
+    const ridersCollection = firebaseApp.firestore().collection('riders');
+    ridersCollection.doc(riderKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
     });
   }
 
   getResultsFromHorse(value): any {
     const resultsCollection = firebaseApp.firestore().collection('horses').
-    doc(value).collection('results');
+    doc(value).collection('results').orderBy('position', 'asc');
 
     return new Observable(observer => {
       const unsubscribe = resultsCollection.onSnapshot((snapshot: any) => {
@@ -441,6 +446,46 @@ export class FirebaseMobileService extends FirebaseService {
       return () => unsubscribe();
     });
   }
+
+  deleteHorse(horseKey: string) {
+    const horsesCollection = firebaseApp.firestore().collection('horses');
+    horsesCollection.doc(horseKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }
+
+  getResultsFromClub(value): any {
+    const resultsCollection = firebaseApp.firestore().collection('clubs').
+    doc(value).collection('results').orderBy('position', 'asc');
+
+    return new Observable(observer => {
+      const unsubscribe = resultsCollection.onSnapshot((snapshot: any) => {
+        let results = [];
+        snapshot.forEach(doc => results.push({id: doc.id, ...doc.data()}));
+
+        this.zone.run(() => {
+            if (results !== undefined) {
+                observer.next(results);
+            } else {
+                observer.next(undefined);
+            }
+        });
+      });
+      return () => unsubscribe();
+    });
+  }
+
+  deleteClub(clubKey: string) {
+    const clubsCollection = firebaseApp.firestore().collection('clubs');
+    clubsCollection.doc(clubKey).delete().then(function() {
+      console.log('Document successfully deleted!');
+    }).catch(function(error) {
+      console.error('Error removing document: ', error);
+    });
+  }
+
 
   public upload(fileName, file): any {
     const ref = firebase.storage.ref(fileName);

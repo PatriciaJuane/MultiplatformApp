@@ -1,5 +1,5 @@
 
-<ActionBar title="Main Arena - New Rider">
+<ActionBar [title]="'newRider.title' | translate">
     <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
 </ActionBar>
 
@@ -27,7 +27,7 @@
         </StackLayout>
         <StackLayout class="input-field">
             <Label [text]="'newRider.picture' | translate"></Label>
-            <Button text="Pick Image" (tap)="onSelectSingleTap()"></Button>
+            <Button [text]="'newRider.image' | translate" (tap)="onSelectSingleTap()"></Button>
             <Image *ngIf="picture" [src]="picture" [width]="300" [height]="300" stretch="aspectFit"></Image>
         </StackLayout>
         <Button [text]="'newResult.submit' | translate" (tap)="onSubmit()" margin="12"

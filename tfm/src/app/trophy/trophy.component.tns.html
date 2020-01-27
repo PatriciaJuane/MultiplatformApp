@@ -1,6 +1,6 @@
-<StackLayout>
-    <ActionBar title="Main Arena - Trophy: {{ trophy?.name }}"></ActionBar>
 
+<ActionBar title="Main Arena - {{ trophy?.name }}"></ActionBar>
+<StackLayout>
     <div *ngIf="trophy">
         <StackLayout class="item item-header" class="p-15 m-10">
             <Label class="h3">
@@ -41,7 +41,7 @@
     </div>
 
     <div *ngIf="results">
-        <Label text="Results"  class="h2 p-15 m-10"></Label>
+        <Label [text]="'trophy.results' | translate"  class="h2 p-15 m-10"></Label>
         <ListView [items]="results" class="list-group" height="350">
             <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
                 <GridLayout columns="auto, *, *, *" (tap)="onItemSelected(item)">        

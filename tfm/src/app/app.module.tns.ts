@@ -21,22 +21,26 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { MinutesSecondsPipe } from './models/MinutesSecondsPipe';
-import { AppRoutingModule } from './app-routing.module.tns';
-import { FirebaseService } from './services/firebase.service';
-import { FirebaseMobileService } from './services/firebasemobile.service';
+import { MinutesSecondsPipe } from '@src/app/models/MinutesSecondsPipe';
+import { AppRoutingModule } from '@src/app/app-routing.module.tns';
+import { FirebaseService } from '@src/app/services/firebase.service';
+import { FirebaseMobileService } from '@src/app/services/firebasemobile.service';
 import { NativeScriptCommonModule } from 'nativescript-angular/common';
 import { NativeScriptUISideDrawerModule } from 'nativescript-ui-sidedrawer/angular';
-import { NewCompetitionComponent } from './new-competition/new-competition.component.tns';
-import { NewTrophyComponent } from './new-trophy/new-trophy.component.tns';
-import { NewResultComponent } from './new-result/new-result.component.tns';
+import { NewCompetitionComponent } from '@src/app/new-competition/new-competition.component.tns';
+import { NewTrophyComponent } from '@src/app/new-trophy/new-trophy.component.tns';
+import { NewResultComponent } from '@src/app/new-result/new-result.component.tns';
 import { DropDownModule } from 'nativescript-drop-down/angular';
-import { NewClubComponent } from './new-club/new-club.component.tns';
-import { NewRiderComponent } from './new-rider/new-rider.component.tns';
-import { NewHorseComponent } from './new-horse/new-horse.component.tns';
-import { AuthMobileService } from './services/authenticationmobile.service';
-import { AuthService } from './services/authentication.service';
-import { UserComponent } from './user/user.component.tns';
+import { NewClubComponent } from '@src/app/new-club/new-club.component.tns';
+import { NewRiderComponent } from '@src/app/new-rider/new-rider.component.tns';
+import { NewHorseComponent } from '@src/app/new-horse/new-horse.component.tns';
+import { AuthMobileService } from '@src/app/services/authenticationmobile.service';
+import { AuthService } from '@src/app/services/authentication.service';
+import { UserComponent } from '@src/app/user/user.component.tns';
+import { HorsesComponent } from '@src/app/horses/horses.component';
+import { RidersComponent } from '@src/app/riders/riders.component';
+import { ClubsComponent } from '@src/app/clubs/clubs.component';
+import { AboutComponent } from '@src/app/about/about.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +62,11 @@ import { UserComponent } from './user/user.component.tns';
     NewResultComponent,
     LogInComponent,
     UserComponent,
-    NewCompetitionComponent
+    NewCompetitionComponent,
+    HorsesComponent,
+    RidersComponent,
+    ClubsComponent,
+    AboutComponent
   ],
   imports: [
     NativeScriptModule,

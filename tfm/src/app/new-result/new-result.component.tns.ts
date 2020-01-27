@@ -5,7 +5,6 @@ import { HorseDto } from '../models/HorseDto';
 import { RiderDto } from '../models/RiderDto';
 import { ClubDto } from '../models/ClubDto';
 import { ResultDto } from '../models/ResultDto';
-import { ListPicker } from 'tns-core-modules/ui/list-picker';
 import { DropDown } from 'nativescript-drop-down';
 
 @Component({
@@ -83,14 +82,12 @@ export class NewResultComponent implements OnInit {
 
   public setRider(args) {
     let dropdown = <DropDown>args.object;
-    // let picker = <ListPicker>args.object;
     this.rider = this.riderNames[dropdown.selectedIndex];
     console.log('Rider updated: ' + this.rider);
   }
 
   public setClub(args) {
     let dropdown = <DropDown>args.object;
-    // let picker = <ListPicker>args.object;
     this.club = this.clubNames[dropdown.selectedIndex];
     console.log('Club updated: ' + this.club);
   }

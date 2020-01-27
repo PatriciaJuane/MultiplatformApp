@@ -18,6 +18,10 @@ import { NewClubComponent } from '@src/app/new-club/new-club.component';
 import { NewRiderComponent } from '@src/app/new-rider/new-rider.component';
 import { NewHorseComponent } from '@src/app/new-horse/new-horse.component';
 import { UserComponent } from '@src/app/user/user.component';
+import { HorsesComponent } from '@src/app/horses/horses.component';
+import { RidersComponent } from '@src/app/riders/riders.component';
+import { ClubsComponent } from '@src/app/clubs/clubs.component';
+import { AboutComponent } from './about/about.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,8 +30,11 @@ export const routes: Routes = [
   { path: 'trophy/:id', component: TrophyComponent },
   { path: 'result/:id', component: ResultDetailsComponent },
   { path: 'horse/:id', component: HorseComponent },
+  { path: 'horses', component: HorsesComponent },
   { path: 'rider/:id', component: RiderComponent },
+  { path: 'riders', component: RidersComponent },
   { path: 'club/:id', component: ClubComponent },
+  { path: 'clubs', component: ClubsComponent },
   { path: 'newhorse', component: NewHorseComponent },
   { path: 'newrider', component: NewRiderComponent },
   { path: 'newclub', component: NewClubComponent },
@@ -36,5 +43,6 @@ export const routes: Routes = [
   { path: 'newresult/:id', component: NewResultComponent },
   { path: 'login', component: LogInComponent }, // , canActivate: [SecureInnerPagesGuard]
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'about', component: AboutComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

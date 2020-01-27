@@ -34,10 +34,14 @@ import { UserComponent } from '@src/app/user/user.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { FirebaseService } from './services/firebase.service';
-import { FirebaseWebService } from './services/firebaseweb.service';
-import { AuthService } from './services/authentication.service';
-import { AuthWebService } from './services/authenticationweb.service.';
+import { FirebaseService } from '@src/app/services/firebase.service';
+import { FirebaseWebService } from '@src/app/services/firebaseweb.service';
+import { AuthService } from '@src/app/services/authentication.service';
+import { AuthWebService } from '@src/app/services/authenticationweb.service.';
+import { HorsesComponent } from '@src/app/horses/horses.component';
+import { RidersComponent } from '@src/app/riders/riders.component';
+import { ClubsComponent } from '@src/app/clubs/clubs.component';
+import { AboutComponent } from '@src/app/about/about.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +63,11 @@ import { AuthWebService } from './services/authenticationweb.service.';
     NewTrophyComponent,
     NewResultComponent,
     LogInComponent,
-    UserComponent
+    UserComponent,
+    HorsesComponent,
+    RidersComponent,
+    ClubsComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-<ActionBar title="Main Arena - Login"></ActionBar>
+<ActionBar [title]="'profile.loginTitle' | translate"></ActionBar>
 <StackLayout verticalAlignment="middle">
-    <Button text="Login with Google" (tap)="tryGoogleLogin()" class="btn-google"></Button>
+    <Button [text]="'profile.login' | translate" (tap)="tryGoogleLogin()" class="btn-google"></Button>
 </StackLayout>

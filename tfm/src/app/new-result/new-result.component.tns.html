@@ -1,5 +1,5 @@
 
-<ActionBar title="Main Arena - New Result">
+<ActionBar [title]="'newResult.title' | translate">
     <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
 </ActionBar>
 
@@ -10,8 +10,6 @@
             <TextField required [hint]="'newResult.mobilePosition' | translate" [(ngModel)]="position"></TextField>
         </StackLayout>
         <StackLayout class="input-field">
-            <!-- <ListPicker [items]="horseNames" (selectedIndexChange)="setHorse($event)">
-            </ListPicker> -->
             <Label [text]="'newResult.labelHorse' | translate"></Label>
             <DropDown [items]="horseNames" (opened)="dropDownOpened()" (closed)="dropDownClosed()"
                 (selectedIndexChanged)="setHorse($event)" row="0" colSpan="2" class="item-drop-down">
@@ -19,14 +17,12 @@
         </StackLayout>
         <StackLayout class="input-field">
             <Label [text]="'newResult.labelRider' | translate"></Label>
-            <!-- <ListPicker [items]="riderNames" (selectedIndexChange)="setRider($event)"></ListPicker> -->
             <DropDown [items]="riderNames" (opened)="dropDownOpened()" (closed)="dropDownClosed()"
                 (selectedIndexChanged)="setRider($event)" row="0" colSpan="2" class="item-drop-down">
             </DropDown>
         </StackLayout>
         <StackLayout class="input-field">
             <Label [text]="'newResult.labelClub' | translate"></Label>
-            <!--<ListPicker [items]="clubNames" (selectedIndexChange)="setClub($event)"></ListPicker> -->
             <DropDown [items]="clubNames" (opened)="dropDownOpened()" (closed)="dropDownClosed()"
                 (selectedIndexChanged)="setClub($event)" row="0" colSpan="2" class="item-drop-down">
             </DropDown>

@@ -1,3 +1,14 @@
 .mat-row:hover {
     background-color: lightgray;
   }
+
+.url {
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}
+
+.url:hover {
+    text-decoration:none;
+    text-shadow: 1px 1px 1px #555;
+}
