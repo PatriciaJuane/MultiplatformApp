@@ -1,6 +1,5 @@
 <StackLayout>
     <ActionBar title="Main Arena - Result: {{ result?.position }}"></ActionBar>
-
     <div *ngIf="result">
         <StackLayout class="item item-header" class="p-15 m-10">
             <Label class="h3">
@@ -41,4 +40,6 @@
             </Label>
         </StackLayout>
     </div>
+    
+    <Label text="Share this on Twitter!" style="font-size: 20px;" class="btn m-40" (tap)="openWeb()"></Label>
 </StackLayout>

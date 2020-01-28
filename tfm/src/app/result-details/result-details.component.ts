@@ -49,4 +49,8 @@ export class ResultDetailsComponent implements OnInit {
     this.router.navigate(['/club/' + this.result.club]);
   }
 
+  openWeb() {
+    this.router.navigate(['/webcomponent']);
+  }
+
 }

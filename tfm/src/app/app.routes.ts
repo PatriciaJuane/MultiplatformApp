@@ -22,6 +22,7 @@ import { HorsesComponent } from '@src/app/horses/horses.component';
 import { RidersComponent } from '@src/app/riders/riders.component';
 import { ClubsComponent } from '@src/app/clubs/clubs.component';
 import { AboutComponent } from './about/about.component';
+import { WebComponent } from '@src/app/web/web.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -43,6 +44,7 @@ export const routes: Routes = [
   { path: 'newresult/:id', component: NewResultComponent },
   { path: 'login', component: LogInComponent }, // , canActivate: [SecureInnerPagesGuard]
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
+  { path: 'webcomponent', component: WebComponent },
   { path: 'about', component: AboutComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

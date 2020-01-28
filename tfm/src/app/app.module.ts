@@ -42,6 +42,7 @@ import { HorsesComponent } from '@src/app/horses/horses.component';
 import { RidersComponent } from '@src/app/riders/riders.component';
 import { ClubsComponent } from '@src/app/clubs/clubs.component';
 import { AboutComponent } from '@src/app/about/about.component';
+import { WebComponent } from '@src/app/web/web.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { AboutComponent } from '@src/app/about/about.component';
     HorsesComponent,
     RidersComponent,
     ClubsComponent,
-    AboutComponent
+    AboutComponent,
+    WebComponent
   ],
   imports: [
     BrowserModule,
