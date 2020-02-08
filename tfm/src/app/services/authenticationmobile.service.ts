@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../models/User';
 import { AuthService } from './authentication.service';
-const auth = require('nativescript-plugin-firebase/app');
+// const auth = require('nativescript-plugin-firebase/app');
 const firebase = require('nativescript-plugin-firebase');
 
 @Injectable({

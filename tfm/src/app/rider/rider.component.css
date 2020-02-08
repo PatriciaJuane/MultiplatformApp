@@ -3,3 +3,7 @@
     height: 150px;
     margin: 4px;
   }
+
+ p:hover{
+   background-color: lightgray;
+ }

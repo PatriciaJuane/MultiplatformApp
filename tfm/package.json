@@ -2,6 +2,9 @@
   "name": "tfm",
   "nativescript": {
     "id": "org.nativescript.tfm",
+    "tns-ios": {
+      "version": "6.3.0"
+    },
     "tns-android": {
       "version": "6.3.1"
     }
@@ -40,8 +43,9 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "firebase": "^7.6.1",
+    "hover.css": "^2.3.2",
     "jquery": "^3.4.1",
-    "nativescript-angular": "~8.0.1",
+    "nativescript-angular": "~8.20.0",
     "nativescript-drop-down": "^5.0.4",
     "nativescript-imagepicker": "^7.1.0",
     "nativescript-plugin-firebase": "^10.3.3",
@@ -51,7 +55,7 @@
     "popper.js": "^1.16.0",
     "reflect-metadata": "~0.1.12",
     "rxjs": "~6.5.0",
-    "tns-core-modules": "~6.3.0",
+    "tns-core-modules": "~6.2.3",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

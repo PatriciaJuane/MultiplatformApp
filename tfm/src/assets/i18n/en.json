@@ -8,7 +8,7 @@
         "profile": "Profile",
         "logIn": "Log In",
         "author": "Created by Patricia Juane",
-        "contact": "Contact Information: ",
+        "contact": "Contact: ",
         "horses": "Horses",
         "riders": "Riders",
         "clubs": "Clubs",
@@ -51,7 +51,8 @@
         "website": "Website",
         "type": "Type",
         "country": "Country",
-        "trophies": "Trophies"
+        "trophies": "Trophies",
+        "competition": "Competition"
     },
     "trophy": {
         "name": "Name",
@@ -69,16 +70,18 @@
         "hour": "Hour",
         "action": "Action",
         "delete": "Delete",
-        "results": "Results"
+        "results": "Results",
+        "trophy": "Trophy"
     },
     "result": {
-        "position": "Position",
+        "position": "position",
         "points": "Points",
         "time": "Time",
         "horse": "Horse",
         "rider": "Rider",
         "club": "Club",
-        "competitionName": "Competition"
+        "competitionName": "Competition",
+        "result": "Result"
     },
     "horse": {
         "name": "Name",
@@ -86,6 +89,7 @@
         "colour": "Colour",
         "age": "Age",
         "breed": "Breed",
+        "gender": "Gender",
         "filter": "Filter",
         "action": "Action",
         "delete": "Delete",

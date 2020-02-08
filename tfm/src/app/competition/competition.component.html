@@ -1,31 +1,23 @@
 <div fxLayout="column">
     <div fxLayout="column" style="margin-left:10px;">
-        <div fxLayout="row">
-            <p style="margin-right: 30px;">
-                <strong>{{ 'competition.name' | translate }}: </strong>{{ competition?.name }}</p>
-            <p style="margin-right: 30px;">
-                <strong>{{ 'competition.location' | translate }}: </strong>{{ competition?.location }}</p>
-            <p style="margin-right: 30px;">
-                <strong>{{ 'competition.country' | translate }}: </strong>{{ competition?.country }}</p>
-            <p style="margin-right: 30px;">
-                <strong>{{ 'competition.category' | translate }}: </strong>{{ competition?.category }}</p>
-            <p><strong>{{ 'competition.type' | translate }}: </strong>{{ competition?.type }}</p>
+        <div fxLayout="row" style="margin-bottom: -20px;">
+            <p style="font-weight: bold; font-size: 20px;">
+                <strong>{{ 'competition.competition' | translate }}: </strong>{{ competition?.name }}</p>
         </div>
-        <div fxLayout="row">
-            <p style="margin-right: 30px;">
-                <strong>{{ 'competition.initDate' | translate }}: </strong>{{ competition?.initDate.toDate() | date: shortDate }}</p>
-            <p style="margin-right: 30px;">
-                <strong>{{ 'competition.endDate' | translate }}: </strong>{{ competition?.endDate.toDate() | date: shortDate }}</p>
-            <p style="margin-right: 550px;" class="url">{{ competition?.website }}</p>
-            <!-- <strong>{{ 'competition.website' | translate }}: </strong> -->
-                
-            <button (click)="addTrophy()" *ngIf="isLoggedIn()" mat-raised-button style="margin-bottom: 10px;">
+        <div fxLayout="row" style="margin-bottom: -20px;">
+            <p style="margin-right: 4px;">{{ competition?.location }}</p>
+            <p style="margin-right: 30px;">({{ competition?.country }})</p>
+            <p  style="margin-right: 4px;">{{ competition?.category }},</p>
+            <p style="margin-right: 650px;">{{ competition?.type }}</p>
+            <button (click)="addTrophy()" *ngIf="isLoggedIn()" mat-raised-button style="margin-bottom: 10px; margin-top:10px;">
                 {{ 'competition.addTrophy' | translate }}</button>
         </div>
+        <div fxLayout="row">
+            <p style="margin-right: 4px;">{{ competition?.initDate.toDate() | date: shortDate }} -</p>
+            <p style="margin-right: 30px;">{{ competition?.endDate.toDate() | date: shortDate }}</p>
+            <p class="url">{{ competition?.website }}</p>                
+        </div>
     </div> 
-    <div fxLayout="column">
-
-    </div>
  
     <div class="mat-elevation-z8">
             <mat-form-field>

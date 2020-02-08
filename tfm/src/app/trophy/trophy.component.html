@@ -1,20 +1,19 @@
 <div fxLayout="column">
     <div fxLayout="column" style="margin-left:10px;"> 
-        <div fxLayout="row">
-            <p style="margin-right: 30px;">
-                <strong>{{ 'trophy.name' | translate }}: </strong>{{ trophy?.name }}</p>
-            <p style="margin-right: 30px;">
+        <div fxLayout="row" style="margin-bottom: -20px;">
+            <p style="font-weight: bold; font-size: 20px; margin-right: 7px;">
+                <strong>{{ 'trophy.trophy' | translate }}: </strong>{{ trophy?.name }}</p>
+            <p style="font-weight: bold; font-size: 20px;">({{ trophy?.category }})</p>
+        </div>
+        <div fxLayout="row" style="margin-bottom: -20px;">
+            <p style="margin-right: 800px;">
                 <strong>{{ 'trophy.arena' | translate }}: </strong>{{ trophy?.arena }}</p>
-            <p style="margin-right: 30px;">
-                <strong>{{ 'trophy.category' | translate }}: </strong>{{ trophy?.category }}</p>
+                <button mat-raised-button (click)="addResult()" *ngIf="isLoggedIn()" style="margin-bottom: 10px;">
+                    {{ 'trophy.addResult' | translate }}</button>
             </div>
         <div fxLayout="row">
-            <p style="margin-right: 30px;">
-                <strong>{{ 'trophy.initDate' | translate }}: </strong>{{ trophy?.initDate.toDate() | date: shortDate }}</p>
-                <p style="margin-right: 800px;">
-                    <strong>{{ 'trophy.hour' | translate }}: </strong>{{ trophy?.hour }}</p>
-            <button mat-raised-button (click)="addResult()" *ngIf="isLoggedIn()" style="margin-bottom: 10px;">
-                {{ 'trophy.addResult' | translate }}</button>
+            <p style="margin-right: 4px;">{{ trophy?.initDate.toDate() | date: shortDate }}</p>
+                <p>- {{ trophy?.hour }}h</p>
         </div>
     </div> 
  

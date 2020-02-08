@@ -1,50 +1,40 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<header style="background-color:lightblue; position: sticky;">
-    <div style="text-align:left; margin-left:10px;" fxLayout="row">
-
-      <div fxLayout="col" style="margin-right: 50px;" fxFlex>
-        <mat-icon aria-hidden="false" style="margin-top: 30px;" (click)="returnHome()">home</mat-icon>
-        <h1 (click)="returnHome()">{{ 'app.title' | translate }}</h1>
-      </div>
-      <b (click)="horses()" style="margin-right: 15px; margin-top:30px;" class="url">
-        {{ 'app.horses' | translate }}</b>
-      <b (click)="riders()" style="margin-right: 15px; margin-top:30px;" class="url">
-        {{ 'app.riders' | translate }}</b>
-      <b (click)="clubs()" style="margin-right: 15px; margin-top:30px;" class="url">
-        {{ 'app.clubs' | translate }}</b>
-
-      <div fxLayout="col" *ngIf="isLoggedIn()">
-        <b (click)="addHorse()" style="margin-right: 15px; margin-top:30px;" class="url">
-          {{ 'app.newHorse' | translate }}</b>
-        <b (click)="addRider()" style="margin-right: 15px; margin-top: 30px;" class="url">
-          {{ 'app.newRider' | translate }}</b>
-        <b (click)="addClub()" style="margin-right: 15px; margin-top: 30px;" class="url">
-          {{ 'app.newClub' | translate }}</b>
-        <b (click)="addCompetition()" style="margin-top: 30px;" class="url">
-          {{ 'app.newCompetition' | translate }}</b>
-      </div>
-
-      <div fxLayout="col" fxFlex style="margin-left: 130px;">
-        <div fxLayout="col" style="margin-right: 20px;">
-          <mat-icon style="margin-top: 28px;">person</mat-icon>
-          <b *ngIf="isLoggedIn()" class="url" (click)="profile()" style="margin-top:30px;">{{ 'app.profile' | translate }}</b>
-          <b *ngIf="!isLoggedIn()" class="url" (click)="login()" style="margin-top:30px;">{{ 'app.logIn' | translate }}</b>
-        </div>
-        <div fxLayout="col" style="margin-top: 25px; margin-bottom: 25px;">
-          <select #langSelect (change)="useLanguage(langSelect.value)">  
-            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>  
-          </select>
-        </div>
-      </div>
-    </div>
+<header style="margin-bottom:8px;">
+  <ul>
+    <li>
+      <b (click)="returnHome()" class="logo">{{ 'app.title' | translate }}</b>
+    </li>
+    <li><b (click)="horses()">{{ 'app.horses' | translate }}</b></li>
+    <li><b (click)="riders()">{{ 'app.riders' | translate }}</b></li>
+    <li><b (click)="clubs()">{{ 'app.clubs' | translate }}</b></li>
+    <li *ngIf="isLoggedIn()"><b (click)="addHorse()">{{ 'app.newHorse' | translate }}</b></li>
+    <li *ngIf="isLoggedIn()"><b (click)="addRider()">{{ 'app.newRider' | translate }}</b></li>
+    <li *ngIf="isLoggedIn()"><b (click)="addClub()">{{ 'app.newClub' | translate }}</b></li>
+    <li *ngIf="isLoggedIn()"><b (click)="addCompetition()">{{ 'app.newCompetition' | translate }}</b></li>
+    <li style="float:right; margin-top: 14px; margin-right: 10px;"> <!--class="dropdown"-->
+      <!--<b>Language</b> -->
+      <select #langSelect (change)="useLanguage(langSelect.value)">  
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>  
+      </select>
+      <!-- <ul class="dropdown-content">
+        <li><b>English</b></li>
+        <li><b>Español</b></li>
+      </ul> -->
+    </li>
+    <li style="float:right"><b (click)="about()">{{ 'app.about' | translate }}</b></li>
+    <li *ngIf="isLoggedIn()" style="float:right"><b (click)="profile()">{{ 'app.profile' | translate }}</b></li>
+    <li *ngIf="!isLoggedIn()" style="float:right"><b (click)="login()">{{ 'app.logIn' | translate }}</b></li>
+  </ul>
+  
+  <!-- <mat-icon aria-hidden="false" style="margin-top: 30px;" (click)="returnHome()">home</mat-icon> 
+        <mat-icon style="margin-top: 28px;">person</mat-icon> -->
 </header>
 
 <router-outlet></router-outlet>
 
 <br/>
 <br/>
-<footer style="background-color: lightblue;" fxLayout="row">
-    <p fxFlex style="margin-left:10px;">{{ 'app.author' | translate }}</p>
-    <p fxFlex (click)="about()" class="url">{{ 'app.about' | translate }}</p>
-    <p fxFlex>{{ 'app.contact' | translate }}<a href="mailto:p.juane@udc.es">p.juane@udc.es</a></p>
+<footer fxLayout="row">
+    <p fxFlex style="margin-left:10px; font-weight: bold;">{{ 'app.author' | translate }}</p>
+    <p fxFlex style="font-weight: bold;">{{ 'app.contact' | translate }}<a style="font-weight:normal;" href="mailto:p.juane@udc.es">p.juane@udc.es</a></p>
 </footer>

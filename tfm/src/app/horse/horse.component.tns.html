@@ -36,6 +36,12 @@
                     <Span text=":   {{ horse?.breed }}"></Span>
                 </FormattedString>
             </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span [text]="'horse.gender' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ horse?.gender }}"></Span>
+                </FormattedString>
+            </Label>
         </StackLayout>
     </div>
 

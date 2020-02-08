@@ -5,15 +5,13 @@
         </div>
     </div>
     <div fxLayout="column" style="margin-right: 100px;">
-        <p><strong>{{ 'horse.name' | translate }}: </strong>{{ horse?.name }}</p>
-        <p><strong>{{ 'horse.license' | translate }}: </strong>{{ horse?.license }}</p>
-    </div>
-    <div fxLayout="column" style="margin-right: 100px;">
-        <p><strong>{{ 'horse.colour' | translate }}: </strong>{{ horse?.colour }}</p>
-        <p><strong>{{ 'horse.age' | translate }}: </strong>{{ horse?.age }}</p>
+        <p style="margin-bottom: -5px; font-weight: bold; font-size: 20px;">{{ horse?.name }}</p>
+        <p style="margin-bottom: -5px;">{{ horse?.colour }} | <a> {{ horse?.age }} | </a><a> {{ horse?.gender }}</a></p>
+        <p>{{ horse?.breed }}</p>
     </div>
     <div fxLayout="column">
-        <p><strong>{{ 'horse.breed' | translate }}: </strong>{{ horse?.breed }}</p>
+        <p> </p>
+        <p><a>{{ 'horse.license' | translate }}: </a>{{ horse?.license }}</p>
     </div>
 </div> 
 

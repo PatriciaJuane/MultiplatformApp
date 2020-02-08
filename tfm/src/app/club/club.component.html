@@ -1,13 +1,11 @@
 <div fxLayout="row" style="margin-left: 30px; margin-top: 20px;">
     <div fxLayout="column" style="margin-right: 100px;">
-        <p><strong>{{ 'club.name' | translate }}: </strong>{{ club?.name }}</p>
-        <p><strong>{{ 'club.country' | translate }}: </strong>{{ club?.country }}</p>
-    </div>
-    <div fxLayout="column" style="margin-right: 100px;">
-        <p><strong>{{ 'club.location' | translate }}: </strong>{{ club?.location }}</p>
-        <p><strong>{{ 'club.size' | translate }}: </strong>{{ club?.size }}</p>
+        <p style="margin-bottom: -5px; font-weight: bold; font-size: 20px;">{{ club?.name }}</p>
+        <p style="margin-bottom: -5px;">{{ club?.location }}, <a> {{ club?.country }}</a></p>
+        <p><a>{{ 'club.size' | translate }}: </a>{{ club?.size }}</p>
     </div>
     <div fxLayout="column">
+        <p> </p>
         <p class="url">{{ club?.website }}</p>
     </div>
 </div> 

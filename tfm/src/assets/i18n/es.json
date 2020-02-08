@@ -51,7 +51,8 @@
         "website": "Pág. web",
         "country": "País",
         "type": "Tipo",
-        "trophies": "Trofeos"
+        "trophies": "Trofeos",
+        "competition": "Competición"
     },
     "trophy": {
         "name": "Nombre",
@@ -69,16 +70,18 @@
         "hour": "Hora",
         "action": "Acción",
         "delete": "Borrar",
-        "results": "Resultados"
+        "results": "Resultados",
+        "trophy": "Trofeo"
     },
     "result": {
-        "position": "Posición",
+        "position": "posición",
         "points": "Puntos",
         "time": "Tiempo",
         "horse": "Caballo",
         "rider": "Jinete",
         "club": "Club",
-        "competitionName": "Competición"
+        "competitionName": "Competición",
+        "result": "Resultado"
     },
     "horse": {
         "name": "Nombre",
@@ -86,6 +89,7 @@
         "colour": "Color",
         "age": "Edad",
         "breed": "Raza",
+        "gender": "Género",
         "filter": "Filtrar",
         "action": "Acción",
         "delete": "Eliminar",
