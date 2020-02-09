@@ -1,5 +1,6 @@
-<ActionBar [title]="'club.clubs' | translate"></ActionBar>
-   <!-- <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>-->
+<ActionBar [title]="'club.clubs' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
 
 <div *ngIf="clubs">
     <ListView [items]="clubs" class="list-group m-10" height="800">

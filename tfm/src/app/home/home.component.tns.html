@@ -2,6 +2,5 @@
     <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
 </ActionBar>
 <StackLayout class="p-15" orientation="vertical">
-    <!-- <Label [text]="'home.welcomemobile' | translate" class="h3 text-center" textWrap="true"></Label> -->
     <app-competitions (competitionSelected)="loadCompetition($event)"></app-competitions>
 </StackLayout>

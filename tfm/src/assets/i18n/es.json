@@ -52,7 +52,8 @@
         "country": "País",
         "type": "Tipo",
         "trophies": "Trofeos",
-        "competition": "Competición"
+        "competition": "Competición",
+        "competitionmobile": "Main Arena - Competición"
     },
     "trophy": {
         "name": "Nombre",
@@ -71,17 +72,19 @@
         "action": "Acción",
         "delete": "Borrar",
         "results": "Resultados",
-        "trophy": "Trofeo"
+        "trophy": "Trofeo",
+        "trophymobile": "Main Arena - Trofeo"
     },
     "result": {
-        "position": "posición",
+        "position": "Posición",
         "points": "Puntos",
         "time": "Tiempo",
         "horse": "Caballo",
         "rider": "Jinete",
         "club": "Club",
         "competitionName": "Competición",
-        "result": "Resultado"
+        "result": "Resultado",
+        "resultmobile": "Main Arena - Resultado"
     },
     "horse": {
         "name": "Nombre",
@@ -94,7 +97,8 @@
         "action": "Acción",
         "delete": "Eliminar",
         "results": "Resultados",
-        "horses": "Main Arena - Caballos"
+        "horses": "Main Arena - Caballos",
+        "horse": "Main Arena - Caballo"
     },
     "rider": {
         "name": "Nombre",
@@ -106,7 +110,8 @@
         "action": "Acción",
         "delete": "Eliminar",
         "results": "Resultados",
-        "riders": "Main Arena - Jinetes"
+        "riders": "Main Arena - Jinetes",
+        "rider": "Main Arena - Jinete"
     },
     "club": {
         "name": "Nombre",
@@ -118,7 +123,8 @@
         "action": "Acción",
         "delete": "Eliminar",
         "results": "Resultados",
-        "clubs": "Main Arena - Clubes"
+        "clubs": "Main Arena - Clubes",
+        "club": "Main Arena - Club"
     },
     "profile": {
         "title": "Perfil de Usuario",

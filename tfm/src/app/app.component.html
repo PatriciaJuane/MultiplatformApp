@@ -11,15 +11,10 @@
     <li *ngIf="isLoggedIn()"><b (click)="addRider()">{{ 'app.newRider' | translate }}</b></li>
     <li *ngIf="isLoggedIn()"><b (click)="addClub()">{{ 'app.newClub' | translate }}</b></li>
     <li *ngIf="isLoggedIn()"><b (click)="addCompetition()">{{ 'app.newCompetition' | translate }}</b></li>
-    <li style="float:right; margin-top: 14px; margin-right: 10px;"> <!--class="dropdown"-->
-      <!--<b>Language</b> -->
+    <li style="float:right; margin-top: 14px; margin-right: 10px;"> 
       <select #langSelect (change)="useLanguage(langSelect.value)">  
         <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>  
       </select>
-      <!-- <ul class="dropdown-content">
-        <li><b>English</b></li>
-        <li><b>Español</b></li>
-      </ul> -->
     </li>
     <li style="float:right"><b (click)="about()">{{ 'app.about' | translate }}</b></li>
     <li *ngIf="isLoggedIn()" style="float:right"><b (click)="profile()">{{ 'app.profile' | translate }}</b></li>

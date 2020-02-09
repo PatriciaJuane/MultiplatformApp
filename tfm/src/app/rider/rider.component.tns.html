@@ -1,5 +1,7 @@
 
-<ActionBar title="Main Arena - Rider: {{ rider?.name }}"></ActionBar>
+<ActionBar [title]="'rider.rider' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
 <StackLayout>
     <div *ngIf="rider">
         <StackLayout class="item item-header" class="p-15 m-10">
@@ -8,34 +10,18 @@
             </div>
             <br/>
             <br/>
+            <Label class="h2" text="{{ rider?.name }}"></Label>
+            <Label class="h3" text="{{ rider?.country }}"></Label>
             <Label class="h3">
                 <FormattedString>
-                    <Span [text]="'rider.name' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ rider?.name }}"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'rider.country' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ rider?.country }}"></Span>
+                    <Span text="{{ rider?.gender }}"></Span>
+                    <Span text=", {{ rider?.age }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'rider.license' | translate" fontAttributes="Bold"></Span>
                     <Span text=":   {{ rider?.license }}"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'rider.age' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ rider?.age }}"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'rider.gender' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ rider?.gender }}"></Span>
                 </FormattedString>
             </Label>
         </StackLayout>

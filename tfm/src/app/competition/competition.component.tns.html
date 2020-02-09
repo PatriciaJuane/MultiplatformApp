@@ -1,48 +1,32 @@
 
-<ActionBar title="Main Arena - Competition: {{ competition?.name }}"></ActionBar>
+<ActionBar [title]="'competition.competitionmobile' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light"></NavigationButton>
+</ActionBar>
 <StackLayout>
     <div *ngIf="competition">
         <StackLayout class="item item-header" class="p-15 m-10">
+            <Label class="h2" text="{{ competition?.name }}"></Label>
             <Label class="h3">
                 <FormattedString>
-                    <Span [text]="'competition.name' | translate"></Span>
-                    <Span text=":   {{ competition?.name }}"></Span>
+                    <Span text="{{ competition?.location }}"></Span>
+                    <Span text=", {{ competition?.country }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
-                    <Span [text]="'competition.country' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ competition?.country }}"></Span>
+                    <Span text="{{ competition?.initDate | date:'shortDate' }} "></Span>
+                    <Span text=" -  {{ competition?.endDate | date:'shortDate' }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>                    
+                    <Span text="{{ competition?.category }}"></Span>
+                    <Span text=" {{ competition?.type }}"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
-                    <Span [text]="'competition.initDate' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ competition?.initDate | date:'shortDate' }}"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'competition.endDate' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ competition?.endDate | date:'shortDate' }}"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'competition.website' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ competition?.website }}" class="url"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'competition.type' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ competition?.type }}"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'competition.category' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ competition?.category }}"></Span>
+                    <Span text="{{ competition?.website }}" class="url"></Span>
                 </FormattedString>
             </Label>
             <div *ngIf="isLoggedIn()">

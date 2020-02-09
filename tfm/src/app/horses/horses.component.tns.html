@@ -1,5 +1,6 @@
-<ActionBar [title]="'horse.horses' | translate"></ActionBar>
-    <!--<NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton> -->
+<ActionBar [title]="'horse.horses' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
 
 <div *ngIf="horses">
     <ListView [items]="horses" class="list-group m-10" height="800">

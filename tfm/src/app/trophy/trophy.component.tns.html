@@ -1,36 +1,26 @@
 
-<ActionBar title="Main Arena - {{ trophy?.name }}"></ActionBar>
+<ActionBar [title]="'trophy.trophymobile' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light"></NavigationButton>
+</ActionBar>
 <StackLayout>
     <div *ngIf="trophy">
         <StackLayout class="item item-header" class="p-15 m-10">
-            <Label class="h3">
+            <Label class="h2">
                 <FormattedString>
-                    <Span [text]="'trophy.name' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ trophy?.name }}"></Span>
+                    <Span  text="{{ trophy?.name }}"></Span>
+                    <Span text=" ({{ trophy?.category }})"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
-                    <Span [text]="'trophy.category' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ trophy?.category }}"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'trophy.initDate' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ trophy?.initDate | date:'shortDate' }}"></Span>
-                </FormattedString>
-            </Label>
-            <Label class="h3">
-                <FormattedString>
-                    <Span [text]="'trophy.hour' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ trophy?.hour }}"></Span>
+                    <Span text="{{ trophy?.initDate | date:'shortDate' }}"></Span>
+                    <Span text=" - {{ trophy?.hour }}h"></Span>
                 </FormattedString>
             </Label>
             <Label class="h3">
                 <FormattedString>
                     <Span [text]="'trophy.arena' | translate" fontAttributes="Bold"></Span>
-                    <Span text=":   {{ trophy?.arena }}"></Span>
+                    <Span text=":  {{ trophy?.arena }}"></Span>
                 </FormattedString>
             </Label>
             <div *ngIf="isLoggedIn()">

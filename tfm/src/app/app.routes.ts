@@ -42,7 +42,7 @@ export const routes: Routes = [
   { path: 'newcompetition', component: NewCompetitionComponent },
   { path: 'newtrophy/:id', component: NewTrophyComponent },
   { path: 'newresult/:id', component: NewResultComponent },
-  { path: 'login', component: LogInComponent }, // , canActivate: [SecureInnerPagesGuard]
+  { path: 'login', component: LogInComponent },
   { path: 'user', component: UserComponent, canActivate: [AuthGuard] },
   { path: 'webcomponent', component: WebComponent },
   { path: 'about', component: AboutComponent },

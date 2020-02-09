@@ -52,7 +52,8 @@
         "type": "Type",
         "country": "Country",
         "trophies": "Trophies",
-        "competition": "Competition"
+        "competition": "Competition",
+        "competitionmobile": "Main Arena - Competition"
     },
     "trophy": {
         "name": "Name",
@@ -71,17 +72,19 @@
         "action": "Action",
         "delete": "Delete",
         "results": "Results",
-        "trophy": "Trophy"
+        "trophy": "Trophy",
+        "trophymobile": "Main Arena - Trophy"
     },
     "result": {
-        "position": "position",
+        "position": "Position",
         "points": "Points",
         "time": "Time",
         "horse": "Horse",
         "rider": "Rider",
         "club": "Club",
         "competitionName": "Competition",
-        "result": "Result"
+        "result": "Result",
+        "resultmobile": "Main Arena - Result"
     },
     "horse": {
         "name": "Name",
@@ -94,7 +97,8 @@
         "action": "Action",
         "delete": "Delete",
         "results": "Results",
-        "horses": "Main Arena - Horses"
+        "horses": "Main Arena - Horses",
+        "horse": "Main Arena - Horse"
     },
     "rider": {
         "name": "Name",
@@ -106,7 +110,8 @@
         "action": "Action",
         "delete": "Delete",
         "results": "Results",
-        "riders": "Main Arena - Riders"
+        "riders": "Main Arena - Riders",
+        "rider": "Main Arena - Rider"
     },
     "club": {
         "name": "Name",
@@ -118,7 +123,8 @@
         "action": "Action",
         "delete": "Delete",
         "results": "Results",
-        "clubs": "Main Arena - Clubs"
+        "clubs": "Main Arena - Clubs",
+        "club": "Main Arena - Club"
     },
     "profile": {
         "title": "User Profile",
