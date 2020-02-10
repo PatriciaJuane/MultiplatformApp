@@ -1,4 +1,4 @@
-# Multiplatform Angular application developed with Angular 8, Nativescript and Firebase.
+# Multiplatform application developed with Angular 8, Nativescript and Firebase.
 
 This application is the Final Thesis Project I developed for my Master's Degree in Computer Engineering, at University of A Coruña.
 
