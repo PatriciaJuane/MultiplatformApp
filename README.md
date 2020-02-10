@@ -99,5 +99,6 @@ Finally, to execute the app:
 ## Personal Comments
 This was my first application developed with Nativescript and Firebase, and now I'm definitely a huge fan of both technologies.
 Thank you very much for taking the time to look at this repository!
+
 Best regards,
 Patricia
