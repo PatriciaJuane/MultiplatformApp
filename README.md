@@ -95,3 +95,9 @@ Finally, to execute the app:
 1. npm start or ng serve -> for executing the web app
 
 2. tns run android -> for executing the mobile Android app (you need an Android emulator or an Android device, both with the Nativescript playground app installed).
+
+## Personal Comments
+This was my first application developed with Nativescript and Firebase, and now I'm definitely a huge fan of both technologies.
+Thank you very much for taking the time to look at this repository!
+Best regards,
+Patricia
