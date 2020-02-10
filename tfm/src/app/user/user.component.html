@@ -1,0 +1,18 @@
+<div fxLayout="row" style="margin-left: 30px; font-size: 18px; margin-top: 80px; margin-bottom: 100px;">
+  <div fxLayout="column" style="margin-right: 100px;">
+    <h2>{{ 'profile.title' | translate }}</h2>
+      <p><strong>{{ 'profile.name' | translate }}: </strong>{{ user?.displayName }}</p>
+      <p><strong>{{ 'profile.email' | translate }}: </strong>{{ user?.email }}</p>
+  </div>
+  <div fxLayout="column">
+      <div class="container" *ngIf="user.photoURL">
+          <img [src]="user.photoURL" class="img-thumbnail" alt="User Image">
+      </div>
+  </div>
+  <div fxLayout="column">
+    <br/>
+    <p (click)="logout()" style="margin-left: 30px;" class="url">{{ 'profile.logout' | translate }}</p>
+</div>
+</div>   
+
+

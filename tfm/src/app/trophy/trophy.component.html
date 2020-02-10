@@ -1,0 +1,66 @@
+<div fxLayout="column">
+    <div fxLayout="column" style="margin-left:10px;"> 
+        <div fxLayout="row" style="margin-bottom: -20px;">
+            <p style="font-weight: bold; font-size: 20px; margin-right: 7px;">
+                <strong>{{ 'trophy.trophy' | translate }}: </strong>{{ trophy?.name }}</p>
+            <p style="font-weight: bold; font-size: 20px;">({{ trophy?.category }})</p>
+        </div>
+        <div fxLayout="row" style="margin-bottom: -20px;">
+            <p style="margin-right: 800px;">
+                <strong>{{ 'trophy.arena' | translate }}: </strong>{{ trophy?.arena }}</p>
+                <button mat-raised-button (click)="addResult()" *ngIf="isLoggedIn()" style="margin-bottom: 10px;">
+                    {{ 'trophy.addResult' | translate }}</button>
+            </div>
+        <div fxLayout="row">
+            <p style="margin-right: 4px;">{{ trophy?.initDate.toDate() | date: shortDate }}</p>
+                <p>- {{ trophy?.hour }}h</p>
+        </div>
+    </div> 
+ 
+    <div class="mat-elevation-z8">
+            <mat-form-field>
+            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="{{ 'trophy.filter' | translate }}">
+            </mat-form-field>
+
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%">
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'trophy.position' | translate }}</th>
+            <td mat-cell *matCellDef="let result">{{ result?.position }}</td>
+        </ng-container>
+        <ng-container matColumnDef="horse">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'trophy.horse' | translate }}</th>
+            <td mat-cell *matCellDef="let result">{{ result?.horse }}</td>
+        </ng-container>
+        <ng-container matColumnDef="rider">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'trophy.rider' | translate }}</th>
+            <td mat-cell *matCellDef="let result">{{ result?.rider }}</td>
+        </ng-container>
+        <ng-container matColumnDef="club">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'trophy.club' | translate }}</th>
+            <td mat-cell *matCellDef="let result">{{ result?.club }}</td>
+        </ng-container>
+        <ng-container matColumnDef="points">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'trophy.points' | translate }}</th>
+            <td mat-cell *matCellDef="let result">{{ result?.points }}</td>
+        </ng-container>
+        <ng-container matColumnDef="time">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'trophy.time' | translate }}</th>
+            <td mat-cell *matCellDef="let result">{{ result?.time | minuteSeconds }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>{{ 'trophy.action' | translate }}</th>
+            <td mat-cell *matCellDef="let result; let i = index;">
+              <button mat-raised-button color="accent" (click)="delete(i, result)" *ngIf="isLoggedIn()">
+                  {{ 'trophy.delete' | translate }}</button>
+            </td>
+        </ng-container>
+        
+        <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="onItemSelected(row)"></tr>
+        </table>
+        
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+    </div>
+
+</div>

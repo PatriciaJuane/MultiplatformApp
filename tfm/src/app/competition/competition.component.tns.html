@@ -1,0 +1,57 @@
+
+<ActionBar [title]="'competition.competitionmobile' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light"></NavigationButton>
+</ActionBar>
+<StackLayout>
+    <div *ngIf="competition">
+        <StackLayout class="item item-header" class="p-15 m-10">
+            <Label class="h2" text="{{ competition?.name }}"></Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span text="{{ competition?.location }}"></Span>
+                    <Span text=", {{ competition?.country }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span text="{{ competition?.initDate | date:'shortDate' }} "></Span>
+                    <Span text=" -  {{ competition?.endDate | date:'shortDate' }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>                    
+                    <Span text="{{ competition?.category }}"></Span>
+                    <Span text=" {{ competition?.type }}"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3">
+                <FormattedString>
+                    <Span text="{{ competition?.website }}" class="url"></Span>
+                </FormattedString>
+            </Label>
+            <div *ngIf="isLoggedIn()">
+            <Button [text]="'competition.addTrophy' | translate" (tap)="addTrophy()" margin="12"
+                horizontalAlignment="center" class="btn btn-primary"></Button>
+            </div>
+        </StackLayout>
+    </div>
+
+    <div *ngIf="trophies">
+        <Label [text]="'competition.trophies' | translate"  class="h2 p-15 m-10"></Label>
+        <ScrollView height="500">
+            <ListView [items]="trophies" class="list-group">
+                <ng-template let-item="item" let-i="index" let-odd="odd" let-even="even">
+                    <GridLayout columns="*, auto, auto, auto" (tap)="onItemSelected(item)">        
+                        <Label [text]="item?.name" class="list-group-item" col="0"></Label>
+                        <Label [text]="item?.hour" col="1" class="list-group-item"></Label>
+                        <Label [text]="item?.category" col="2" class="list-group-item"></Label>
+                        <div *ngIf="isLoggedIn()">
+                            <Button text="X" (tap)="deleteMobile(index, item)" class="list-group-item delete" col="3"
+                                    style="background-color: white;"></Button>
+                        </div>
+                    </GridLayout>
+                </ng-template>
+            </ListView>
+        </ScrollView>
+    </div>
+</StackLayout>

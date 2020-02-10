@@ -1,0 +1,37 @@
+<StackLayout>
+    <ActionBar [title]="'result.resultmobile' | translate">
+        <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light"></NavigationButton>
+    </ActionBar>
+    <div *ngIf="result">
+        <StackLayout class="item item-header" class="p-15 m-10">
+            <Label class="h2">
+                <FormattedString>
+                    <Span text="{{ result?.position }}º "></Span>
+                    <Span [text]="'result.position' | translate" fontAttributes="Bold"></Span>
+                    <Span text=" ({{ result?.points }}pts -"></Span>
+                    <Span text="{{ result?.time | minuteSeconds }}s)"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3" (tap)="onHorseSelected()">
+                <FormattedString>
+                    <Span [text]="'result.horse' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ result?.horse }}" class="url"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3" (tap)="onRiderSelected()">
+                <FormattedString>
+                    <Span [text]="'result.rider' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ result?.rider }}" class="url"></Span>
+                </FormattedString>
+            </Label>
+            <Label class="h3" (tap)="onClubSelected()">
+                <FormattedString>
+                    <Span [text]="'result.club' | translate" fontAttributes="Bold"></Span>
+                    <Span text=":   {{ result?.club }}" class="url"></Span>
+                </FormattedString>
+            </Label>
+        </StackLayout>
+    </div>
+    
+    <Label text="Share this on Twitter!" style="font-size: 20px;" class="btn m-40" (tap)="openWeb()"></Label>
+</StackLayout>

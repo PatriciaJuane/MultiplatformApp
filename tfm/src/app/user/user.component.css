@@ -1,0 +1,16 @@
+.img-thumbnail {
+    width: 150px;
+    height: 150px;
+    margin: 4px;
+  }
+
+.url {
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}
+
+.url:hover {
+    text-decoration:none;
+    text-shadow: 1px 1px 1px #555;
+}

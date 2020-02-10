@@ -1,0 +1,67 @@
+
+<ActionBar [title]="'newCompetition.title' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
+
+<ScrollView orientation="vertical">
+    <StackLayout class="form" margin="10" padding="15">
+        <StackLayout class="input-field">
+            <Label [text]="'newCompetition.labelName' | translate"></Label>
+            <TextField required [hint]="'newCompetition.mobileName' | translate" [(ngModel)]="name"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newCompetition.labelCountry' | translate"></Label>
+            <TextField required [hint]="'newCompetition.mobileCountry' | translate" [(ngModel)]="country"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newCompetition.labelLocation' | translate"></Label>
+            <TextField required [hint]="'newCompetition.mobileLocation' | translate" [(ngModel)]="location"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newCompetition.labelInitDate' | translate"></Label>
+            <DatePicker date="{{ date }}" [(ngModel)]="initDate"></DatePicker>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newCompetition.labelEndDate' | translate"></Label>
+            <DatePicker date="{{ date }}" [(ngModel)]="endDate"></DatePicker>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newCompetition.website' | translate"></Label>
+            <TextField [hint]="'newCompetition.mobileWebsite' | translate" [(ngModel)]="website"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newCompetition.labelType' | translate"></Label>
+            <TextField required [hint]="'newCompetition.mobileType' | translate" [(ngModel)]="type"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newCompetition.labelCategory' | translate"></Label>
+            <TextField required [hint]="'newCompetition.mobileCategory' | translate" [(ngModel)]="category"></TextField>
+        </StackLayout>
+        <Button [text]="'newCompetition.submit' | translate" (tap)="onSubmit()" margin="12"
+            horizontalAlignment="stretch" class="btn btn-primary btn-active"></Button>
+    </StackLayout>
+</ScrollView> 
+
+            <!-- <RadDataForm #competitionForm tkExampleTitle tkToggleNavButton [source]="competition" validationMode="Immediate" commitMode="Manual">
+                <TKEntityProperty tkDataFormProperty name="name" displayName="'newCompetition.name' | translate" index="0"></TKEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="country" displayName="'newCompetition.country' | translate" index="1"></TKEntityProperty>
+                <TkEntityProperty tkDataFormProperty name="location" displayName="'newCompetition.location' | translate" index="2"></TkEntityProperty>
+                <TkEntityProperty tkDataFormProperty name="initDate" displayName="'newCompetition.initDate' | translate" index="3">
+                    <TKPropertyEditor type="DatePicker"></TKPropertyEditor> 
+                </TkEntityProperty>
+               <TkEntityProperty tkDataFormProperty name="endDate" displayName="'newCompetition.endDate' | translate" index="4">
+                    <TKPropertyEditor type="DatePicker"></TKPropertyEditor>
+                </TkEntityProperty>
+                <TkEntityProperty tkDataFormProperty name="website" displayName="'newCompetition.website' | translate" index="5"></TkEntityProperty>
+                <TKEntityProperty tkDataFormProperty name="type" displayName="'newCompetition.type' | translate" index="6" 
+                    valuesProvider="Jumping, Dressage, Racing">
+                    <TKPropertyEditor type="Picker"></TKPropertyEditor>
+                </TKEntityProperty>
+                <TkEntityProperty tkDataFormProperty name="category" displayName="'newCompetition.category' | translate" index="7"></TkEntityProperty>
+            </RadDataForm> 
+        <TKEntityProperty tkDataFormProperty name="email" displayName="E-Mail" index="3">
+            <TKPropertyEditor tkEntityPropertyEditor type="Email"></TKPropertyEditor>
+        </TKEntityProperty>
+        <TKEntityProperty tkDataFormProperty name="streetNumber" displayName="Street Number" index="5">
+            <TKPropertyEditor tkEntityPropertyEditor type="Number"></TKPropertyEditor>
+        </TKEntityProperty> -->

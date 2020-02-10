@@ -1,0 +1,92 @@
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.5.2/firebase-analytics.js"></script>
+
+<div class="create-page">
+    <div class="page-content" style="margin-top: 20px;">
+        <form class="create-form" [formGroup]="resultForm" novalidate (ngSubmit)="onSubmit(resultForm.value)">
+        <div fxLayout="row">
+           <div fxLayout="column" style="margin-right: 20px;"> 
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="{{ 'newResult.position' | translate }}" class="form-control" formControlName="position">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.position">
+                    <mat-error *ngIf="resultForm.get('position').hasError(validation.type) && (resultForm.get('position').dirty || resultForm.get('position').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+            </div>
+            
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="{{ 'newResult.horse' | translate }}" class="form-control" formControlName="horseName" [matAutocomplete]="autoHorses">
+                    <mat-autocomplete #autoHorses="matAutocomplete">
+                        <mat-option *ngFor="let horse of horses" [value]="horse.name">
+                          {{horse.name}}
+                       </mat-option>
+                   </mat-autocomplete>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.horseName">
+                    <mat-error *ngIf="resultForm.get('horseName').hasError(validation.type) && (resultForm.get('horseName').dirty || resultForm.get('horseName').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="{{ 'newResult.rider' | translate }}" class="form-control" formControlName="riderName" [matAutocomplete]="autoRiders">
+                    <mat-autocomplete #autoRiders="matAutocomplete">
+                        <mat-option *ngFor="let rider of riders" [value]="rider.name">
+                          {{rider.name}}
+                       </mat-option>
+                   </mat-autocomplete>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.riderName">
+                    <mat-error *ngIf="resultForm.get('riderName').hasError(validation.type) && (resultForm.get('riderName').dirty || resultForm.get('riderName').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="{{ 'newResult.club' | translate }}" class="form-control" formControlName="clubName" [matAutocomplete]="autoClubs">
+                    <mat-autocomplete #autoClubs="matAutocomplete">
+                        <mat-option *ngFor="let clubName of clubNames" [value]="clubName">
+                          {{clubName}}
+                       </mat-option>
+                   </mat-autocomplete>
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.clubName">
+                    <mat-error *ngIf="resultForm.get('clubName').hasError(validation.type) && (resultForm.get('clubName').dirty || resultForm.get('clubName').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+            </div>
+        </div>
+
+        <div fxLayout="column">
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput type="number" min="0" max="100" placeholder="{{ 'newResult.points' | translate }}" class="form-control" formControlName="points">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.points">
+                    <mat-error *ngIf="resultForm.get('points').hasError(validation.type) && (resultForm.get('points').dirty || resultForm.get('points').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+            </div>
+
+            <div class="form-group">
+                <mat-form-field class="input-style">
+                    <input matInput placeholder="{{ 'newResult.time' | translate }}" class="form-control" formControlName="time">
+                </mat-form-field>
+                <ng-container *ngFor="let validation of validation_messages.time">
+                    <mat-error *ngIf="resultForm.get('time').hasError(validation.type) && (resultForm.get('time').dirty || resultForm.get('time').touched)">{{validation.message}}</mat-error>
+                </ng-container>
+            </div>
+        
+            <div class="row submit-button-container">
+                <div class="col-md-4">
+                    <button mat-raised-button class="submit-button" color="primary" type="submit" [disabled]="!resultForm.valid">
+                        {{ 'newResult.submit' | translate }}</button>
+                </div>
+            </div>
+            
+            </div>
+        </div>
+        </form>
+    </div>
+</div>

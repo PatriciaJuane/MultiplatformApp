@@ -1,0 +1,31 @@
+
+<ActionBar [title]="'newClub.title' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
+
+<ScrollView orientation="vertical">
+    <StackLayout class="form" margin="10" padding="15">
+        <StackLayout class="input-field">
+            <Label [text]="'newClub.labelName' | translate"></Label>
+            <TextField required [hint]="'newClub.mobileName' | translate" [(ngModel)]="name"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newClub.labelCountry' | translate"></Label>
+            <TextField required [hint]="'newClub.mobileCountry' | translate" [(ngModel)]="country"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newClub.labelLocation' | translate"></Label>
+            <TextField required [hint]="'newClub.mobileLocation' | translate" [(ngModel)]="location"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newClub.labelWebsite' | translate"></Label>
+            <TextField required [hint]="'newClub.mobileWebsite' | translate" [(ngModel)]="website"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newClub.labelSize' | translate"></Label>
+            <TextField [hint]="'newClub.mobileSize' | translate" [(ngModel)]="size"></TextField>
+        </StackLayout>
+        <Button [text]="'newResult.submit' | translate" (tap)="onSubmit()" margin="12"
+            horizontalAlignment="stretch" class="btn btn-primary btn-active"></Button>
+    </StackLayout>
+</ScrollView> 

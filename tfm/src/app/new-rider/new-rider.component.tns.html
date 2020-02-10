@@ -1,0 +1,36 @@
+
+<ActionBar [title]="'newRider.title' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
+
+<ScrollView orientation="vertical">
+    <StackLayout class="form" margin="10" padding="15">
+        <StackLayout class="input-field">
+            <Label [text]="'newRider.labelName' | translate"></Label>
+            <TextField required [hint]="'newRider.mobileName' | translate" [(ngModel)]="name"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newRider.labelLicense' | translate"></Label>
+            <TextField required [hint]="'newRider.mobileLicense' | translate" [(ngModel)]="license"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newRider.labelAge' | translate"></Label>
+            <TextField required [hint]="'newRider.mobileAge' | translate" [(ngModel)]="age"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newRider.labelCountry' | translate"></Label>
+            <TextField required [hint]="'newRider.mobileCountry' | translate" [(ngModel)]="country"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newRider.labelGender' | translate"></Label>
+            <TextField [hint]="'newRider.mobileGender' | translate" [(ngModel)]="gender"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newRider.picture' | translate"></Label>
+            <Button [text]="'newRider.image' | translate" (tap)="onSelectSingleTap()"></Button>
+            <Image *ngIf="picture" [src]="picture" [width]="300" [height]="300" stretch="aspectFit"></Image>
+        </StackLayout>
+        <Button [text]="'newResult.submit' | translate" (tap)="onSubmit()" margin="12"
+            horizontalAlignment="stretch" class="btn btn-primary btn-active"></Button>
+    </StackLayout>
+</ScrollView> 

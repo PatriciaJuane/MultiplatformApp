@@ -1,0 +1,41 @@
+
+<ActionBar [title]="'newResult.title' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
+
+<ScrollView orientation="vertical">
+    <StackLayout class="form" margin="10" padding="15">
+        <StackLayout class="input-field">
+            <Label [text]="'newResult.labelPosition' | translate"></Label>
+            <TextField required [hint]="'newResult.mobilePosition' | translate" [(ngModel)]="position"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newResult.labelHorse' | translate"></Label>
+            <DropDown [items]="horseNames" (opened)="dropDownOpened()" (closed)="dropDownClosed()"
+                (selectedIndexChanged)="setHorse($event)" row="0" colSpan="2" class="item-drop-down">
+            </DropDown>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newResult.labelRider' | translate"></Label>
+            <DropDown [items]="riderNames" (opened)="dropDownOpened()" (closed)="dropDownClosed()"
+                (selectedIndexChanged)="setRider($event)" row="0" colSpan="2" class="item-drop-down">
+            </DropDown>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newResult.labelClub' | translate"></Label>
+            <DropDown [items]="clubNames" (opened)="dropDownOpened()" (closed)="dropDownClosed()"
+                (selectedIndexChanged)="setClub($event)" row="0" colSpan="2" class="item-drop-down">
+            </DropDown>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newResult.labelPoints' | translate"></Label>
+            <TextField [hint]="'newResult.mobilePoints' | translate" keyboardType="number" maxLength="3" [(ngModel)]="points"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newResult.labelTime' | translate"></Label>
+            <TextField [hint]="'newResult.mobileTime' | translate" [(ngModel)]="time"></TextField>
+        </StackLayout>
+        <Button [text]="'newResult.submit' | translate" (tap)="onSubmit()" margin="12"
+            horizontalAlignment="stretch" class="btn btn-primary btn-active"></Button>
+    </StackLayout>
+</ScrollView> 

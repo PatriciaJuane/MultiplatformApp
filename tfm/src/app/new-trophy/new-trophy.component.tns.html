@@ -1,0 +1,31 @@
+
+<ActionBar [title]="'newTrophy.title' | translate">
+    <NavigationButton android.systemIcon="ic_menu_moreoverflow_normal_holo_light" (tap)="openDrawer()"></NavigationButton>
+</ActionBar>
+
+<ScrollView orientation="vertical">
+    <StackLayout class="form" margin="10" padding="15">
+        <StackLayout class="input-field">
+            <Label [text]="'newTrophy.labelName' | translate"></Label>
+            <TextField required [hint]="'newTrophy.mobileName' | translate" [(ngModel)]="name"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newTrophy.labelCategory' | translate"></Label>
+            <TextField required [hint]="'newTrophy.mobileCategory' | translate" [(ngModel)]="category"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newTrophy.arena' | translate"></Label>
+            <TextField [hint]="'newTrophy.mobileArena' | translate" [(ngModel)]="arena"></TextField>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newTrophy.labelInitDate' | translate"></Label>
+            <DatePicker required date="{{ date }}" [(ngModel)]="initDate"></DatePicker>
+        </StackLayout>
+        <StackLayout class="input-field">
+            <Label [text]="'newTrophy.hour' | translate"></Label>
+            <TextField [hint]="'newTrophy.mobileHour' | translate" [(ngModel)]="hour"></TextField>
+        </StackLayout>
+        <Button [text]="'newTrophy.submit' | translate" (tap)="onSubmit()" margin="12"
+            horizontalAlignment="stretch" class="btn btn-primary btn-active"></Button>
+    </StackLayout>
+</ScrollView> 

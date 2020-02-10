@@ -1,0 +1,30 @@
+<div fxLayout="row">
+    <div fxLayout="column" style="margin-left: 30px; font-size: 18px">
+        <div fxLayout="row" >
+            <p style="font-weight: bold; font-size: 20px;">{{ 'result.result' | translate }}</p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-right: 4px;">{{ result?.position }}º 
+                <a> {{ 'result.position' | translate }}</a></p>
+            <p style="margin-right: 4px;">- ({{ result?.points }}pts -</p>
+            <p>{{ result?.time | minuteSeconds }}s)</p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-right: 10px;">{{ 'result.horse' | translate }}:</p>
+            <p style="margin-right: 10px;" (click)="onHorseSelected()" class="url">{{ result?.horse }}</p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-right: 10px;">{{ 'result.rider' | translate }}:</p>
+            <p (click)="onRiderSelected()" class="url">{{ result?.rider }}</p>
+        </div>
+        <div fxLayout="row">
+            <p style="margin-right: 10px;">{{ 'result.club' | translate }}:</p>
+            <p (click)="onClubSelected()" class="url">{{ result?.club }}</p>
+        </div>
+    </div> 
+    <div fxLayout="row" style="margin: 50px; font-size: 18px">
+        <img src="https://logosmarcas.com/wp-content/uploads/2018/05/Twitter-logo.png" style="width:40px; height:25px;">
+        <a href="https://twitter.com/share?ref_src=twsrc%5Etfw&amp;via=patrijuane&amp;text=Check%20my%20result%20here&amp;hashtags=MainArena" class="url">Tweet</a> 
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+</div>

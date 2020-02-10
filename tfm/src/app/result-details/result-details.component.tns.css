@@ -1,0 +1,10 @@
+/* Add mobile styles for the component here.  */
+.url {
+    cursor:pointer;
+    color:blue;
+}
+
+.url:hover {
+    text-decoration:none;
+    text-shadow: 1px 1px 1px #555;
+}
