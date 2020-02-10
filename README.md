@@ -1,45 +1,97 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Multiplatform Angular application developed with Angular 8, Nativescript and Firebase.
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
-
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+This application is the Final Thesis Project I developed for my Master's Degree in Computer Engineering, at University of A Coruña.
 
 ---
 
-## Edit a file
+# Technologies
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+---
+### Angular: framework chosen for this project due to being developed by Google. The main features I used were:
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+-Modules
+	
+-Components (Typescript + HTML5 + CSS3)
+	
+-Services
+	
+-Pipes
+	
+-i18n with ngx-translate
+	
+-Angular Material
+	
+
+---
+### Nativescript: used to extend the Angular project with mobile templates. It permits to extend an existing web project. The main features I used were:
+
+-Own modules (.tns)
+	
+-Has its own component templates (.tns.html, .tns.css) and, sometimes, even its own typescript files (.tns.ts files).
+	
+-Whenever needed, it has its own services: for example, for Firebase, it uses nativescript-firebase-plugin, so we need to create a separate service than the web one.
+	
+-Own Nativescript elements: RadListView, RadSideDrawer.
+	
+-Android configuration files: AndroidManifest.xml, build.gradle.
+
+---
+	
+### Firebase: used as our NoSQL database in the Cloud. Managed by Google. The features I used were:
+	
+-**Cloud Firestore**: I have two apps (web and Android) in Firebase to store the data in the Firestore database. We use CRUD operations in both firebase services to manipulate the data. 
+
+-**Cloud Storage**: used to store the images associated to horses and riders.
+	
+-**Firebase Authentication** (login with Google Account): used to delegate the users management of the application. It uses Google log in, but many more could be integrated.
 
 ---
 
-## Create a file
+# Requirements
+This is a multiplatform application (for web and Android) developed with Angular, Firebase and Nativescript created to store and read data related to horse riding competitions. 
 
-Next, you’ll add a new file to this repository.
+The functionalities that it has are the following ones:
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+1. **Users**: log in, logout, user profile.
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
+2. **Horses**: create horse (upload picture), see horse details (with its related results), see list of horses in the application.
+
+3. **Riders**: create rider (upload picture), see rider details (with his/her related reuslts), see list of riders in the application.
+
+4. **Clubs**: create club, see club details (with its related results), see list of clubs in the application.
+
+5. **Competitions**: create competition, see competition details (with list of trophies), see list of competitions at Home page.
+
+6. **Trophies**: create trophy, see trophy details (with list of results), see list of trophies associated to a competition.
+
+7. **Results**: create result, see result details (with horse, rider and club), see list of results associated to a trophy, share result on Twitter.
+
+
+All the users can read the data, but only logged in users can write it!!
 
 ---
 
-## Clone a repository
+# Instalation and execution instructions
 
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
+Clone this repository in your local machine.
 
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
+Install Node.js and the Android SDK.
 
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).
+Run this commands:
+
+1. npm install -g @angular/cli -> to install Angular CLI
+
+2. npm install -> for building the web app
+
+3. npm install -g nativescript -> to install nativescript
+
+4. tns build -> for building the mobile app
+
+5. tns doctor -> for mobile app: needed to see if our machine has all the requirements needed to execute the Android app.
+
+
+Finally, to execute the app:
+
+1. npm start or ng serve -> for executing the web app
+
+2. tns run android -> for executing the mobile Android app (you need an Android emulator or an Android device, both with the Nativescript playground app installed).
