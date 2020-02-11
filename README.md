@@ -2,6 +2,9 @@
 
 This application is the Final Thesis Project I developed for my Master's Degree in Computer Engineering, at University of A Coruña.
 
+It stores data related to horse riding competitions (trophies, results, horses, riders and clubs).
+All the users can read that data, but only logged in users are able to write it.
+
 ---
 
 # Technologies
