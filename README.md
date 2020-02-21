@@ -10,7 +10,7 @@ All the users can read that data, but only logged in users are able to write it.
 # Technologies
 
 ---
-### Angular: framework chosen for this project due to being developed by Google. The main features I used were:
+### Angular: framework chosen for this project. Powered by Google. The main features I used were:
 
 -Modules
 	
@@ -51,7 +51,7 @@ All the users can read that data, but only logged in users are able to write it.
 ---
 
 # Requirements
-This is a multiplatform application (for web and Android) developed with Angular, Firebase and Nativescript created to store and read data related to horse riding competitions. 
+This is a multiplatform application (for web and Android) created to store and read data related to horse riding competitions. 
 
 The functionalities that it has are the following ones:
 
