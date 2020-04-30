@@ -44,7 +44,7 @@
     "core-js": "^2.5.4",
     "firebase": "^7.6.1",
     "hover.css": "^2.3.2",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "nativescript-angular": "~8.20.0",
     "nativescript-drop-down": "^5.0.4",
     "nativescript-imagepicker": "^7.1.0",
