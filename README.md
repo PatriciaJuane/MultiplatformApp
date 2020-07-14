@@ -4,7 +4,7 @@ This application is the Final Thesis Project I developed for my Master's Degree 
 
 It stores data related to horse riding competitions (trophies, results, horses, riders and clubs).
 All the users can read that data, but only logged in users are able to write it.
-Link to the demo video on YouTube: https://www.youtube.com/watch?v=Et-WEXv1o7s
+Link to the demo video on YouTube: https://youtu.be/ioVHBP85QQk
 
 ---
 
